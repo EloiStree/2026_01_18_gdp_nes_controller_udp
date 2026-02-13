@@ -1,0 +1,315 @@
+[gd_scene format=3 uid="uid://c7edi216hvc1j"]
+
+[ext_resource type="Script" uid="uid://ddjcmkwir4osd" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/nes_controller_to_int.gd" id="1_a3ufk"]
+[ext_resource type="Script" uid="uid://csyi6i1k70xws" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/nes_send_integer_message_udp.gd" id="4_4k7fq"]
+[ext_resource type="Script" uid="uid://c7jenviiw66o" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/nes_ui2d_button_to_down_up_bool.gd" id="5_l4ymx"]
+[ext_resource type="Texture2D" uid="uid://dsf3xc8lj6mip" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/2d/nes_icon/nes_controller_layer_red_button.png" id="5_pw0mf"]
+[ext_resource type="Script" uid="uid://dba4mrwl7xh3v" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/nes_parse_integer_to_string.gd" id="6_k8gt4"]
+[ext_resource type="Texture2D" uid="uid://b5nfry4efhp5l" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/2d/nes_icon/nes_controller.png" id="7_37abc"]
+[ext_resource type="Script" uid="uid://syyy1oerlepj" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/nes_input_fiel_file_memory.gd" id="8_ntsvd"]
+
+[node name="DemoHelloWorld" type="Node" unique_id=1771100514]
+
+[node name="PanelRootNES" type="Panel" parent="." unique_id=1421708215]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="SendIntegerUDP" type="Node" parent="PanelRootNES" unique_id=331122291]
+script = ExtResource("4_4k7fq")
+use_debug_print = true
+
+[node name="NesControllerToInt" type="Node" parent="PanelRootNES" unique_id=2079696832]
+script = ExtResource("1_a3ufk")
+use_print_debugging = true
+metadata/_custom_type_script = "uid://ddjcmkwir4osd"
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="PanelRootNES" unique_id=1645603202]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+ratio = 2.4242
+
+[node name="PanelRatioNES" type="Panel" parent="PanelRootNES/AspectRatioContainer" unique_id=953428195]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelRootNES/AspectRatioContainer/PanelRatioNES" unique_id=286891479]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_37abc")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="PanelRootNES/AspectRatioContainer/PanelRatioNES" unique_id=1850163110]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_37abc")
+expand_mode = 1
+
+[node name="Button Press A" type="Button" parent="PanelRootNES/AspectRatioContainer/PanelRatioNES" unique_id=198572581]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.77300006
+anchor_top = 0.57100004
+anchor_right = 0.887
+anchor_bottom = 0.84200007
+offset_left = 0.15325928
+offset_top = 0.08699036
+offset_right = 0.0524292
+offset_bottom = 0.07397461
+theme_override_font_sizes/font_size = 33
+toggle_mode = true
+text = "A"
+
+[node name="NesUiButtonToDownUpBool" type="Node" parent="PanelRootNES/AspectRatioContainer/PanelRatioNES/Button Press A" unique_id=2107547919 node_paths=PackedStringArray("button_to_listen")]
+script = ExtResource("5_l4ymx")
+button_to_listen = NodePath("..")
+debug_value_on_off = true
+metadata/_custom_type_script = "uid://c7jenviiw66o"
+
+[node name="TextureRect3" type="TextureRect" parent="PanelRootNES/AspectRatioContainer/PanelRatioNES/Button Press A" unique_id=943987193]
+layout_mode = 1
+texture = ExtResource("5_pw0mf")
+expand_mode = 1
+
+[node name="Button Press B" type="Button" parent="PanelRootNES/AspectRatioContainer/PanelRatioNES" unique_id=1094466405]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.64500004
+anchor_top = 0.56700003
+anchor_right = 0.75900006
+anchor_bottom = 0.841
+offset_left = 0.1437378
+offset_top = -0.10101318
+offset_right = 0.04284668
+offset_bottom = 0.27700806
+theme_override_font_sizes/font_size = 33
+toggle_mode = true
+text = "B"
+
+[node name="NesUiButtonToDownUpBool2" type="Node" parent="PanelRootNES/AspectRatioContainer/PanelRatioNES/Button Press B" unique_id=442316137 node_paths=PackedStringArray("button_to_listen")]
+script = ExtResource("5_l4ymx")
+button_to_listen = NodePath("..")
+metadata/_custom_type_script = "uid://c7jenviiw66o"
+
+[node name="Button Press Menu Left" type="Button" parent="PanelRootNES/AspectRatioContainer/PanelRatioNES" unique_id=278789510]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.33400002
+anchor_top = 0.62600005
+anchor_right = 0.46
+anchor_bottom = 0.79300004
+offset_left = 0.19067383
+offset_top = -0.07801056
+offset_right = 0.18449402
+offset_bottom = 0.020996094
+theme_override_font_sizes/font_size = 15
+toggle_mode = true
+text = "ML
+"
+
+[node name="NesUiButtonToDownUpBool3" type="Node" parent="PanelRootNES/AspectRatioContainer/PanelRatioNES/Button Press Menu Left" unique_id=2141139014 node_paths=PackedStringArray("button_to_listen")]
+script = ExtResource("5_l4ymx")
+button_to_listen = NodePath("..")
+metadata/_custom_type_script = "uid://c7jenviiw66o"
+
+[node name="Button Press Menu Right" type="Button" parent="PanelRootNES/AspectRatioContainer/PanelRatioNES" unique_id=40567911]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.46300003
+anchor_top = 0.63100004
+anchor_right = 0.586
+anchor_bottom = 0.79300004
+offset_top = -0.09300232
+offset_right = 0.17831421
+offset_bottom = 0.020996094
+theme_override_font_sizes/font_size = 15
+toggle_mode = true
+text = "MR
+"
+
+[node name="NesUiButtonToDownUpBool4" type="Node" parent="PanelRootNES/AspectRatioContainer/PanelRatioNES/Button Press Menu Right" unique_id=1280219845 node_paths=PackedStringArray("button_to_listen")]
+script = ExtResource("5_l4ymx")
+button_to_listen = NodePath("..")
+metadata/_custom_type_script = "uid://c7jenviiw66o"
+
+[node name="Button Press Arrow Right" type="Button" parent="PanelRootNES/AspectRatioContainer/PanelRatioNES" unique_id=103503370]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.194
+anchor_top = 0.522
+anchor_right = 0.25500003
+anchor_bottom = 0.66
+offset_left = 0.08647156
+offset_top = 0.03400421
+offset_right = 0.067588806
+offset_bottom = 0.019989014
+theme_override_font_sizes/font_size = 15
+toggle_mode = true
+text = "AR
+"
+
+[node name="NesUiButtonToDownUpBool5" type="Node" parent="PanelRootNES/AspectRatioContainer/PanelRatioNES/Button Press Arrow Right" unique_id=906330716 node_paths=PackedStringArray("button_to_listen")]
+script = ExtResource("5_l4ymx")
+button_to_listen = NodePath("..")
+metadata/_custom_type_script = "uid://c7jenviiw66o"
+
+[node name="Button Press Arrow Up" type="Button" parent="PanelRootNES/AspectRatioContainer/PanelRatioNES" unique_id=479323409]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.135
+anchor_top = 0.36900002
+anchor_right = 0.194
+anchor_bottom = 0.517
+offset_left = 0.12108612
+offset_top = 0.09300995
+offset_right = 0.08644867
+offset_bottom = 0.04901123
+theme_override_font_sizes/font_size = 15
+toggle_mode = true
+text = "AU
+"
+
+[node name="NesUiButtonToDownUpBool6" type="Node" parent="PanelRootNES/AspectRatioContainer/PanelRatioNES/Button Press Arrow Up" unique_id=1223236279 node_paths=PackedStringArray("button_to_listen")]
+script = ExtResource("5_l4ymx")
+button_to_listen = NodePath("..")
+metadata/_custom_type_script = "uid://c7jenviiw66o"
+
+[node name="Button Press Arrow Down" type="Button" parent="PanelRootNES/AspectRatioContainer/PanelRatioNES" unique_id=81842726]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.13700001
+anchor_top = 0.671
+anchor_right = 0.192
+anchor_bottom = 0.813
+offset_left = 0.13689423
+offset_right = 0.0707016
+offset_bottom = -0.039016724
+theme_override_font_sizes/font_size = 15
+toggle_mode = true
+text = "AD
+"
+
+[node name="NesUiButtonToDownUpBool7" type="Node" parent="PanelRootNES/AspectRatioContainer/PanelRatioNES/Button Press Arrow Down" unique_id=455821334 node_paths=PackedStringArray("button_to_listen")]
+script = ExtResource("5_l4ymx")
+button_to_listen = NodePath("..")
+metadata/_custom_type_script = "uid://c7jenviiw66o"
+
+[node name="Button Press Arrow Left" type="Button" parent="PanelRootNES/AspectRatioContainer/PanelRatioNES" unique_id=1138854284]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.074
+anchor_top = 0.522
+anchor_right = 0.133
+anchor_bottom = 0.66
+offset_left = 0.1399765
+offset_top = 0.033981323
+offset_right = 0.10533142
+offset_bottom = -0.059005737
+theme_override_font_sizes/font_size = 15
+toggle_mode = true
+text = "AL
+"
+
+[node name="NesUiButtonToDownUpBool8" type="Node" parent="PanelRootNES/AspectRatioContainer/PanelRatioNES/Button Press Arrow Left" unique_id=1059441924 node_paths=PackedStringArray("button_to_listen")]
+script = ExtResource("5_l4ymx")
+button_to_listen = NodePath("..")
+metadata/_custom_type_script = "uid://c7jenviiw66o"
+
+[node name="LineEdit IP" type="LineEdit" parent="PanelRootNES/AspectRatioContainer/PanelRatioNES" unique_id=1554423904]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.030000001
+anchor_top = 0.02
+anchor_right = 0.52500004
+anchor_bottom = 0.158
+offset_left = -0.20707321
+offset_right = 0.19717407
+offset_bottom = -0.013999939
+theme_override_font_sizes/font_size = 21
+placeholder_text = "Enter ipv4 ... "
+
+[node name="NesInputFieldFileMemory" type="Node" parent="PanelRootNES/AspectRatioContainer/PanelRatioNES/LineEdit IP" unique_id=1559212425 node_paths=PackedStringArray("input_field")]
+script = ExtResource("8_ntsvd")
+input_field = NodePath("..")
+save_unique_id = "NES_TARGET_IPV4"
+default_if_not_set = "127.0.0.1"
+metadata/_custom_type_script = "uid://syyy1oerlepj"
+
+[node name="LineEdit Port" type="LineEdit" parent="PanelRootNES/AspectRatioContainer/PanelRatioNES" unique_id=1734771222]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.546
+anchor_top = 0.02
+anchor_right = 0.74600005
+anchor_bottom = 0.153
+offset_right = -1.5596924
+theme_override_font_sizes/font_size = 21
+placeholder_text = "Port ..."
+
+[node name="NesInputFieldFileMemory2" type="Node" parent="PanelRootNES/AspectRatioContainer/PanelRatioNES/LineEdit Port" unique_id=1837360251 node_paths=PackedStringArray("input_field")]
+script = ExtResource("8_ntsvd")
+input_field = NodePath("..")
+save_unique_id = "NES_TARGET_PORT"
+default_if_not_set = "3615"
+metadata/_custom_type_script = "uid://syyy1oerlepj"
+
+[node name="LineEdit PlayerID" type="LineEdit" parent="PanelRootNES/AspectRatioContainer/PanelRatioNES" unique_id=359031307]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.771
+anchor_top = 0.020000001
+anchor_right = 0.97200006
+anchor_bottom = 0.15300001
+theme_override_font_sizes/font_size = 21
+placeholder_text = "Player id..."
+
+[node name="NesInputFieldFileMemory3" type="Node" parent="PanelRootNES/AspectRatioContainer/PanelRatioNES/LineEdit PlayerID" unique_id=149606412 node_paths=PackedStringArray("input_field")]
+script = ExtResource("8_ntsvd")
+input_field = NodePath("..")
+save_unique_id = "NES_TARGET_PLAYER_ID"
+default_if_not_set = "1"
+metadata/_custom_type_script = "uid://syyy1oerlepj"
+
+[node name="Label Last Push Integer" type="Label" parent="PanelRootNES/AspectRatioContainer/PanelRatioNES" unique_id=839697949]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.62100005
+anchor_top = 0.21100001
+anchor_right = 0.96800005
+anchor_bottom = 0.42800003
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "0000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NesParseIntegerToString" type="Node" parent="PanelRootNES/AspectRatioContainer/PanelRatioNES/Label Last Push Integer" unique_id=1841080378 node_paths=PackedStringArray("label_to_affect")]
+script = ExtResource("6_k8gt4")
+label_to_affect = [NodePath("..")]
+metadata/_custom_type_script = "uid://dba4mrwl7xh3v"
+
+[connection signal="on_integer_sent" from="PanelRootNES/SendIntegerUDP" to="PanelRootNES/AspectRatioContainer/PanelRatioNES/Label Last Push Integer/NesParseIntegerToString" method="push_in_integer_to_parse"]
+[connection signal="on_integer_to_send_requested" from="PanelRootNES/NesControllerToInt" to="PanelRootNES/SendIntegerUDP" method="send_integer"]
+[connection signal="on_down_up_value_changed" from="PanelRootNES/AspectRatioContainer/PanelRatioNES/Button Press A/NesUiButtonToDownUpBool" to="PanelRootNES/NesControllerToInt" method="set_down_up_key_a"]
+[connection signal="on_down_up_value_changed" from="PanelRootNES/AspectRatioContainer/PanelRatioNES/Button Press B/NesUiButtonToDownUpBool2" to="PanelRootNES/NesControllerToInt" method="set_down_up_key_b"]
+[connection signal="on_down_up_value_changed" from="PanelRootNES/AspectRatioContainer/PanelRatioNES/Button Press Menu Left/NesUiButtonToDownUpBool3" to="PanelRootNES/NesControllerToInt" method="set_down_up_key_menu_left"]
+[connection signal="on_down_up_value_changed" from="PanelRootNES/AspectRatioContainer/PanelRatioNES/Button Press Menu Right/NesUiButtonToDownUpBool4" to="PanelRootNES/NesControllerToInt" method="set_down_up_key_menu_right"]
+[connection signal="on_down_up_value_changed" from="PanelRootNES/AspectRatioContainer/PanelRatioNES/Button Press Arrow Right/NesUiButtonToDownUpBool5" to="PanelRootNES/NesControllerToInt" method="set_down_up_key_arrow_right"]
+[connection signal="on_down_up_value_changed" from="PanelRootNES/AspectRatioContainer/PanelRatioNES/Button Press Arrow Up/NesUiButtonToDownUpBool6" to="PanelRootNES/NesControllerToInt" method="set_down_up_key_arrow_up"]
+[connection signal="on_down_up_value_changed" from="PanelRootNES/AspectRatioContainer/PanelRatioNES/Button Press Arrow Down/NesUiButtonToDownUpBool7" to="PanelRootNES/NesControllerToInt" method="set_down_up_key_arrow_down"]
+[connection signal="on_down_up_value_changed" from="PanelRootNES/AspectRatioContainer/PanelRatioNES/Button Press Arrow Left/NesUiButtonToDownUpBool8" to="PanelRootNES/NesControllerToInt" method="set_down_up_key_arrow_left"]
+[connection signal="text_changed" from="PanelRootNES/AspectRatioContainer/PanelRatioNES/LineEdit IP" to="PanelRootNES/SendIntegerUDP" method="set_target_ipv4"]
+[connection signal="text_changed" from="PanelRootNES/AspectRatioContainer/PanelRatioNES/LineEdit Port" to="PanelRootNES/SendIntegerUDP" method="set_target_port"]
+[connection signal="text_changed" from="PanelRootNES/AspectRatioContainer/PanelRatioNES/LineEdit PlayerID" to="PanelRootNES/SendIntegerUDP" method="set_target_player_index"]
+[connection signal="on_integer_parsed" from="PanelRootNES/AspectRatioContainer/PanelRatioNES/Label Last Push Integer/NesParseIntegerToString" to="PanelRootNES/AspectRatioContainer/PanelRatioNES/Label Last Push Integer" method="set_text"]

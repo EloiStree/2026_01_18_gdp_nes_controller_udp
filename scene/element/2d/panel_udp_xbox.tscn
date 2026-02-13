@@ -1,0 +1,345 @@
+[gd_scene format=3 uid="uid://d25ndea2rnrfh"]
+
+[ext_resource type="Script" uid="uid://csyi6i1k70xws" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/nes_send_integer_message_udp.gd" id="1_v56hu"]
+[ext_resource type="Script" uid="uid://60ryksq12k1c" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/xbox_controller_to_int.gd" id="2_1yvp2"]
+[ext_resource type="Script" uid="uid://bk60j2jx7w354" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/nes_relay_button_s2w_int_down_up.gd" id="3_1yvp2"]
+[ext_resource type="Script" uid="uid://batpkfgtryf71" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/delayer/nes_int_delayer.gd" id="3_qhec3"]
+[ext_resource type="Texture2D" uid="uid://cfg3k1aaeru3y" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/2d/xbox/b.png" id="4_1vg1e"]
+[ext_resource type="Texture2D" uid="uid://b2xv0p6j04866" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/2d/xbox/y.png" id="5_0qgeo"]
+[ext_resource type="PackedScene" uid="uid://ccc6q4ul1ko4y" path="res://addons/2026_01_18_gdp_nes_controller_udp/scene/element/2d/button/xbox_button.tscn" id="5_45h7s"]
+[ext_resource type="Texture2D" uid="uid://wep1gnb2icxy" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/2d/xbox/rb.png" id="6_8cp3c"]
+[ext_resource type="Script" uid="uid://syyy1oerlepj" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/nes_input_fiel_file_memory.gd" id="6_bl7fg"]
+[ext_resource type="Texture2D" uid="uid://b5o418v6crave" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/2d/xbox/lb.png" id="7_5mcjy"]
+[ext_resource type="Script" uid="uid://dba4mrwl7xh3v" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/nes_parse_integer_to_string.gd" id="7_5n86y"]
+[ext_resource type="Texture2D" uid="uid://dwg6dg34eupa0" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/2d/xbox/lt.png" id="8_581ti"]
+[ext_resource type="Texture2D" uid="uid://buf8twfi8gh6k" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/2d/xbox/rt.png" id="9_t3c7v"]
+[ext_resource type="Texture2D" uid="uid://22s1jrqmieob" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/2d/xbox/view.png" id="10_ycf8m"]
+[ext_resource type="Texture2D" uid="uid://cc5cbkk5unknu" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/2d/xbox/menu.png" id="11_phl8t"]
+[ext_resource type="Texture2D" uid="uid://be4dcsrtvhxbo" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/2d/xbox/Share.png" id="13_1yvp2"]
+[ext_resource type="Texture2D" uid="uid://bq5hqdjb8332l" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/2d/xbox/l_stick_click.png" id="13_u0whq"]
+[ext_resource type="Texture2D" uid="uid://clac28eaut17q" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/2d/xbox/r_stick_click.png" id="13_xl0pu"]
+[ext_resource type="Texture2D" uid="uid://bwx4h2y551qgq" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/2d/xbox/dpad_left.png" id="14_1yvp2"]
+[ext_resource type="Texture2D" uid="uid://dfegk2rghlkfp" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/2d/xbox/dpad_up.png" id="15_qhec3"]
+[ext_resource type="Texture2D" uid="uid://cg02sfdtrf24g" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/2d/xbox/dpad_down.png" id="16_lj5w3"]
+[ext_resource type="Texture2D" uid="uid://cvfn5x553acfd" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/2d/xbox/dpad_right.png" id="17_124wt"]
+[ext_resource type="Texture2D" uid="uid://c052oi13teyq8" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/2d/xbox/a.png" id="18_s0yia"]
+[ext_resource type="Texture2D" uid="uid://cwj14bntu7mws" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/2d/xbox/LeftStickLeft.png" id="19_xl0pu"]
+[ext_resource type="Texture2D" uid="uid://ct8dsks4ugb1v" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/2d/xbox/LeftStickUp.png" id="20_1yvp2"]
+[ext_resource type="Texture2D" uid="uid://dwbs36fgcwle3" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/2d/xbox/LeftStickDown.png" id="21_qhec3"]
+[ext_resource type="Texture2D" uid="uid://ctow1m0aquiq4" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/2d/xbox/LeftStickRight.png" id="22_lj5w3"]
+[ext_resource type="Texture2D" uid="uid://b5ucfny6pm7ec" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/2d/xbox/RightStickLeft.png" id="23_124wt"]
+[ext_resource type="Texture2D" uid="uid://cbheb2ncp20it" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/2d/xbox/RightStickUp.png" id="24_s0yia"]
+[ext_resource type="Texture2D" uid="uid://lxjycj2p2adr" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/2d/xbox/RightStickDown.png" id="25_lsy2c"]
+[ext_resource type="Texture2D" uid="uid://bshy1ekxmetqm" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/2d/xbox/RightStickRight.png" id="26_8lj86"]
+[ext_resource type="Script" uid="uid://5sfgv5jc0gxu" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/nes_texture_button_plus_to_down_up_bool.gd" id="30_lj5w3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rrb4h"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_v56hu"]
+
+[node name="PanelUdpXbox" type="Panel" unique_id=834786804]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="SendIntegerUDP" type="Node" parent="." unique_id=1778952455]
+script = ExtResource("1_v56hu")
+
+[node name="XboxControllerToInt" type="Node" parent="." unique_id=1582686144]
+script = ExtResource("2_1yvp2")
+metadata/_custom_type_script = "uid://60ryksq12k1c"
+
+[node name="NesIntDelayer" type="Node" parent="XboxControllerToInt" unique_id=750104633]
+script = ExtResource("3_qhec3")
+metadata/_custom_type_script = "uid://batpkfgtryf71"
+
+[node name="NesRelayButtonS2wIntDownUp" type="Node" parent="." unique_id=239074740 node_paths=PackedStringArray("parent_note_to_overwatch")]
+script = ExtResource("3_1yvp2")
+parent_note_to_overwatch = [NodePath("..")]
+metadata/_custom_type_script = "uid://bk60j2jx7w354"
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="." unique_id=1377516107]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+ratio = 2.4242
+
+[node name="PanelRatioNES" type="Panel" parent="AspectRatioContainer" unique_id=993647293]
+material = SubResource("ShaderMaterial_rrb4h")
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="AspectRatioContainer/PanelRatioNES" unique_id=1079867656]
+modulate = Color(0, 5.912981, 0.3181684, 1)
+material = SubResource("CanvasItemMaterial_v56hu")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="AspectRatioContainer/PanelRatioNES" unique_id=2115893221]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.40500003
+anchor_right = 1.0
+anchor_bottom = 1.0
+columns = 12
+
+[node name="XboxButtonA" parent="AspectRatioContainer/PanelRatioNES/GridContainer" unique_id=982535348 instance=ExtResource("5_45h7s")]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+icon = ExtResource("18_s0yia")
+press_key_value = 1300
+
+[node name="XboxButtonX" parent="AspectRatioContainer/PanelRatioNES/GridContainer" unique_id=432106798 instance=ExtResource("5_45h7s")]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+press_key_value = 1301
+
+[node name="XboxButtonB" parent="AspectRatioContainer/PanelRatioNES/GridContainer" unique_id=1825473285 instance=ExtResource("5_45h7s")]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+icon = ExtResource("4_1vg1e")
+press_key_value = 1302
+
+[node name="XboxButtonY" parent="AspectRatioContainer/PanelRatioNES/GridContainer" unique_id=539384167 instance=ExtResource("5_45h7s")]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+icon = ExtResource("5_0qgeo")
+press_key_value = 1303
+
+[node name="XboxButtonLB" parent="AspectRatioContainer/PanelRatioNES/GridContainer" unique_id=1751163449 instance=ExtResource("5_45h7s")]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+icon = ExtResource("7_5mcjy")
+press_key_value = 1304
+
+[node name="XboxButtonRB" parent="AspectRatioContainer/PanelRatioNES/GridContainer" unique_id=43837749 instance=ExtResource("5_45h7s")]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+icon = ExtResource("6_8cp3c")
+press_key_value = 1305
+
+[node name="XboxButtonLT" parent="AspectRatioContainer/PanelRatioNES/GridContainer" unique_id=2030621096 instance=ExtResource("5_45h7s")]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+icon = ExtResource("8_581ti")
+press_key_value = 1358
+
+[node name="XboxButtonRT" parent="AspectRatioContainer/PanelRatioNES/GridContainer" unique_id=1464334123 instance=ExtResource("5_45h7s")]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+icon = ExtResource("9_t3c7v")
+press_key_value = 1359
+
+[node name="XboxButtonML" parent="AspectRatioContainer/PanelRatioNES/GridContainer" unique_id=1361473867 instance=ExtResource("5_45h7s")]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+icon = ExtResource("10_ycf8m")
+press_key_value = 1309
+
+[node name="XboxButtonMR" parent="AspectRatioContainer/PanelRatioNES/GridContainer" unique_id=1712687674 instance=ExtResource("5_45h7s")]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+icon = ExtResource("11_phl8t")
+press_key_value = 1308
+
+[node name="XboxButtonMC" parent="AspectRatioContainer/PanelRatioNES/GridContainer" unique_id=1472936845 instance=ExtResource("5_45h7s")]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+icon = ExtResource("13_1yvp2")
+press_key_value = 1319
+
+[node name="XboxButtonSL" parent="AspectRatioContainer/PanelRatioNES/GridContainer" unique_id=709732899 instance=ExtResource("5_45h7s")]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+icon = ExtResource("13_u0whq")
+press_key_value = 1306
+
+[node name="XboxButtonSR" parent="AspectRatioContainer/PanelRatioNES/GridContainer" unique_id=1510583642 instance=ExtResource("5_45h7s")]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+icon = ExtResource("13_xl0pu")
+press_key_value = 1307
+
+[node name="XboxButtonArrowUp" parent="AspectRatioContainer/PanelRatioNES/GridContainer" unique_id=797793146 instance=ExtResource("5_45h7s")]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+icon = ExtResource("15_qhec3")
+press_key_value = 1311
+
+[node name="XboxButtonArrowRight" parent="AspectRatioContainer/PanelRatioNES/GridContainer" unique_id=1132779556 instance=ExtResource("5_45h7s")]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+icon = ExtResource("17_124wt")
+press_key_value = 1313
+
+[node name="XboxButtonArrowDown" parent="AspectRatioContainer/PanelRatioNES/GridContainer" unique_id=1659666318 instance=ExtResource("5_45h7s")]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+icon = ExtResource("16_lj5w3")
+press_key_value = 1315
+
+[node name="XboxButtonArrowLeft" parent="AspectRatioContainer/PanelRatioNES/GridContainer" unique_id=1836857247 instance=ExtResource("5_45h7s")]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+icon = ExtResource("14_1yvp2")
+press_key_value = 1317
+
+[node name="XboxButtonLeftJoystickLeft" parent="AspectRatioContainer/PanelRatioNES/GridContainer" unique_id=489686825 instance=ExtResource("5_45h7s")]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+icon = ExtResource("19_xl0pu")
+press_key_value = 1351
+
+[node name="XboxButtonLeftJoystickRight" parent="AspectRatioContainer/PanelRatioNES/GridContainer" unique_id=2109623586 instance=ExtResource("5_45h7s")]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+icon = ExtResource("22_lj5w3")
+press_key_value = 1350
+
+[node name="XboxButtonLeftJoystickUp" parent="AspectRatioContainer/PanelRatioNES/GridContainer" unique_id=1762620030 instance=ExtResource("5_45h7s")]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+icon = ExtResource("20_1yvp2")
+press_key_value = 1352
+
+[node name="XboxButtonLeftJoystickDown" parent="AspectRatioContainer/PanelRatioNES/GridContainer" unique_id=1488888478 instance=ExtResource("5_45h7s")]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+icon = ExtResource("21_qhec3")
+press_key_value = 1353
+
+[node name="XboxButtonRightJoystickLeft" parent="AspectRatioContainer/PanelRatioNES/GridContainer" unique_id=2084772915 instance=ExtResource("5_45h7s")]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+icon = ExtResource("23_124wt")
+press_key_value = 1355
+
+[node name="XboxButtonRightJoystickRight" parent="AspectRatioContainer/PanelRatioNES/GridContainer" unique_id=1250532570 instance=ExtResource("5_45h7s")]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+icon = ExtResource("26_8lj86")
+press_key_value = 1354
+
+[node name="XboxButtonRightJoystickUp" parent="AspectRatioContainer/PanelRatioNES/GridContainer" unique_id=1397482850 instance=ExtResource("5_45h7s")]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+icon = ExtResource("24_s0yia")
+press_key_value = 1356
+
+[node name="XboxButtonRightJoystickDown" parent="AspectRatioContainer/PanelRatioNES/GridContainer" unique_id=1967140450 instance=ExtResource("5_45h7s")]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+icon = ExtResource("25_lsy2c")
+press_key_value = 1357
+
+[node name="NesTextureButtonPlusToDownUpBool" type="Button" parent="AspectRatioContainer/PanelRatioNES/GridContainer" unique_id=1776310887]
+layout_mode = 2
+text = "Test
+Right
+10 S"
+script = ExtResource("30_lj5w3")
+metadata/_custom_type_script = "uid://5sfgv5jc0gxu"
+
+[node name="NesTextureButtonPlusToDownUpBool2" type="Button" parent="AspectRatioContainer/PanelRatioNES/GridContainer" unique_id=1522665458]
+layout_mode = 2
+text = "Test
+Triple A
+Long"
+script = ExtResource("30_lj5w3")
+metadata/_custom_type_script = "uid://5sfgv5jc0gxu"
+
+[node name="LineEdit IP" type="LineEdit" parent="AspectRatioContainer/PanelRatioNES" unique_id=954964709]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.030000001
+anchor_top = 0.02
+anchor_right = 0.52500004
+anchor_bottom = 0.158
+offset_left = -0.20707321
+offset_right = 0.19717407
+offset_bottom = -0.013999939
+theme_override_font_sizes/font_size = 21
+placeholder_text = "Enter ipv4 ... "
+
+[node name="NesInputFieldFileMemory" type="Node" parent="AspectRatioContainer/PanelRatioNES/LineEdit IP" unique_id=1458960767 node_paths=PackedStringArray("input_field")]
+script = ExtResource("6_bl7fg")
+input_field = NodePath("..")
+save_unique_id = "NES_TARGET_IPV4"
+default_if_not_set = "127.0.0.1"
+metadata/_custom_type_script = "uid://syyy1oerlepj"
+
+[node name="LineEdit Port" type="LineEdit" parent="AspectRatioContainer/PanelRatioNES" unique_id=774454219]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.546
+anchor_top = 0.02
+anchor_right = 0.74600005
+anchor_bottom = 0.153
+offset_right = -1.5596924
+theme_override_font_sizes/font_size = 21
+placeholder_text = "Port ..."
+
+[node name="NesInputFieldFileMemory2" type="Node" parent="AspectRatioContainer/PanelRatioNES/LineEdit Port" unique_id=137038258 node_paths=PackedStringArray("input_field")]
+script = ExtResource("6_bl7fg")
+input_field = NodePath("..")
+save_unique_id = "NES_TARGET_PORT"
+default_if_not_set = "3615"
+metadata/_custom_type_script = "uid://syyy1oerlepj"
+
+[node name="LineEdit PlayerID" type="LineEdit" parent="AspectRatioContainer/PanelRatioNES" unique_id=263839293]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.771
+anchor_top = 0.020000001
+anchor_right = 0.97200006
+anchor_bottom = 0.15300001
+theme_override_font_sizes/font_size = 21
+placeholder_text = "Player id..."
+
+[node name="NesInputFieldFileMemory3" type="Node" parent="AspectRatioContainer/PanelRatioNES/LineEdit PlayerID" unique_id=771992402 node_paths=PackedStringArray("input_field")]
+script = ExtResource("6_bl7fg")
+input_field = NodePath("..")
+save_unique_id = "NES_TARGET_PLAYER_ID"
+default_if_not_set = "1"
+metadata/_custom_type_script = "uid://syyy1oerlepj"
+
+[node name="Label Last Push Integer" type="Label" parent="AspectRatioContainer/PanelRatioNES" unique_id=1985654763]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.823
+anchor_top = 0.21100001
+anchor_right = 0.96800005
+anchor_bottom = 0.32000002
+offset_bottom = -1.9706345
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "0000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NesParseIntegerToString" type="Node" parent="AspectRatioContainer/PanelRatioNES/Label Last Push Integer" unique_id=537868508 node_paths=PackedStringArray("label_to_affect")]
+script = ExtResource("7_5n86y")
+label_to_affect = [NodePath("..")]
+metadata/_custom_type_script = "uid://dba4mrwl7xh3v"
+
+[connection signal="on_integer_sent" from="SendIntegerUDP" to="AspectRatioContainer/PanelRatioNES/Label Last Push Integer/NesParseIntegerToString" method="push_in_integer_to_parse"]
+[connection signal="on_integer_to_send_requested" from="XboxControllerToInt" to="SendIntegerUDP" method="send_integer"]
+[connection signal="on_integer_with_millisecond_delay_to_send_requested" from="XboxControllerToInt" to="XboxControllerToInt/NesIntDelayer" method="add_action_to_delay_as_integer_in_milliseconds"]
+[connection signal="action_integer_requested" from="XboxControllerToInt/NesIntDelayer" to="SendIntegerUDP" method="send_integer"]
+[connection signal="on_integer_requested" from="NesRelayButtonS2wIntDownUp" to="SendIntegerUDP" method="send_integer"]
+[connection signal="pressed" from="AspectRatioContainer/PanelRatioNES/GridContainer/NesTextureButtonPlusToDownUpBool" to="XboxControllerToInt" method="joystick_left_horizontal_right_for_10_seconds"]
+[connection signal="pressed" from="AspectRatioContainer/PanelRatioNES/GridContainer/NesTextureButtonPlusToDownUpBool2" to="XboxControllerToInt" method="triple_stroke_a_long_for_debug"]
+[connection signal="text_changed" from="AspectRatioContainer/PanelRatioNES/LineEdit IP" to="SendIntegerUDP" method="set_target_ipv4"]
+[connection signal="text_changed" from="AspectRatioContainer/PanelRatioNES/LineEdit Port" to="SendIntegerUDP" method="set_target_port"]
+[connection signal="text_changed" from="AspectRatioContainer/PanelRatioNES/LineEdit PlayerID" to="SendIntegerUDP" method="set_target_player_index"]
+[connection signal="on_integer_parsed" from="AspectRatioContainer/PanelRatioNES/Label Last Push Integer/NesParseIntegerToString" to="AspectRatioContainer/PanelRatioNES/Label Last Push Integer" method="set_text"]

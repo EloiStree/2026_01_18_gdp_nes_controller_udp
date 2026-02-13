@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://ccc6q4ul1ko4y"]
+
+[ext_resource type="Texture2D" uid="uid://biatqmrnxbjmm" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/2d/xbox/x.png" id="1_di5i6"]
+[ext_resource type="Script" uid="uid://dsv7mlfcgo7tq" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/nes_texture_button_plus_to_s2w_int_down_up_bool.gd" id="2_di5i6"]
+
+[node name="XboxButton" type="Button" unique_id=80049375]
+custom_minimum_size = Vector2(20, 20)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -0.73999023
+grow_horizontal = 2
+grow_vertical = 2
+icon = ExtResource("1_di5i6")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("2_di5i6")
+metadata/_custom_type_script = "uid://dsv7mlfcgo7tq"
