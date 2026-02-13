@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://7e3yfm7eju5w"]
+
+[ext_resource type="PackedScene" uid="uid://ca77ll412gruh" path="res://addons/2026_01_18_gdp_nes_controller_udp/scene/element/2d/panel_udp_nes.tscn" id="1_g3m63"]
+[ext_resource type="PackedScene" uid="uid://d25ndea2rnrfh" path="res://addons/2026_01_18_gdp_nes_controller_udp/scene/element/2d/panel_udp_xbox.tscn" id="2_3vlig"]
+[ext_resource type="Script" uid="uid://dwlmq34kclqn4" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/toggle_node_nes_xbox_event.gd" id="3_3vlig"]
+
+[node name="DemoToggleNesXbox" type="Control" unique_id=2048665258]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelUdpNES" parent="." unique_id=834786804 instance=ExtResource("1_g3m63")]
+layout_mode = 1
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelUdpXbox" parent="." unique_id=1514643984 instance=ExtResource("2_3vlig")]
+layout_mode = 1
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CheckButton" type="CheckButton" parent="." unique_id=393170887]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.053000003
+offset_right = -756.0
+offset_bottom = 0.14999771
+button_pressed = true
+text = "Toggle NES / Xbox"
+
+[node name="ToggleNodeNesXboxEvent" type="Node" parent="CheckButton" unique_id=962272570 node_paths=PackedStringArray("nodes_nes", "nodes_xbox")]
+script = ExtResource("3_3vlig")
+nodes_nes = [NodePath("../../PanelUdpNES")]
+nodes_xbox = [NodePath("../../PanelUdpXbox")]
+metadata/_custom_type_script = "uid://dwlmq34kclqn4"
+
+[connection signal="toggled" from="CheckButton" to="CheckButton/ToggleNodeNesXboxEvent" method="set_toggle_state_with_boolean_to_nes"]
