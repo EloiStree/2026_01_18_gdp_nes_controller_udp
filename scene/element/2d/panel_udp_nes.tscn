@@ -8,6 +8,13 @@
 [ext_resource type="Texture2D" uid="uid://dsf3xc8lj6mip" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/2d/nes_icon/nes_controller_layer_red_button.png" id="5_lu23p"]
 [ext_resource type="Script" uid="uid://syyy1oerlepj" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/nes_input_fiel_file_memory.gd" id="6_mgti4"]
 [ext_resource type="Script" uid="uid://dba4mrwl7xh3v" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/nes_parse_integer_to_string.gd" id="7_mpy40"]
+[ext_resource type="Script" uid="uid://ybf4bgif5umu" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/input/nes_input_display_button_name_id.gd" id="9_ttdvb"]
+[ext_resource type="Script" uid="uid://bkuserkgd0gn8" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/nes_input_mode/nes_switch_mode_button_b.gd" id="9_v5dd5"]
+[ext_resource type="Script" uid="uid://ga8sc73fxkch" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/nes_input_mode/nes_switch_mode_arrows.gd" id="10_b33vo"]
+[ext_resource type="Script" uid="uid://bm4rc83orqaig" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/input/nes_input_device_button_down_up.gd" id="10_lsjjd"]
+[ext_resource type="Script" uid="uid://ce3wk1gb164fi" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/input/nes_input_map_action_down_up.gd" id="11_lsjjd"]
+[ext_resource type="Script" uid="uid://ctt1kl7yyqd4h" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/float_to_bool_event/nes_float_axis_to_bool_event.gd" id="12_8ovte"]
+[ext_resource type="Script" uid="uid://ds80rs80plamt" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/input/nes_input_map_action_float_axis.gd" id="13_53map"]
 
 [node name="PanelUdpNES" type="Panel" unique_id=834786804]
 anchors_preset = 15
@@ -110,16 +117,17 @@ layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.33400002
 anchor_top = 0.62600005
-anchor_right = 0.46
+anchor_right = 0.45200002
 anchor_bottom = 0.79300004
 offset_left = 0.19067383
-offset_top = -0.07801056
-offset_right = 0.18449402
+offset_top = -0.07801819
+offset_right = 0.3999939
 offset_bottom = 0.020996094
 theme_override_font_sizes/font_size = 15
 toggle_mode = true
 text = "ML
 "
+autowrap_trim_flags = 192
 
 [node name="NesUiButtonToDownUpBool3" type="Node" parent="AspectRatioContainer/PanelRatioNES/Button Press Menu Left" unique_id=1044767354 node_paths=PackedStringArray("button_to_listen")]
 script = ExtResource("4_fg5n1")
@@ -129,10 +137,11 @@ metadata/_custom_type_script = "uid://c7jenviiw66o"
 [node name="Button Press Menu Right" type="Button" parent="AspectRatioContainer/PanelRatioNES" unique_id=2123293795]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.46300003
+anchor_left = 0.476
 anchor_top = 0.63100004
 anchor_right = 0.586
 anchor_bottom = 0.79300004
+offset_left = 0.19998169
 offset_top = -0.09300232
 offset_right = 0.17831421
 offset_bottom = 0.020996094
@@ -140,6 +149,7 @@ theme_override_font_sizes/font_size = 15
 toggle_mode = true
 text = "MR
 "
+autowrap_trim_flags = 192
 
 [node name="NesUiButtonToDownUpBool4" type="Node" parent="AspectRatioContainer/PanelRatioNES/Button Press Menu Right" unique_id=338437731 node_paths=PackedStringArray("button_to_listen")]
 script = ExtResource("4_fg5n1")
@@ -305,6 +315,152 @@ script = ExtResource("7_mpy40")
 label_to_affect = [NodePath("..")]
 metadata/_custom_type_script = "uid://dba4mrwl7xh3v"
 
+[node name="Button Change B Mode" type="Button" parent="AspectRatioContainer/PanelRatioNES" unique_id=1659201372]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.17600001
+anchor_right = 0.596
+anchor_bottom = 0.245
+offset_right = 0.19998169
+offset_bottom = 0.151474
+theme_override_font_sizes/font_size = 10
+text = "B Mode"
+
+[node name="Node" type="Node" parent="AspectRatioContainer/PanelRatioNES/Button Change B Mode" unique_id=252231350 node_paths=PackedStringArray("nes_controller")]
+script = ExtResource("9_v5dd5")
+nes_controller = NodePath("../../../../NesControllerToInt")
+
+[node name="Button Change Arrow Mode" type="Button" parent="AspectRatioContainer/PanelRatioNES" unique_id=23435156]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.33400002
+anchor_top = 0.17600001
+anchor_right = 0.423
+anchor_bottom = 0.245
+theme_override_font_sizes/font_size = 10
+text = "Arrow Mode"
+
+[node name="Node" type="Node" parent="AspectRatioContainer/PanelRatioNES/Button Change Arrow Mode" unique_id=1742292129 node_paths=PackedStringArray("nes_controller")]
+script = ExtResource("10_b33vo")
+nes_controller = NodePath("../../../../NesControllerToInt")
+
+[node name="Input" type="Node" parent="." unique_id=35613654]
+
+[node name="DisplayInputJoystickButton" type="Node" parent="Input" unique_id=1537884294]
+script = ExtResource("9_ttdvb")
+
+[node name="SuperFamicomController" type="Node" parent="Input" unique_id=1417081095]
+
+[node name="NesButtonA" type="Node" parent="Input/SuperFamicomController" unique_id=1544382780]
+script = ExtResource("10_lsjjd")
+target_device_name = Array[String](["Super Famicom Controller"])
+target_button_index = 1
+metadata/_custom_type_script = "uid://bm4rc83orqaig"
+
+[node name="NesButtonB" type="Node" parent="Input/SuperFamicomController" unique_id=320542190]
+script = ExtResource("10_lsjjd")
+target_device_name = Array[String](["Super Famicom Controller"])
+target_button_index = 3
+metadata/_custom_type_script = "uid://bm4rc83orqaig"
+
+[node name="NesButtonMenuLeft" type="Node" parent="Input/SuperFamicomController" unique_id=1701444164]
+script = ExtResource("10_lsjjd")
+target_device_name = Array[String](["Super Famicom Controller"])
+target_button_index = 4
+metadata/_custom_type_script = "uid://bm4rc83orqaig"
+
+[node name="NesButtonMenuRight" type="Node" parent="Input/SuperFamicomController" unique_id=1889159982]
+script = ExtResource("10_lsjjd")
+target_device_name = Array[String](["Super Famicom Controller"])
+target_button_index = 6
+metadata/_custom_type_script = "uid://bm4rc83orqaig"
+
+[node name="NesButtonArrowLeft" type="Node" parent="Input/SuperFamicomController" unique_id=1165849018]
+script = ExtResource("10_lsjjd")
+target_device_name = Array[String](["Super Famicom Controller"])
+target_button_index = 13
+metadata/_custom_type_script = "uid://bm4rc83orqaig"
+
+[node name="NesButtonArrowRight" type="Node" parent="Input/SuperFamicomController" unique_id=1359557176]
+script = ExtResource("10_lsjjd")
+target_device_name = Array[String](["Super Famicom Controller"])
+target_button_index = 14
+metadata/_custom_type_script = "uid://bm4rc83orqaig"
+
+[node name="NesButtonArrowUp" type="Node" parent="Input/SuperFamicomController" unique_id=1309837274]
+script = ExtResource("10_lsjjd")
+target_device_name = Array[String](["Super Famicom Controller"])
+target_button_index = 11
+metadata/_custom_type_script = "uid://bm4rc83orqaig"
+
+[node name="NesButtonArrowDown" type="Node" parent="Input/SuperFamicomController" unique_id=756310611]
+script = ExtResource("10_lsjjd")
+target_device_name = Array[String](["Super Famicom Controller"])
+target_button_index = 12
+metadata/_custom_type_script = "uid://bm4rc83orqaig"
+
+[node name="InputMap" type="Node" parent="Input" unique_id=649543399]
+
+[node name="Action A" type="Node" parent="Input/InputMap" unique_id=492438691]
+script = ExtResource("11_lsjjd")
+action_name = "NES_A"
+metadata/_custom_type_script = "uid://ce3wk1gb164fi"
+
+[node name="Action B" type="Node" parent="Input/InputMap" unique_id=1176610480]
+script = ExtResource("11_lsjjd")
+action_name = "NES_B"
+metadata/_custom_type_script = "uid://ce3wk1gb164fi"
+
+[node name="Action ML" type="Node" parent="Input/InputMap" unique_id=2041779284]
+script = ExtResource("11_lsjjd")
+action_name = "NES_MENU_LEFT"
+metadata/_custom_type_script = "uid://ce3wk1gb164fi"
+
+[node name="Action MR" type="Node" parent="Input/InputMap" unique_id=846192695]
+script = ExtResource("11_lsjjd")
+action_name = "NES_MENU_RIGHT"
+metadata/_custom_type_script = "uid://ce3wk1gb164fi"
+
+[node name="Action AL" type="Node" parent="Input/InputMap" unique_id=1214365943]
+script = ExtResource("11_lsjjd")
+action_name = "NES_ARROW_LEFT"
+metadata/_custom_type_script = "uid://ce3wk1gb164fi"
+
+[node name="Action AR" type="Node" parent="Input/InputMap" unique_id=281040699]
+script = ExtResource("11_lsjjd")
+action_name = "NES_ARROW_RIGHT"
+metadata/_custom_type_script = "uid://ce3wk1gb164fi"
+
+[node name="Action AU" type="Node" parent="Input/InputMap" unique_id=1779115569]
+script = ExtResource("11_lsjjd")
+action_name = "NES_ARROW_UP"
+metadata/_custom_type_script = "uid://ce3wk1gb164fi"
+
+[node name="Action AD" type="Node" parent="Input/InputMap" unique_id=1743540353]
+script = ExtResource("11_lsjjd")
+action_name = "NES_ARROW_DOWN"
+metadata/_custom_type_script = "uid://ce3wk1gb164fi"
+
+[node name="GamepadJoystickToEvent" type="Node" parent="Input/InputMap" unique_id=1424993282]
+
+[node name="Left Horizontal Axis" type="Node" parent="Input/InputMap/GamepadJoystickToEvent" unique_id=1414573376]
+script = ExtResource("12_8ovte")
+
+[node name="NesInputMapActionFloatAxis" type="Node" parent="Input/InputMap/GamepadJoystickToEvent/Left Horizontal Axis" unique_id=61597042]
+script = ExtResource("13_53map")
+action_name_positive_01 = "GAMEPAD_LEFT_HORIZONTAL_POSITIVE"
+action_name_negative_01 = "GAMEPAD_LEFT_HORIZONTAL_NEGATIVE"
+
+[node name="Left Vertical Axis" type="Node" parent="Input/InputMap/GamepadJoystickToEvent" unique_id=632397382]
+script = ExtResource("12_8ovte")
+
+[node name="NesInputMapActionFloatAxis" type="Node" parent="Input/InputMap/GamepadJoystickToEvent/Left Vertical Axis" unique_id=1392009526]
+script = ExtResource("13_53map")
+action_name_positive_01 = "GAMEPAD_LEFT_VERTICAL_POSITIVE"
+action_name_negative_01 = "GAMEPAD_LEFT_VERTICAL_NEGATIVE"
+metadata/_custom_type_script = "uid://ds80rs80plamt"
+
 [connection signal="on_integer_sent" from="SendIntegerUDP" to="AspectRatioContainer/PanelRatioNES/Label Last Push Integer/NesParseIntegerToString" method="push_in_integer_to_parse"]
 [connection signal="on_integer_to_send_requested" from="NesControllerToInt" to="SendIntegerUDP" method="send_integer"]
 [connection signal="action_integer_requested" from="NesControllerToInt/NesIntDelayer" to="SendIntegerUDP" method="send_integer"]
@@ -320,3 +476,29 @@ metadata/_custom_type_script = "uid://dba4mrwl7xh3v"
 [connection signal="text_changed" from="AspectRatioContainer/PanelRatioNES/LineEdit Port" to="SendIntegerUDP" method="set_target_port"]
 [connection signal="text_changed" from="AspectRatioContainer/PanelRatioNES/LineEdit PlayerID" to="SendIntegerUDP" method="set_target_player_index"]
 [connection signal="on_integer_parsed" from="AspectRatioContainer/PanelRatioNES/Label Last Push Integer/NesParseIntegerToString" to="AspectRatioContainer/PanelRatioNES/Label Last Push Integer" method="set_text"]
+[connection signal="pressed" from="AspectRatioContainer/PanelRatioNES/Button Change B Mode" to="AspectRatioContainer/PanelRatioNES/Button Change B Mode/Node" method="increment_mode_index"]
+[connection signal="on_mode_changed_label" from="AspectRatioContainer/PanelRatioNES/Button Change B Mode/Node" to="AspectRatioContainer/PanelRatioNES/Button Press B" method="set_text"]
+[connection signal="pressed" from="AspectRatioContainer/PanelRatioNES/Button Change Arrow Mode" to="AspectRatioContainer/PanelRatioNES/Button Change Arrow Mode/Node" method="increment_mode_index"]
+[connection signal="on_mode_changed_label" from="AspectRatioContainer/PanelRatioNES/Button Change Arrow Mode/Node" to="AspectRatioContainer/PanelRatioNES/Button Change Arrow Mode" method="set_text"]
+[connection signal="on_down_up" from="Input/SuperFamicomController/NesButtonA" to="NesControllerToInt" method="set_down_up_key_a"]
+[connection signal="on_down_up" from="Input/SuperFamicomController/NesButtonB" to="NesControllerToInt" method="set_down_up_key_b"]
+[connection signal="on_down_up" from="Input/SuperFamicomController/NesButtonMenuLeft" to="NesControllerToInt" method="set_down_up_key_menu_left"]
+[connection signal="on_down_up" from="Input/SuperFamicomController/NesButtonMenuRight" to="NesControllerToInt" method="set_down_up_key_menu_right"]
+[connection signal="on_down_up" from="Input/SuperFamicomController/NesButtonArrowLeft" to="NesControllerToInt" method="set_down_up_key_arrow_left"]
+[connection signal="on_down_up" from="Input/SuperFamicomController/NesButtonArrowRight" to="NesControllerToInt" method="set_down_up_key_arrow_right"]
+[connection signal="on_down_up" from="Input/SuperFamicomController/NesButtonArrowUp" to="NesControllerToInt" method="set_down_up_key_arrow_up"]
+[connection signal="on_down_up" from="Input/SuperFamicomController/NesButtonArrowDown" to="NesControllerToInt" method="set_down_up_key_arrow_down"]
+[connection signal="on_down_up" from="Input/InputMap/Action A" to="NesControllerToInt" method="set_down_up_key_a"]
+[connection signal="on_down_up" from="Input/InputMap/Action B" to="NesControllerToInt" method="set_down_up_key_b"]
+[connection signal="on_down_up" from="Input/InputMap/Action ML" to="NesControllerToInt" method="set_down_up_key_menu_left"]
+[connection signal="on_down_up" from="Input/InputMap/Action MR" to="NesControllerToInt" method="set_down_up_key_menu_right"]
+[connection signal="on_down_up" from="Input/InputMap/Action AL" to="NesControllerToInt" method="set_down_up_key_arrow_left"]
+[connection signal="on_down_up" from="Input/InputMap/Action AR" to="NesControllerToInt" method="set_down_up_key_arrow_right"]
+[connection signal="on_down_up" from="Input/InputMap/Action AU" to="NesControllerToInt" method="set_down_up_key_arrow_up"]
+[connection signal="on_down_up" from="Input/InputMap/Action AD" to="NesControllerToInt" method="set_down_up_key_arrow_down"]
+[connection signal="on_negative_zone_changed" from="Input/InputMap/GamepadJoystickToEvent/Left Horizontal Axis" to="NesControllerToInt" method="set_down_up_key_arrow_left"]
+[connection signal="on_positive_zone_changed" from="Input/InputMap/GamepadJoystickToEvent/Left Horizontal Axis" to="NesControllerToInt" method="set_down_up_key_arrow_right"]
+[connection signal="on_float_axis_value_changed" from="Input/InputMap/GamepadJoystickToEvent/Left Horizontal Axis/NesInputMapActionFloatAxis" to="Input/InputMap/GamepadJoystickToEvent/Left Horizontal Axis" method="push_in_float_value"]
+[connection signal="on_negative_zone_changed" from="Input/InputMap/GamepadJoystickToEvent/Left Vertical Axis" to="NesControllerToInt" method="set_down_up_key_arrow_down"]
+[connection signal="on_positive_zone_changed" from="Input/InputMap/GamepadJoystickToEvent/Left Vertical Axis" to="NesControllerToInt" method="set_down_up_key_arrow_up"]
+[connection signal="on_float_axis_value_changed" from="Input/InputMap/GamepadJoystickToEvent/Left Vertical Axis/NesInputMapActionFloatAxis" to="Input/InputMap/GamepadJoystickToEvent/Left Vertical Axis" method="push_in_float_value"]

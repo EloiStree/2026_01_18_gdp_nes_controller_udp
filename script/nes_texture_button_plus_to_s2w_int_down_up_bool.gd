@@ -25,3 +25,12 @@ func _on_button_up():
 	debug_int_sent =press_key_value+1000
 	on_request_int_action.emit(press_key_value+1000)
 	
+	
+func _gui_input(event: InputEvent) -> void:
+	if event is InputEventScreenTouch:
+		if event.pressed:
+			accept_event()
+		else:
+			if get_global_rect().has_point(event.position):
+				pressed.emit()          
+			accept_event()

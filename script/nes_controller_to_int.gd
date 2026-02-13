@@ -3,14 +3,13 @@ class_name NesControllerToInt extends Node
 
 @export_group("Input use in S2W NES")
 @export var button_a:int = 1300
-@export var button_b:int = 1301
+@export var button_b:int = 1302
 @export var button_menu_left:int = 1309
 @export var button_menu_right:int = 1308
-@export var button_arrow_up:int = 1331
-@export var button_arrow_right:int = 1333
-@export var button_arrow_down:int = 1335
-@export var button_arrow_left:int = 1337
-
+@export var button_arrow_up:int = 1311
+@export var button_arrow_right:int = 1313
+@export var button_arrow_down:int = 1315
+@export var button_arrow_left:int = 1317
 
 @export var quick_stroke_milliseconds :int=50
 
@@ -341,17 +340,6 @@ func override_b_as_xbox_stick_button_right(new_value:int):
 
 
 
-
-
-#Set left stick horizontal to 1.0	1350	2350
-#Set left stick horizontal to -1.0	1351	2351
-#Set left stick vertical to 1.0	1352	2352
-#Set left stick vertical to -1.0	1353	2353
-#Set right stick horizontal to 1.0	1354	2354
-#Set right stick horizontal to -1.0	1355	2355
-#Set right stick vertical to 1.0	1356	2356
-#Set right stick vertical to -1.0	1357	2357
-
 # Some game use:
 # stick left to move instead of arrows
 func override_arrows_with_joystick_left():
@@ -359,6 +347,13 @@ func override_arrows_with_joystick_left():
 	button_arrow_down =1353
 	button_arrow_left =1351
 	button_arrow_right =1350
+	pass 
+
+func override_arrows_with_joystick_right():
+	button_arrow_up =1356
+	button_arrow_down =1357
+	button_arrow_left =1355
+	button_arrow_right =1354
 	pass 
 
 # Some game use:
@@ -372,10 +367,10 @@ func override_arrows_with_stick_left_vertical_stick_right_horizontal():
 	pass 
 
 func reset_arrows_to_default():
-	override_button_arrow_up(1331)
-	override_button_arrow_right(1333)
-	override_button_arrow_down(1335)
-	override_button_arrow_left(1337)
+	override_button_arrow_up(1311)
+	override_button_arrow_right(1313)
+	override_button_arrow_down(1315)
+	override_button_arrow_left(1317)
 
 func reset_menu_to_default():
 	override_button_menu_left(1309)
@@ -415,3 +410,7 @@ func release_all_keys():
 	release_arrow_left()
 
 #endregion
+
+
+func _on_nes_button_arrow_left_on_down_up(pressed: bool) -> void:
+	pass # Replace with function body.
