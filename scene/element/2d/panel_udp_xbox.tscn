@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b2xv0p6j04866" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/2d/xbox/y.png" id="5_0qgeo"]
 [ext_resource type="PackedScene" uid="uid://ccc6q4ul1ko4y" path="res://addons/2026_01_18_gdp_nes_controller_udp/scene/element/2d/button/xbox_button.tscn" id="5_45h7s"]
 [ext_resource type="Texture2D" uid="uid://wep1gnb2icxy" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/2d/xbox/rb.png" id="6_8cp3c"]
-[ext_resource type="Script" uid="uid://syyy1oerlepj" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/nes_input_fiel_file_memory.gd" id="6_bl7fg"]
+[ext_resource type="Script" uid="uid://syyy1oerlepj" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/nes_input_field_file_memory.gd" id="6_bl7fg"]
 [ext_resource type="Texture2D" uid="uid://b5o418v6crave" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/2d/xbox/lb.png" id="7_5mcjy"]
 [ext_resource type="Script" uid="uid://dba4mrwl7xh3v" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/nes_parse_integer_to_string.gd" id="7_5n86y"]
 [ext_resource type="Texture2D" uid="uid://dwg6dg34eupa0" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/2d/xbox/lt.png" id="8_581ti"]
@@ -272,8 +272,11 @@ placeholder_text = "Enter ipv4 ... "
 [node name="NesInputFieldFileMemory" type="Node" parent="AspectRatioContainer/PanelRatioNES/LineEdit IP" unique_id=1458960767 node_paths=PackedStringArray("input_field")]
 script = ExtResource("6_bl7fg")
 input_field = NodePath("..")
+save_mode = null
+save_event_type = null
 save_unique_id = "NES_TARGET_IPV4"
 default_if_not_set = "127.0.0.1"
+use_print_of_save_path = null
 metadata/_custom_type_script = "uid://syyy1oerlepj"
 
 [node name="LineEdit Port" type="LineEdit" parent="AspectRatioContainer/PanelRatioNES" unique_id=774454219]
@@ -291,8 +294,11 @@ placeholder_text = "Port ..."
 [node name="NesInputFieldFileMemory2" type="Node" parent="AspectRatioContainer/PanelRatioNES/LineEdit Port" unique_id=137038258 node_paths=PackedStringArray("input_field")]
 script = ExtResource("6_bl7fg")
 input_field = NodePath("..")
+save_mode = null
+save_event_type = null
 save_unique_id = "NES_TARGET_PORT"
 default_if_not_set = "3615"
+use_print_of_save_path = null
 metadata/_custom_type_script = "uid://syyy1oerlepj"
 
 [node name="LineEdit PlayerID" type="LineEdit" parent="AspectRatioContainer/PanelRatioNES" unique_id=263839293]
@@ -309,8 +315,11 @@ placeholder_text = "Player id..."
 [node name="NesInputFieldFileMemory3" type="Node" parent="AspectRatioContainer/PanelRatioNES/LineEdit PlayerID" unique_id=771992402 node_paths=PackedStringArray("input_field")]
 script = ExtResource("6_bl7fg")
 input_field = NodePath("..")
+save_mode = null
+save_event_type = null
 save_unique_id = "NES_TARGET_PLAYER_ID"
 default_if_not_set = "1"
+use_print_of_save_path = null
 metadata/_custom_type_script = "uid://syyy1oerlepj"
 
 [node name="Label Last Push Integer" type="Label" parent="AspectRatioContainer/PanelRatioNES" unique_id=1985654763]

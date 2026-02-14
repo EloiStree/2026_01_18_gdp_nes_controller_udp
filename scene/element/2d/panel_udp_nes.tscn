@@ -6,12 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://b5nfry4efhp5l" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/2d/nes_icon/nes_controller.png" id="3_pgyg6"]
 [ext_resource type="Script" uid="uid://c7jenviiw66o" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/nes_ui2d_button_to_down_up_bool.gd" id="4_fg5n1"]
 [ext_resource type="Texture2D" uid="uid://dsf3xc8lj6mip" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/2d/nes_icon/nes_controller_layer_red_button.png" id="5_lu23p"]
-[ext_resource type="Script" uid="uid://syyy1oerlepj" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/nes_input_fiel_file_memory.gd" id="6_mgti4"]
+[ext_resource type="Script" uid="uid://syyy1oerlepj" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/nes_input_field_file_memory.gd" id="6_mgti4"]
 [ext_resource type="Script" uid="uid://dba4mrwl7xh3v" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/nes_parse_integer_to_string.gd" id="7_mpy40"]
 [ext_resource type="Script" uid="uid://ybf4bgif5umu" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/input/nes_input_display_button_name_id.gd" id="9_ttdvb"]
 [ext_resource type="Script" uid="uid://bkuserkgd0gn8" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/nes_input_mode/nes_switch_mode_button_b.gd" id="9_v5dd5"]
 [ext_resource type="Script" uid="uid://ga8sc73fxkch" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/nes_input_mode/nes_switch_mode_arrows.gd" id="10_b33vo"]
 [ext_resource type="Script" uid="uid://bm4rc83orqaig" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/input/nes_input_device_button_down_up.gd" id="10_lsjjd"]
+[ext_resource type="Script" uid="uid://bty8kgte7clr1" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/nes_save_load_string_value_from_file_memory.gd" id="10_sf5ed"]
 [ext_resource type="Script" uid="uid://ce3wk1gb164fi" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/input/nes_input_map_action_down_up.gd" id="11_lsjjd"]
 [ext_resource type="Script" uid="uid://ctt1kl7yyqd4h" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/float_to_bool_event/nes_float_axis_to_bool_event.gd" id="12_8ovte"]
 [ext_resource type="Script" uid="uid://ds80rs80plamt" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/input/nes_input_map_action_float_axis.gd" id="13_53map"]
@@ -47,16 +48,6 @@ ratio = 2.4242
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/PanelRatioNES" unique_id=1690738432]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_pgyg6")
-expand_mode = 1
-
-[node name="TextureRect2" type="TextureRect" parent="AspectRatioContainer/PanelRatioNES" unique_id=784558426]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -258,6 +249,7 @@ script = ExtResource("6_mgti4")
 input_field = NodePath("..")
 save_unique_id = "NES_TARGET_IPV4"
 default_if_not_set = "127.0.0.1"
+use_print_of_save_path = null
 metadata/_custom_type_script = "uid://syyy1oerlepj"
 
 [node name="LineEdit Port" type="LineEdit" parent="AspectRatioContainer/PanelRatioNES" unique_id=774454219]
@@ -277,6 +269,7 @@ script = ExtResource("6_mgti4")
 input_field = NodePath("..")
 save_unique_id = "NES_TARGET_PORT"
 default_if_not_set = "3615"
+use_print_of_save_path = null
 metadata/_custom_type_script = "uid://syyy1oerlepj"
 
 [node name="LineEdit PlayerID" type="LineEdit" parent="AspectRatioContainer/PanelRatioNES" unique_id=263839293]
@@ -295,6 +288,7 @@ script = ExtResource("6_mgti4")
 input_field = NodePath("..")
 save_unique_id = "NES_TARGET_PLAYER_ID"
 default_if_not_set = "1"
+use_print_of_save_path = null
 metadata/_custom_type_script = "uid://syyy1oerlepj"
 
 [node name="Label Last Push Integer" type="Label" parent="AspectRatioContainer/PanelRatioNES" unique_id=1985654763]
@@ -331,6 +325,10 @@ text = "B Mode"
 script = ExtResource("9_v5dd5")
 nes_controller = NodePath("../../../../NesControllerToInt")
 
+[node name="NesSaveLoadStringValueFromFileMemory" type="Node" parent="AspectRatioContainer/PanelRatioNES/Button Change B Mode" unique_id=125551124]
+script = ExtResource("10_sf5ed")
+metadata/_custom_type_script = "uid://bty8kgte7clr1"
+
 [node name="Button Change Arrow Mode" type="Button" parent="AspectRatioContainer/PanelRatioNES" unique_id=23435156]
 layout_mode = 1
 anchors_preset = -1
@@ -344,6 +342,10 @@ text = "Arrow Mode"
 [node name="Node" type="Node" parent="AspectRatioContainer/PanelRatioNES/Button Change Arrow Mode" unique_id=1742292129 node_paths=PackedStringArray("nes_controller")]
 script = ExtResource("10_b33vo")
 nes_controller = NodePath("../../../../NesControllerToInt")
+
+[node name="NesSaveLoadStringValueFromFileMemory2" type="Node" parent="AspectRatioContainer/PanelRatioNES/Button Change Arrow Mode" unique_id=1373594805]
+script = ExtResource("10_sf5ed")
+metadata/_custom_type_script = "uid://bty8kgte7clr1"
 
 [node name="Input" type="Node" parent="." unique_id=35613654]
 
@@ -477,9 +479,13 @@ metadata/_custom_type_script = "uid://ds80rs80plamt"
 [connection signal="text_changed" from="AspectRatioContainer/PanelRatioNES/LineEdit PlayerID" to="SendIntegerUDP" method="set_target_player_index"]
 [connection signal="on_integer_parsed" from="AspectRatioContainer/PanelRatioNES/Label Last Push Integer/NesParseIntegerToString" to="AspectRatioContainer/PanelRatioNES/Label Last Push Integer" method="set_text"]
 [connection signal="pressed" from="AspectRatioContainer/PanelRatioNES/Button Change B Mode" to="AspectRatioContainer/PanelRatioNES/Button Change B Mode/Node" method="increment_mode_index"]
+[connection signal="on_mode_changed_index" from="AspectRatioContainer/PanelRatioNES/Button Change B Mode/Node" to="AspectRatioContainer/PanelRatioNES/Button Change B Mode/NesSaveLoadStringValueFromFileMemory" method="save_given_integer"]
 [connection signal="on_mode_changed_label" from="AspectRatioContainer/PanelRatioNES/Button Change B Mode/Node" to="AspectRatioContainer/PanelRatioNES/Button Press B" method="set_text"]
+[connection signal="on_value_loaded_from_file" from="AspectRatioContainer/PanelRatioNES/Button Change B Mode/NesSaveLoadStringValueFromFileMemory" to="AspectRatioContainer/PanelRatioNES/Button Change B Mode/Node" method="set_mode_with_str_index"]
 [connection signal="pressed" from="AspectRatioContainer/PanelRatioNES/Button Change Arrow Mode" to="AspectRatioContainer/PanelRatioNES/Button Change Arrow Mode/Node" method="increment_mode_index"]
+[connection signal="on_mode_changed_index" from="AspectRatioContainer/PanelRatioNES/Button Change Arrow Mode/Node" to="AspectRatioContainer/PanelRatioNES/Button Change Arrow Mode/NesSaveLoadStringValueFromFileMemory2" method="save_given_integer"]
 [connection signal="on_mode_changed_label" from="AspectRatioContainer/PanelRatioNES/Button Change Arrow Mode/Node" to="AspectRatioContainer/PanelRatioNES/Button Change Arrow Mode" method="set_text"]
+[connection signal="on_value_loaded_from_file" from="AspectRatioContainer/PanelRatioNES/Button Change Arrow Mode/NesSaveLoadStringValueFromFileMemory2" to="AspectRatioContainer/PanelRatioNES/Button Change Arrow Mode/Node" method="set_mode_with_str_index"]
 [connection signal="on_down_up" from="Input/SuperFamicomController/NesButtonA" to="NesControllerToInt" method="set_down_up_key_a"]
 [connection signal="on_down_up" from="Input/SuperFamicomController/NesButtonB" to="NesControllerToInt" method="set_down_up_key_b"]
 [connection signal="on_down_up" from="Input/SuperFamicomController/NesButtonMenuLeft" to="NesControllerToInt" method="set_down_up_key_menu_left"]

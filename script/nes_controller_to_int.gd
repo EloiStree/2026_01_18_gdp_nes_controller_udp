@@ -1,6 +1,43 @@
 # class name It allows other script ot refert to it
 class_name NesControllerToInt extends Node
 
+## Defines the different types of button press interactions for NES controller input.
+##
+## This enum represents the various ways a button can be pressed and released,
+## allowing fine control over input timing and behavior.
+enum PressType {
+	## Registers a button press without releasing it.
+	PRESS,
+	## Registers a button release.
+	RELEASE,
+	## Presses and releases a button instantly without any frame delay.
+	PRESS_RELEASE_NO_DELAY,
+	## Presses and releases a button with a short frame delay between the two actions.
+	PRESS_SHORT_STROKE,
+	## Double click with designer choose of delay between clicks and press duration.
+	DOUBLE_CLICK,
+	## Triple click with designer choose of delay between clicks and press duration.
+	TRIPLE_CLICK,
+	## Presses for a second the key
+	PRESS_FOR_SECOND,
+	## Presses for 10 seconds the key for testing
+	PRESS_FOR_10_SECONDS
+}
+
+
+enum NesButton {
+	BUTTON_A,
+	BUTTON_B,
+	MENU_LEFT,
+	MENU_RIGHT,
+	ARROW_UP,
+	ARROW_RIGHT,
+	ARROW_DOWN,
+	ARROW_LEFT
+}
+
+
+
 @export_group("Input use in S2W NES")
 @export var button_a:int = 1300
 @export var button_b:int = 1302
@@ -12,6 +49,8 @@ class_name NesControllerToInt extends Node
 @export var button_arrow_left:int = 1317
 
 @export var quick_stroke_milliseconds :int=50
+@export var between_clicks_milliseconds:int = 200
+@export var press_click_duration_milliseconds:int = 200
 
 @export var use_print_debugging:bool
 
@@ -58,10 +97,10 @@ func release_key_in_milliseconds(key_press_value:int, release_delay_milliseconds
 	send_integer_with_delay_milliseconds(key_press_value + 1000, release_delay_milliseconds)
 
 func press_key_in_seconds(key_press_value:int, press_duration_seconds:float):
-	press_key_in_milliseconds(key_press_value, int(press_duration_seconds * 1000))
+	press_key_in_milliseconds(key_press_value, int(press_duration_seconds * 1000.0))
 
 func release_key_in_seconds(key_press_value:int, release_delay_seconds:float):
-	release_key_in_milliseconds(key_press_value, int(release_delay_seconds * 1000))
+	release_key_in_milliseconds(key_press_value, int(release_delay_seconds * 1000.0))
 
 
 func stroke_key_for_milliseconds(key_press_value:int, press_duration_milliseconds:int):
@@ -69,14 +108,14 @@ func stroke_key_for_milliseconds(key_press_value:int, press_duration_millisecond
 	release_key_in_milliseconds(key_press_value, press_duration_milliseconds)
 
 func stroke_key_for_seconds(key_press_value:int, press_duration_seconds:float):
-	stroke_key_for_milliseconds(key_press_value, int(press_duration_seconds * 1000))
+	stroke_key_for_milliseconds(key_press_value, int(press_duration_seconds * 1000.0))
 
 func stroke_key_in_milliseconds(key_press_value:int, delay_milliseconds:int, press_duration_milliseconds:int):
-	press_key_in_milliseconds(key_press_value, press_duration_milliseconds)
+	press_key_in_milliseconds(key_press_value, delay_milliseconds)
 	release_key_in_milliseconds(key_press_value, delay_milliseconds + press_duration_milliseconds)
 
 func stroke_key_in_seconds(key_press_value:int, delay_seconds:float, press_duration_seconds:float):
-	stroke_key_in_milliseconds(key_press_value, int(delay_seconds * 1000), int(press_duration_seconds * 1000))
+	stroke_key_in_milliseconds(key_press_value, int(delay_seconds * 1000.0), int(press_duration_seconds * 1000.0))
 
 func several_click(key_press_value:int, number_of_clicks:int, delay_between_clicks_milliseconds:int, press_duration_milliseconds:int):
 	var time_relative = 0
@@ -92,6 +131,87 @@ func double_click(key_press_value:int, delay_between_clicks_milliseconds:int, pr
 func triple_click(key_press_value:int, delay_between_clicks_milliseconds:int, press_duration_milliseconds:int):
 	several_click(key_press_value, 3, delay_between_clicks_milliseconds, press_duration_milliseconds)	
 
+#endregion
+
+
+#region CALL FROM ENUM
+## PressType NesButton
+
+func get_key_value_from_enum(key_enum:NesButton) -> int:
+	match key_enum:
+		NesButton.BUTTON_A:
+			return button_a
+		NesButton.BUTTON_B:
+			return button_b
+		NesButton.MENU_LEFT:
+			return button_menu_left
+		NesButton.MENU_RIGHT:
+			return button_menu_right
+		NesButton.ARROW_UP:
+			return button_arrow_up
+		NesButton.ARROW_RIGHT:
+			return button_arrow_right
+		NesButton.ARROW_DOWN:
+			return button_arrow_down
+		NesButton.ARROW_LEFT:
+			return button_arrow_left
+		_:
+			push_error("Invalid NesButton enum: " + str(key_enum))
+			return -1
+
+func press_key_with_enum(key_enum:NesButton, press_type:PressType):
+	var key_value = get_key_value_from_enum(key_enum)
+	match press_type:
+		PressType.PRESS:
+			press_key(key_value)
+		PressType.RELEASE:
+			release_key(key_value)
+		PressType.PRESS_RELEASE_NO_DELAY:
+			stroke_key_no_delay(key_value)
+		PressType.PRESS_SHORT_STROKE:
+			stroke_key_short(key_value)
+		PressType.DOUBLE_CLICK:
+			double_click(key_value, between_clicks_milliseconds, press_click_duration_milliseconds)
+		PressType.TRIPLE_CLICK:
+			triple_click(key_value, between_clicks_milliseconds, press_click_duration_milliseconds)
+		PressType.PRESS_FOR_SECOND:
+			press_key_in_seconds(key_value, 1)
+		PressType.PRESS_FOR_10_SECONDS:
+			press_key_in_seconds(key_value, 10)
+		_:
+			push_error("Invalid PressType: " + str(press_type))
+
+func press_key_with_enum_in_milliseconds(key_enum:NesButton, delay_milliseconds:int):
+	var key_value = get_key_value_from_enum(key_enum)
+	press_key_in_milliseconds(key_value, delay_milliseconds)
+
+func release_key_with_enum_in_milliseconds(key_enum:NesButton, delay_milliseconds:int):
+	var key_value = get_key_value_from_enum(key_enum)
+	release_key_in_milliseconds(key_value, delay_milliseconds)
+
+func press_key_with_enum_in_seconds(key_enum:NesButton, delay_seconds:float):
+	var key_value = get_key_value_from_enum(key_enum)
+	press_key_in_seconds(key_value, delay_seconds)
+
+func release_key_with_enum_in_seconds(key_enum:NesButton, delay_seconds:float):
+	var key_value = get_key_value_from_enum(key_enum)
+	release_key_in_seconds(key_value, delay_seconds)
+
+func stroke_key_with_enum_for_milliseconds(key_enum:NesButton, press_duration_milliseconds:int):
+	var key_value = get_key_value_from_enum(key_enum)
+	stroke_key_for_milliseconds(key_value, press_duration_milliseconds)
+
+func stroke_key_with_enum_for_seconds(key_enum:NesButton, press_duration_seconds:float):
+	var key_value = get_key_value_from_enum(key_enum)
+	stroke_key_for_seconds(key_value, press_duration_seconds)
+
+func stroke_key_with_enum_in_milliseconds(key_enum:NesButton, delay_milliseconds:int, press_duration_milliseconds:int):
+	var key_value = get_key_value_from_enum(key_enum)
+	stroke_key_in_milliseconds(key_value, delay_milliseconds, press_duration_milliseconds)
+
+func stroke_key_with_enum_in_seconds(key_enum:NesButton, delay_seconds:float, press_duration_seconds:float):
+	var key_value = get_key_value_from_enum(key_enum)
+	stroke_key_in_seconds(key_value, delay_seconds, press_duration_seconds)
 #endregion
 
 #region BUTTON_A
@@ -320,22 +440,22 @@ func override_button_arrow_left(new_value:int):
 	button_arrow_left = new_value	
 	
 
-func override_b_as_xbox_x(new_value:int):
+func override_b_as_xbox_x():
 	button_b = 	1301
-func override_b_as_xbox_y(new_value:int):
+func override_b_as_xbox_y():
 	button_b = 1303	
-func override_b_as_xbox_b(new_value:int):
+func override_b_as_xbox_b():
 	button_b = 1302	
-func override_b_as_xbox_a(new_value:int):
+func override_b_as_xbox_a():
 	button_b = 1300	
 
-func override_b_as_xbox_side_button_left(new_value:int):
+func override_b_as_xbox_side_button_left():
 	button_b = 1304	
-func override_b_as_xbox_side_button_right(new_value:int):
+func override_b_as_xbox_side_button_right():
 	button_b = 1305	
-func override_b_as_xbox_stick_button_left(new_value:int):
+func override_b_as_xbox_stick_button_left():
 	button_b = 1306	
-func override_b_as_xbox_stick_button_right(new_value:int):
+func override_b_as_xbox_stick_button_right():
 	button_b = 1307
 
 

@@ -25,6 +25,9 @@ func _ready():
 func increment_mode_index():
 	set_mode_with_index(button_index+1)
 
+func set_mode_with_str_index(index:String):
+	set_mode_with_index(int(index))
+	
 func set_mode_with_index(index: int):
 	var previous :int= button_index;
 	button_index = index % 7
@@ -77,4 +80,8 @@ func set_mode_as_trigger_right_side():
 
 
 func _on_button_change_b_mode_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_nes_save_load_string_value_from_file_memory_on_value_loaded_from_file(text: String) -> void:
 	pass # Replace with function body.

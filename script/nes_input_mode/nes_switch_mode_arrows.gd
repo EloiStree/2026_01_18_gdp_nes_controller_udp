@@ -19,6 +19,9 @@ func _ready():
 func increment_mode_index():
 	set_mode_with_index(button_index+1)
 
+func set_mode_with_str_index(index:String):
+	set_mode_with_index(int(index))
+
 func set_mode_with_index(index: int):
 	var previous :int= button_index;
 	button_index = index % 4

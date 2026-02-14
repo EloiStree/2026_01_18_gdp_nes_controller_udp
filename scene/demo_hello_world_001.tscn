@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://c7jenviiw66o" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/nes_ui2d_button_to_down_up_bool.gd" id="5_b66os"]
 [ext_resource type="Script" uid="uid://cvo5y0mmcaf0i" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/nes_send_text_message_on_off.gd" id="6_i3ae7"]
 [ext_resource type="Texture2D" uid="uid://b5nfry4efhp5l" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/2d/nes_icon/nes_controller.png" id="7_j5ora"]
-[ext_resource type="Script" uid="uid://syyy1oerlepj" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/nes_input_fiel_file_memory.gd" id="8_ukrpb"]
+[ext_resource type="Script" uid="uid://syyy1oerlepj" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/nes_input_field_file_memory.gd" id="8_ukrpb"]
 
 [node name="DemoHelloWorld" type="Node" unique_id=1771100514]
 

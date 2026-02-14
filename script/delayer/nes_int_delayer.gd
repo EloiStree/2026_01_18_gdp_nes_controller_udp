@@ -31,6 +31,9 @@ func add_action_to_delay_as_integer_in_milliseconds(action_in_integer: int, mill
 		)
 	)
 
+func get_waiting_command_in_queue() -> int:
+	return waiting_to_be_executed.size()
+
 class WhenToExecuteIntAction:
 	var when_to_execute_in_milliseconds: int
 	var action_to_execute: int
