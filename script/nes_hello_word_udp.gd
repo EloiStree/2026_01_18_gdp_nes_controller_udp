@@ -1,4 +1,4 @@
-extends Node
+class_name NesHelloWorldUdp extends Node
 
 # What compute we want to talk to
 @export var ipv4_to_target := "127.0.0.1"

@@ -347,6 +347,19 @@ nes_controller = NodePath("../../../../NesControllerToInt")
 script = ExtResource("10_sf5ed")
 metadata/_custom_type_script = "uid://bty8kgte7clr1"
 
+[node name="Button" type="Button" parent="AspectRatioContainer/PanelRatioNES" unique_id=472936983]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.88600004
+anchor_top = 0.256
+anchor_right = 0.9760001
+anchor_bottom = 0.5
+offset_left = -4.800049
+offset_top = 2.521408
+offset_right = -4.800049
+offset_bottom = 4.0000153
+text = "Test"
+
 [node name="Input" type="Node" parent="." unique_id=35613654]
 
 [node name="DisplayInputJoystickButton" type="Node" parent="Input" unique_id=1537884294]
@@ -486,6 +499,7 @@ metadata/_custom_type_script = "uid://ds80rs80plamt"
 [connection signal="on_mode_changed_index" from="AspectRatioContainer/PanelRatioNES/Button Change Arrow Mode/Node" to="AspectRatioContainer/PanelRatioNES/Button Change Arrow Mode/NesSaveLoadStringValueFromFileMemory2" method="save_given_integer"]
 [connection signal="on_mode_changed_label" from="AspectRatioContainer/PanelRatioNES/Button Change Arrow Mode/Node" to="AspectRatioContainer/PanelRatioNES/Button Change Arrow Mode" method="set_text"]
 [connection signal="on_value_loaded_from_file" from="AspectRatioContainer/PanelRatioNES/Button Change Arrow Mode/NesSaveLoadStringValueFromFileMemory2" to="AspectRatioContainer/PanelRatioNES/Button Change Arrow Mode/Node" method="set_mode_with_str_index"]
+[connection signal="pressed" from="AspectRatioContainer/PanelRatioNES/Button" to="SendIntegerUDP" method="test_send_iid_array_of_a_b_x_y"]
 [connection signal="on_down_up" from="Input/SuperFamicomController/NesButtonA" to="NesControllerToInt" method="set_down_up_key_a"]
 [connection signal="on_down_up" from="Input/SuperFamicomController/NesButtonB" to="NesControllerToInt" method="set_down_up_key_b"]
 [connection signal="on_down_up" from="Input/SuperFamicomController/NesButtonMenuLeft" to="NesControllerToInt" method="set_down_up_key_menu_left"]

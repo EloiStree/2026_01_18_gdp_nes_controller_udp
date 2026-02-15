@@ -1,6 +1,6 @@
 # Text is great but it is very heavy on the network.
 
-extends Node
+class_name NesSendTextMessageOnOff extends Node
 
 @export var sent_when_down:String="On Down Message"
 @export var sent_when_up:String="On up Message"

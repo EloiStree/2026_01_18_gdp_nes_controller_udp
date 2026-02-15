@@ -1,6 +1,163 @@
 # class name It allows other script ot refert to it
 class_name XboxControllerToInt extends Node
 
+
+enum XboxCommandBasic {
+	BUTTON_DOWN_A = 1300,
+	BUTTON_LEFT_X = 1301,
+	BUTTON_RIGHT_B = 1302,
+	BUTTON_UP_Y = 1303,
+
+	BUTTON_LEFT_SIDE = 1304,
+	BUTTON_RIGHT_SIDE = 1305,
+
+	BUTTON_LEFT_STICK = 1306,
+	BUTTON_RIGHT_STICK = 1307,
+
+	BUTTON_MENU_RIGHT = 1308,
+	BUTTON_MENU_LEFT = 1309,
+
+	ARROW_UP = 1311,
+	ARROW_RIGHT = 1313,
+	ARROW_DOWN = 1315,
+	ARROW_LEFT = 1317,
+
+	XBOX_HOME_BUTTON = 1319,
+	START_RECORDING = 1321,
+
+	LEFT_TRIGGER_100 = 1358,
+	RIGHT_TRIGGER_100 = 1359,
+
+	LEFT_STICK_HORIZONTAL_P100 = 1350,
+	LEFT_STICK_HORIZONTAL_N100 = 1351,
+	LEFT_STICK_VERTICAL_P100 = 1352,
+	LEFT_STICK_VERTICAL_N100 = 1353,
+
+	RIGHT_STICK_HORIZONTAL_P100 = 1354,
+	RIGHT_STICK_HORIZONTAL_N100 = 1355,
+	RIGHT_STICK_VERTICAL_P100 = 1356,
+	RIGHT_STICK_VERTICAL_N100 = 1357,
+
+
+
+}
+
+
+enum XboxCommandFull {
+	# --- Face Buttons ---
+	BUTTON_DOWN_A = 1300,
+	BUTTON_LEFT_X = 1301,
+	BUTTON_RIGHT_B = 1302,
+	BUTTON_UP_Y = 1303,
+	BUTTON_LEFT_SIDE = 1304,
+	BUTTON_RIGHT_SIDE = 1305,
+	BUTTON_LEFT_STICK = 1306,
+	BUTTON_RIGHT_STICK = 1307,
+	BUTTON_MENU_RIGHT = 1308,
+	BUTTON_MENU_LEFT = 1309,
+
+	# --- Arrows ---
+	ARROW_RELEASE = 1310,
+	ARROW_UP = 1311,
+	ARROW_UP_RIGHT = 1312,
+	ARROW_RIGHT = 1313,
+	ARROW_DOWN_RIGHT = 1314,
+	ARROW_DOWN = 1315,
+	ARROW_DOWN_LEFT = 1316,
+	ARROW_LEFT = 1317,
+	ARROW_UP_LEFT = 1318,
+
+	# --- System ---
+	XBOX_HOME_BUTTON = 1319,
+	RANDOM_AXIS = 1320,
+	START_RECORDING = 1321,
+
+	# --- Left Stick Directions ---
+	LEFT_STICK_NEUTRAL = 1330,
+	LEFT_STICK_UP = 1331,
+	LEFT_STICK_UP_RIGHT = 1332,
+	LEFT_STICK_RIGHT = 1333,
+	LEFT_STICK_DOWN_RIGHT = 1334,
+	LEFT_STICK_DOWN = 1335,
+	LEFT_STICK_DOWN_LEFT = 1336,
+	LEFT_STICK_LEFT = 1337,
+	LEFT_STICK_UP_LEFT = 1338,
+
+	# --- Right Stick Directions ---
+	RIGHT_STICK_NEUTRAL = 1340,
+	RIGHT_STICK_UP = 1341,
+	RIGHT_STICK_UP_RIGHT = 1342,
+	RIGHT_STICK_RIGHT = 1343,
+	RIGHT_STICK_DOWN_RIGHT = 1344,
+	RIGHT_STICK_DOWN = 1345,
+	RIGHT_STICK_DOWN_LEFT = 1346,
+	RIGHT_STICK_LEFT = 1347,
+	RIGHT_STICK_UP_LEFT = 1348,
+
+	# --- Stick 100% Axis ---
+	LEFT_STICK_HORIZONTAL_P100 = 1350,
+	LEFT_STICK_HORIZONTAL_N100 = 1351,
+	LEFT_STICK_VERTICAL_P100 = 1352,
+	LEFT_STICK_VERTICAL_N100 = 1353,
+	RIGHT_STICK_HORIZONTAL_P100 = 1354,
+	RIGHT_STICK_HORIZONTAL_N100 = 1355,
+	RIGHT_STICK_VERTICAL_P100 = 1356,
+	RIGHT_STICK_VERTICAL_N100 = 1357,
+
+	# --- Trigger 100% ---
+	LEFT_TRIGGER_100 = 1358,
+	RIGHT_TRIGGER_100 = 1359,
+
+	# --- Stick 75% Axis ---
+	LEFT_STICK_HORIZONTAL_P75 = 1360,
+	LEFT_STICK_HORIZONTAL_N75 = 1361,
+	LEFT_STICK_VERTICAL_P75 = 1362,
+	LEFT_STICK_VERTICAL_N75 = 1363,
+	RIGHT_STICK_HORIZONTAL_P75 = 1364,
+	RIGHT_STICK_HORIZONTAL_N75 = 1365,
+	RIGHT_STICK_VERTICAL_P75 = 1366,
+	RIGHT_STICK_VERTICAL_N75 = 1367,
+
+	# --- Trigger 75% ---
+	LEFT_TRIGGER_75 = 1368,
+	RIGHT_TRIGGER_75 = 1369,
+
+	# --- Stick 50% Axis ---
+	LEFT_STICK_HORIZONTAL_P50 = 1370,
+	LEFT_STICK_HORIZONTAL_N50 = 1371,
+	LEFT_STICK_VERTICAL_P50 = 1372,
+	LEFT_STICK_VERTICAL_N50 = 1373,
+	RIGHT_STICK_HORIZONTAL_P50 = 1374,
+	RIGHT_STICK_HORIZONTAL_N50 = 1375,
+	RIGHT_STICK_VERTICAL_P50 = 1376,
+	RIGHT_STICK_VERTICAL_N50 = 1377,
+
+	# --- Trigger 50% ---
+	LEFT_TRIGGER_50 = 1378,
+	RIGHT_TRIGGER_50 = 1379,
+
+	# --- Stick 25% Axis ---
+	LEFT_STICK_HORIZONTAL_P25 = 1380,
+	LEFT_STICK_HORIZONTAL_N25 = 1381,
+	LEFT_STICK_VERTICAL_P25 = 1382,
+	LEFT_STICK_VERTICAL_N25 = 1383,
+	RIGHT_STICK_HORIZONTAL_P25 = 1384,
+	RIGHT_STICK_HORIZONTAL_N25 = 1385,
+	RIGHT_STICK_VERTICAL_P25 = 1386,
+	RIGHT_STICK_VERTICAL_N25 = 1387,
+
+	# --- Trigger 25% ---
+	LEFT_TRIGGER_25 = 1388,
+	RIGHT_TRIGGER_25 = 1389,
+
+	# --- Global ---
+	RELEASE_ALL_TOUCH = 1390,
+	RELEASE_ALL_TOUCH_BUT_MENU = 1391,
+	CLEAR_TIMED_COMMAND = 1398
+}
+
+
+
 #region BUTTONS AND AXES VALUES
 @export_group("Input as S2W Xbox")
 @export var button_down_a:int = 1300;
@@ -527,4 +684,80 @@ func joystick_right_horizontal_right_for_10_seconds():
 	release_key_in_seconds(right_stick_horizontal_p100_percent,10)
 	
 #endregion
+	
+	
+	
+	
+#region ENUM BASIC USE
+func send_enum_integer(integer_to_send:XboxCommandBasic):
+	if use_print_debugging:
+		print("Send Integer: ", integer_to_send)
+	on_integer_to_send_requested.emit(integer_to_send)
+
+func press_enum_key(key_press_value:XboxCommandBasic):
+	send_enum_integer(key_press_value)
+
+func release_enum_key(key_press_value:XboxCommandBasic):
+	send_enum_integer(key_press_value + 1000)
+
+func stroke_enum_key_no_delay(key_press_value:XboxCommandBasic):
+	press_enum_key(key_press_value)
+	release_enum_key(key_press_value)
+
+func press_enum_key_in_milliseconds(key_press_value:XboxCommandBasic, press_duration_milliseconds:int):
+	on_integer_with_millisecond_delay_to_send_requested.emit(key_press_value, press_duration_milliseconds)
+
+func release_enum_key_in_milliseconds(key_press_value:XboxCommandBasic, release_delay_milliseconds:int):
+	on_integer_with_millisecond_delay_to_send_requested.emit(key_press_value + 1000, release_delay_milliseconds)
+
+func press_enum_key_in_seconds(key_press_value:XboxCommandBasic, press_duration_seconds:float):
+	press_enum_key_in_milliseconds(key_press_value, int(press_duration_seconds * 1000))
+
+func release_enum_key_in_seconds(key_press_value:XboxCommandBasic, release_delay_seconds:float):
+	release_enum_key_in_milliseconds(key_press_value, int(release_delay_seconds * 1000))
+
+
+func stroke_enum_key_for_milliseconds(key_press_value:XboxCommandBasic, press_duration_milliseconds:int):
+	press_enum_key(key_press_value)
+	release_enum_key_in_milliseconds(key_press_value, press_duration_milliseconds)
+
+func stroke_enum_key_for_seconds(key_press_value:XboxCommandBasic, press_duration_seconds:float):
+	stroke_enum_key_for_milliseconds(key_press_value, int(press_duration_seconds * 1000))
+
+func stroke_enum_key_in_milliseconds(key_press_value:XboxCommandBasic, delay_milliseconds:int, press_duration_milliseconds:int):
+	press_enum_key_in_milliseconds(key_press_value, press_duration_milliseconds)
+	release_enum_key_in_milliseconds(key_press_value, delay_milliseconds + press_duration_milliseconds)
+
+func stroke_enum_key_in_seconds(key_press_value:XboxCommandBasic, delay_seconds:float, press_duration_seconds:float):
+	stroke_enum_key_in_milliseconds(key_press_value, int(delay_seconds * 1000), int(press_duration_seconds * 1000))
+
+func set_enum_key_down_up(key_press_value:XboxCommandBasic, value_down_up:bool):
+	if value_down_up:
+		press_enum_key(key_press_value)
+	else:
+		release_enum_key(key_press_value)
+
+func several_enum_click(key_press_value:XboxCommandBasic, number_of_clicks:int, delay_between_clicks_milliseconds:int, press_duration_milliseconds:int):
+	var time_relative = 0
+	for i in range(number_of_clicks):
+		press_enum_key_in_milliseconds(key_press_value, time_relative)
+		time_relative += press_duration_milliseconds
+		release_enum_key_in_milliseconds(key_press_value, time_relative)
+		time_relative += delay_between_clicks_milliseconds
+
+func double_enum_click(key_press_value:XboxCommandBasic, delay_between_clicks_milliseconds:int, press_duration_milliseconds:int):
+	several_enum_click(key_press_value, 2, delay_between_clicks_milliseconds, press_duration_milliseconds)
+
+func triple_enum_click(key_press_value:XboxCommandBasic, delay_between_clicks_milliseconds:int, press_duration_milliseconds:int):
+	several_enum_click(key_press_value, 3, delay_between_clicks_milliseconds, press_duration_milliseconds)	
+
+
+
+
+#endregion
+
+
+	
+	
+	
 	

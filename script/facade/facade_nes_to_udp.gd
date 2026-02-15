@@ -7,6 +7,7 @@ signal on_send_int_to_target(new_value:int)
 @export var _udp_sender: NesSendIntegerMessageUdp
 @export var _nes_pad: NesControllerToInt
 @export var _int_delayer: NesIntDelayer
+@export var _xbox: XboxControllerToInt
 
 @export_group("Save and Load")
 @export var _use_save_and_load:bool =true
@@ -63,6 +64,9 @@ func get_udp_sender()-> NesSendIntegerMessageUdp:
 
 func get_int_delayer()-> NesIntDelayer:
 	return _int_delayer
+	
+func get_xbox()->XboxControllerToInt:
+	return _xbox
 #endregion
 
 #region UDP SENDER ACCESS
@@ -109,7 +113,6 @@ func send_custom_index_integer_to_target(new_value:int, target_index:int):
 #endregion
 
 #region NES ACCESS
-
 func get_key_value_from_enum(key_enum:NesControllerToInt.NesButton) -> int:
 	return get_nes().get_key_value_from_enum(key_enum)
 func press_key_with_enum(key_enum:NesControllerToInt.NesButton, press_type:NesControllerToInt.PressType):
@@ -130,8 +133,65 @@ func stroke_key_with_enum_in_milliseconds(key_enum:NesControllerToInt.NesButton,
 	return get_nes().stroke_key_with_enum_in_milliseconds(key_enum, delay_milliseconds, press_duration_milliseconds)
 func stroke_key_with_enum_in_seconds(key_enum:NesControllerToInt.NesButton, delay_seconds:float, press_duration_seconds:float):
 	return get_nes().stroke_key_with_enum_in_seconds(key_enum, delay_seconds, press_duration_seconds)
+
 #endregion
 
+#region XBOX ACCESS
+
+func xbox_get_key_value_from_enum(key_enum:XboxControllerToInt.XboxCommandBasic) -> int:
+	return get_xbox().get_key_value_from_enum(key_enum)
+
+func xbox_send_enum_integer(integer_to_send:XboxControllerToInt.XboxCommandBasic):
+	get_xbox().send_enum_integer(integer_to_send)
+	
+func xbox_press_enum_key(key_press_value:XboxControllerToInt.XboxCommandBasic):\
+	get_xbox().press_enum_key(key_press_value)
+
+func xbox_release_enum_key(key_press_value:XboxControllerToInt.XboxCommandBasic):
+	get_xbox().release_enum_key(key_press_value)
+	
+func xbox_stroke_enum_key_no_delay(key_press_value:XboxControllerToInt.XboxCommandBasic):
+	get_xbox().stroke_enum_key_no_delay(key_press_value)
+	
+func xbox_press_enum_key_in_milliseconds(key_press_value:XboxControllerToInt.XboxCommandBasic, press_duration_milliseconds:int):
+	get_xbox().press_enum_key_in_milliseconds(key_press_value, press_duration_milliseconds)
+	
+func xbox_release_enum_key_in_milliseconds(key_press_value:XboxControllerToInt.XboxCommandBasic, release_delay_milliseconds:int):
+	get_xbox().release_enum_key_in_milliseconds(key_press_value, release_delay_milliseconds)
+	
+func xbox_press_enum_key_in_seconds(key_press_value:XboxControllerToInt.XboxCommandBasic, press_duration_seconds:float):
+	get_xbox().press_enum_key_in_seconds(key_press_value, press_duration_seconds)
+	
+func xbox_release_enum_key_in_seconds(key_press_value:XboxControllerToInt.XboxCommandBasic, release_delay_seconds:float):
+	get_xbox().release_enum_key_in_seconds(key_press_value, release_delay_seconds)
+	
+func xbox_stroke_enum_key_for_milliseconds(key_press_value:XboxControllerToInt.XboxCommandBasic, press_duration_milliseconds:int):
+	get_xbox().stroke_enum_key_for_milliseconds(key_press_value, press_duration_milliseconds)
+
+func xbox_stroke_enum_key_for_seconds(key_press_value:XboxControllerToInt.XboxCommandBasic, press_duration_seconds:float):
+	get_xbox().stroke_enum_key_for_seconds(key_press_value, press_duration_seconds)
+
+func xbox_stroke_enum_key_in_milliseconds(key_press_value:XboxControllerToInt.XboxCommandBasic, delay_milliseconds:int, press_duration_milliseconds:int):
+	get_xbox().stroke_enum_key_in_milliseconds(key_press_value, delay_milliseconds, press_duration_milliseconds)
+
+func xbox_stroke_enum_key_in_seconds(key_press_value:XboxControllerToInt.XboxCommandBasic, delay_seconds:float, press_duration_seconds:float):
+	get_xbox().stroke_enum_key_in_seconds(key_press_value, delay_seconds, press_duration_seconds)
+
+func xbox_set_enum_key_down_up(key_press_value:XboxControllerToInt.XboxCommandBasic, value_down_up:bool):
+	get_xbox().set_enum_key_down_up(key_press_value, value_down_up)
+
+func xbox_several_enum_click(key_press_value:XboxControllerToInt.XboxCommandBasic, number_of_clicks:int, delay_between_clicks_milliseconds:int, press_duration_milliseconds:int):
+	get_xbox().several_enum_click(key_press_value, number_of_clicks, delay_between_clicks_milliseconds, press_duration_milliseconds)
+
+func xbox_double_enum_click(key_press_value:XboxControllerToInt.XboxCommandBasic, delay_between_clicks_milliseconds:int, press_duration_milliseconds:int):
+	get_xbox().double_enum_click(key_press_value, delay_between_clicks_milliseconds, press_duration_milliseconds)
+
+func xbox_triple_enum_click(key_press_value:XboxControllerToInt.XboxCommandBasic, delay_between_clicks_milliseconds:int, press_duration_milliseconds:int):
+	get_xbox().triple_enum_click(key_press_value, delay_between_clicks_milliseconds, press_duration_milliseconds)
+
+
+
+#endregion
 
 #region OVERRIDE NES PAD TO INT
 func set_button_b_to_x():
