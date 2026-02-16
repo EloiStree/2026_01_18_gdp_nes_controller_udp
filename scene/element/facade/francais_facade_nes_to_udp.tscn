@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cfvwlr3pd0m3e"]
+
+[ext_resource type="Script" uid="uid://bjngdes58no60" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/facade/francais/francais_facade_nes_udp.gd" id="1_tmwda"]
+[ext_resource type="PackedScene" uid="uid://bbwn03yllootl" path="res://addons/2026_01_18_gdp_nes_controller_udp/scene/element/facade/facade_nes_to_udp.tscn" id="2_8lr1k"]
+
+[node name="FrancaisFacadeNesToUdp" type="Node" unique_id=2101678709 node_paths=PackedStringArray("facade_nes")]
+script = ExtResource("1_tmwda")
+facade_nes = NodePath("FacadeNesToUdp")
+
+[node name="FacadeNesToUdp" parent="." unique_id=574021232 instance=ExtResource("2_8lr1k")]

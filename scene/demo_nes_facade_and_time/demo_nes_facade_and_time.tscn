@@ -7,12 +7,6 @@
 [node name="DemoNesFacadeAndTime" type="Node" unique_id=530145003]
 
 [node name="FacadeNesToUdp" parent="." unique_id=574021232 instance=ExtResource("1_tqxv4")]
-_use_save_and_load = null
-last_sent_int_to_target = null
-target_ipv4 = null
-target_port = null
-target_index = null
-waiting_command_in_queue = null
 
 [node name="PanelUdpNES" parent="." unique_id=834786804 instance=ExtResource("3_y06jy")]
 offset_top = 237.0

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bn8bmmkdvcj8o"]
+
+[ext_resource type="PackedScene" uid="uid://cfvwlr3pd0m3e" path="res://addons/2026_01_18_gdp_nes_controller_udp/scene/element/facade/francais_facade_nes_to_udp.tscn" id="1_1e1jl"]
+[ext_resource type="Script" uid="uid://dmilg8mjcjq5k" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/facade/nes/play_to_check/_undertale/keyboard/nes_fr_jouer_undertale.gd" id="2_1hdhc"]
+
+[node name="PlayToCheckKeyboardUndertale" type="Node" unique_id=1749833123]
+
+[node name="FrancaisFacadeNesToUdp" parent="." unique_id=2101678709 instance=ExtResource("1_1e1jl")]
+
+[node name="NesFrJouerUndertale" type="Node" parent="." unique_id=1603078905 node_paths=PackedStringArray("nes_francais", "debug_label")]
+script = ExtResource("2_1hdhc")
+nes_francais = NodePath("../FrancaisFacadeNesToUdp")
+debug_label = NodePath("../Label")
+metadata/_custom_type_script = "uid://dmilg8mjcjq5k"
+
+[node name="Label" type="Label" parent="." unique_id=1187955331]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "0000"

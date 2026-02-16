@@ -112,3 +112,7 @@ func test_send_iid_array_of_a_b_x_y():
 	, 4, 1303, 6000, 4, 2303, 7000]
 	
 	send_iid_array_to_target(test_array)
+
+
+func _on_keyboard_controller_to_int_on_integer_to_send_requested(integer_action: int) -> void:
+	pass # Replace with function body.

@@ -689,6 +689,64 @@ func joystick_right_horizontal_right_for_10_seconds():
 	
 	
 #region ENUM BASIC USE
+
+func get_key_value_from_enum(key_enum:XboxCommandBasic) -> int:
+	match key_enum:
+		XboxCommandBasic.BUTTON_DOWN_A:
+			return button_down_a
+		XboxCommandBasic.BUTTON_LEFT_X:
+			return button_left_x
+		XboxCommandBasic.BUTTON_RIGHT_B:
+			return button_right_b
+		XboxCommandBasic.BUTTON_UP_Y:
+			return button_up_y
+		XboxCommandBasic.BUTTON_LEFT_SIDE:
+			return button_left_side
+		XboxCommandBasic.BUTTON_RIGHT_SIDE:
+			return button_right_side
+		XboxCommandBasic.BUTTON_LEFT_STICK:
+			return button_left_stick
+		XboxCommandBasic.BUTTON_RIGHT_STICK:
+			return button_right_stick
+		XboxCommandBasic.BUTTON_MENU_RIGHT:
+			return button_menu_right
+		XboxCommandBasic.BUTTON_MENU_LEFT:
+			return button_menu_left
+		XboxCommandBasic.ARROW_UP:
+			return arrow_up
+		XboxCommandBasic.ARROW_RIGHT:
+			return arrow_right
+		XboxCommandBasic.ARROW_DOWN:
+			return arrow_down
+		XboxCommandBasic.ARROW_LEFT:
+			return arrow_left
+		XboxCommandBasic.XBOX_HOME_BUTTON:
+			return xbox_home_button
+		XboxCommandBasic.START_RECORDING:
+			return start_recording
+		XboxCommandBasic.LEFT_TRIGGER_100:
+			return left_trigger_100_percent
+		XboxCommandBasic.RIGHT_TRIGGER_100:
+			return right_trigger_100_percent
+		XboxCommandBasic.LEFT_STICK_HORIZONTAL_P100:
+			return left_stick_horizontal_p100_percent
+		XboxCommandBasic.LEFT_STICK_HORIZONTAL_N100:
+			return left_stick_horizontal_n100_percent
+		XboxCommandBasic.LEFT_STICK_VERTICAL_P100:
+			return left_stick_vertical_p100_percent
+		XboxCommandBasic.LEFT_STICK_VERTICAL_N100:
+			return left_stick_vertical_n100_percent
+		XboxCommandBasic.RIGHT_STICK_HORIZONTAL_P100:
+			return right_stick_horizontal_p100_percent
+		XboxCommandBasic.RIGHT_STICK_HORIZONTAL_N100:
+			return right_stick_horizontal_n100_percent
+		XboxCommandBasic.RIGHT_STICK_VERTICAL_P100:
+			return right_stick_vertical_p100_percent
+		XboxCommandBasic.RIGHT_STICK_VERTICAL_N100:
+			return right_stick_vertical_n100_percent
+		_:
+			return -1
+
 func send_enum_integer(integer_to_send:XboxCommandBasic):
 	if use_print_debugging:
 		print("Send Integer: ", integer_to_send)

@@ -159,7 +159,7 @@ func get_key_value_from_enum(key_enum:NesButton) -> int:
 			push_error("Invalid NesButton enum: " + str(key_enum))
 			return -1
 
-func press_key_with_enum(key_enum:NesButton, press_type:PressType):
+func press_key_with_enum_and_pression_type(key_enum:NesButton, press_type:PressType):
 	var key_value = get_key_value_from_enum(key_enum)
 	match press_type:
 		PressType.PRESS:
@@ -180,6 +180,12 @@ func press_key_with_enum(key_enum:NesButton, press_type:PressType):
 			press_key_in_seconds(key_value, 10)
 		_:
 			push_error("Invalid PressType: " + str(press_type))
+
+func press_key_with_enum(key_enum:NesButton):
+	press_key_with_enum_and_pression_type(key_enum, PressType.PRESS)
+
+func release_key_with_enum(key_enum:NesButton):
+	press_key_with_enum_and_pression_type(key_enum, PressType.RELEASE)
 
 func press_key_with_enum_in_milliseconds(key_enum:NesButton, delay_milliseconds:int):
 	var key_value = get_key_value_from_enum(key_enum)
@@ -532,5 +538,18 @@ func release_all_keys():
 #endregion
 
 
-func _on_nes_button_arrow_left_on_down_up(pressed: bool) -> void:
-	pass # Replace with function body.
+func set_down_up_key_with_enum(key_enum:NesButton, value_down_up:bool):
+	var key_value = get_key_value_from_enum(key_enum)
+	set_down_up_key(key_value, value_down_up)
+
+
+
+func override_all_buttons(left:int, right:int, up:int, down:int, a:int, b:int, select:int, start:int):
+	override_button_arrow_left(left)
+	override_button_arrow_right(right)
+	override_button_arrow_up(up)
+	override_button_arrow_down(down)
+	override_button_a(a)
+	override_button_b(b)
+	override_button_menu_left(select)
+	override_button_menu_right(start)

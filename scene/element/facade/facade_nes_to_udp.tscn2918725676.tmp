@@ -12,13 +12,12 @@
 script = ExtResource("2_qt75i")
 metadata/_custom_type_script = "uid://blvuiqbp0bc0y"
 
-[node name="FacadeNesToUdp" type="Node" unique_id=574021232 node_paths=PackedStringArray("udp_sender", "nes_pad", "int_delayer", "xbox", "keyboard")]
+[node name="FacadeNesToUdp" type="Node" unique_id=574021232 node_paths=PackedStringArray("udp_sender", "nes_pad", "int_delayer", "xbox")]
 script = ExtResource("1_ofjs3")
 udp_sender = NodePath("SendIntegerUDP")
 nes_pad = NodePath("NesControllerToInt")
 int_delayer = NodePath("NesIntDelayer")
 xbox = NodePath("XboxControllerToInt")
-keyboard = NodePath("KeyboardControllerToInt")
 target_at_init = SubResource("Resource_o7v2n")
 
 [node name="SendIntegerUDP" type="Node" parent="." unique_id=1523918253]
@@ -44,6 +43,6 @@ metadata/_custom_type_script = "uid://batpkfgtryf71"
 [connection signal="on_integer_to_send_requested_with_milliseconds_delay" from="NesControllerToInt" to="NesIntDelayer" method="add_action_to_delay_as_integer_in_milliseconds"]
 [connection signal="on_integer_to_send_requested" from="XboxControllerToInt" to="SendIntegerUDP" method="send_integer"]
 [connection signal="on_integer_with_millisecond_delay_to_send_requested" from="XboxControllerToInt" to="NesIntDelayer" method="add_action_to_delay_as_integer_in_milliseconds"]
-[connection signal="on_integer_to_send_requested" from="KeyboardControllerToInt" to="SendIntegerUDP" method="send_integer"]
+[connection signal="on_integer_to_send_requested" from="KeyboardControllerToInt" to="SendIntegerUDP" method="_on_keyboard_controller_to_int_on_integer_to_send_requested"]
 [connection signal="on_integer_with_millisecond_delay_to_send_requested" from="KeyboardControllerToInt" to="NesIntDelayer" method="add_action_to_delay_as_integer_in_milliseconds"]
 [connection signal="action_integer_requested" from="NesIntDelayer" to="SendIntegerUDP" method="send_integer"]

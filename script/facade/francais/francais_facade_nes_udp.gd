@@ -1,0 +1,311 @@
+class_name FrancaisFacadeNesToUdp extends Node
+
+@export var facade_nes:FacadeNesToUdp
+
+
+#region GET MAIN COMPONENTS
+func recuperer_la_nes()-> NesControllerToInt:
+	return facade_nes.get_nes()
+func recuperer_le_udp_sender()-> NesSendIntegerMessageUdp:
+	return facade_nes.get_udp_sender()
+
+func recuperer_le_int_delayer()-> NesIntDelayer:
+	return facade_nes.get_int_delayer()
+	
+func recuperer_la_xbox()->XboxControllerToInt:
+	return facade_nes.get_xbox()
+
+func recuperer_le_clavier()->KeyboardControllerToInt:
+	return facade_nes.get_keyboard()
+#endregion
+
+#region UDP SENDER ACCESS
+
+func definir_l_adresse_ip_de_la_cible(new_ipv4:String):
+	facade_nes.get_udp_sender().set_target_ipv4(new_ipv4)
+
+func definir_le_port_de_la_cible(new_port:String):
+	facade_nes.get_udp_sender().set_target_port(new_port)
+
+func definir_l_index_du_joueur_de_la_cible(new_index:String):
+	facade_nes.get_udp_sender().set_target_player_index(new_index)
+
+func recuperer_le_signal_quand_un_entier_est_envoye_a_la_cible():
+	return facade_nes.get_udp_sender().on_integer_sent
+func recuperer_le_signal_quand_un_entier_avec_l_index_est_envoye_a_la_cible():
+	return facade_nes.get_udp_sender().on_integer_sent_with_player_index
+
+func recuperer_l_ipv4_de_la_cible()->String:
+	return facade_nes.get_udp_sender().ipv4_to_target
+
+func recuperer_le_port_de_la_cible()->int:
+	return facade_nes.get_udp_sender().port_to_target
+
+func recuperer_l_index_du_joueur_de_la_cible()->int:
+	return facade_nes.get_udp_sender().player_to_target
+
+func envoyer_un_entier_a_la_cible_dans_des_secondes(new_value:int, delai_en_secondes:float):
+	facade_nes.send_integer_to_target_in_seconds(new_value, delai_en_secondes)
+func envoyer_un_entier_a_la_cible_dans_des_millisecondes(new_value:int, delai_en_milliseconds:int):
+	facade_nes.send_integer_to_target_in_milliseconds(new_value, delai_en_milliseconds)
+
+func envoyer_un_entier_a_la_cible(new_value:int):
+	facade_nes.send_integer_to_target(new_value)
+
+func envoyer_un_entier_a_la_cible_avec_le_numero_du_joueur(target_index:int,new_value:int):
+	facade_nes.send_custom_index_integer_to_target(target_index, new_value)
+
+#endregion
+
+#region NES ACCESS
+
+func nes_recuperer_la_valeur_eniere_d_une_touche_nes(touche:NesControllerToInt.NesButton) -> int:
+	return facade_nes.nes_get_key_value_from_enum(touche)
+
+func nes_appuyer_sur_une_touche_avec_son_type_de_pression(touche:NesControllerToInt.NesButton, type_de_pression:NesControllerToInt.PressType):
+	return facade_nes.nes_press_key_with_pression_type(touche, type_de_pression)
+
+func nes_appuyer_sur_une_touche(touche:NesControllerToInt.NesButton, delay_milliseconds:int):
+	return facade_nes.nes_press_key_with_pression_type(touche, NesControllerToInt.PressType.PRESS)
+
+func nes_relacher_une_touche(touche:NesControllerToInt.NesButton, delay_milliseconds:int):
+	return facade_nes.nes_press_key_with_pression_type(touche, NesControllerToInt.PressType.RELEASE)
+
+func nes_appuyer_sur_une_touche_dans_des_millisecondes(touche:NesControllerToInt.NesButton, delai_en_milliseconds:int):
+	return facade_nes.nes_press_key_in_milliseconds(touche, delai_en_milliseconds)
+
+func nes_relacher_une_touche_dans_des_millisecondes(touche:NesControllerToInt.NesButton, delai_en_milliseconds:int):
+	return facade_nes.nes_release_key_in_milliseconds(touche, delai_en_milliseconds)
+
+func nes_appuyer_sur_une_touche_dans_des_secondes(touche:NesControllerToInt.NesButton, delai_en_secondes:float):
+	return facade_nes.nes_press_key_in_seconds(touche, delai_en_secondes)
+
+func nes_relacher_une_touche_dans_des_secondes(touche:NesControllerToInt.NesButton, delai_en_secondes:float):
+	return facade_nes.nes_release_key_in_seconds(touche, delai_en_secondes)
+
+func nes_frapper_une_touche_pour_des_millisecondes(touche:NesControllerToInt.NesButton, duree_de_la_pression_en_milliseconds:int):
+	return facade_nes.nes_stroke_key_for_milliseconds(touche, duree_de_la_pression_en_milliseconds)
+
+func nes_frapper_une_touche_pour_des_secondes(touche:NesControllerToInt.NesButton, duree_de_la_pression_en_secondes:float):
+	return facade_nes.nes_stroke_key_for_seconds(touche, duree_de_la_pression_en_secondes)
+
+func nes_frapper_une_touche_dans_des_millisecondes(touche:NesControllerToInt.NesButton, delai_en_milliseconds:int, duree_de_la_pression_en_milliseconds:int):
+	return facade_nes.nes_stroke_key_in_milliseconds(touche, delai_en_milliseconds, duree_de_la_pression_en_milliseconds)
+
+func nes_frapper_une_touche_dans_des_secondes(touche:NesControllerToInt.NesButton, delai_en_secondes:float, duree_de_la_pression_en_secondes:float):
+	return facade_nes.nes_stroke_key_in_seconds(touche, delai_en_secondes, duree_de_la_pression_en_secondes)
+
+#endregion
+
+#region XBOX ACCESS
+func recuperer_la_valeur_eniere_d_un_enum_de_touche_xbox(touche:XboxControllerToInt.XboxCommandBasic) -> int:
+	return facade_nes.xbox_get_key_value_from_enum(touche)
+
+func xbox_envoyer_un_entier_avec_enum(touche:XboxControllerToInt.XboxCommandBasic):
+	facade_nes.xbox_send_enum_integer(touche)
+	
+func xbox_appuyer_sur_une_touche_avec_enum(touche:XboxControllerToInt.XboxCommandBasic):
+	facade_nes.xbox_press_enum_key(touche)
+
+func xbox_relacher_une_touche_avec_enum(touche:XboxControllerToInt.XboxCommandBasic):
+	facade_nes.xbox_release_enum_key(touche)
+	
+func xbox_frapper_une_touche_avec_enum_sans_delai(touche:XboxControllerToInt.XboxCommandBasic):
+	facade_nes.xbox_stroke_enum_key_no_delay(touche)
+	
+func xbox_appuyer_sur_une_touche_avec_enum_en_millisecondes(touche:XboxControllerToInt.XboxCommandBasic, duree_de_la_pression_en_milliseconds:int):
+	facade_nes.xbox_press_enum_key_in_milliseconds(touche, duree_de_la_pression_en_milliseconds)
+	
+func xbox_relacher_une_touche_avec_enum_en_millisecondes(touche:XboxControllerToInt.XboxCommandBasic, delai_de_relachement_en_milliseconds:int):
+	facade_nes.xbox_release_enum_key_in_milliseconds(touche, delai_de_relachement_en_milliseconds)
+	
+
+func xbox_appuyer_sur_une_touche_avec_enum_en_secondes(touche:XboxControllerToInt.XboxCommandBasic, duree_de_la_pression_en_secondes:float):
+	facade_nes.xbox_press_enum_key_in_seconds(touche, duree_de_la_pression_en_secondes)
+	
+func xbox_relacher_une_touche_avec_enum_en_secondes(touche:XboxControllerToInt.XboxCommandBasic, delai_de_relachement_en_secondes:float):
+	facade_nes.xbox_release_enum_key_in_seconds(touche, delai_de_relachement_en_secondes)
+	
+func xbox_frapper_une_touche_avec_enum_pour_millisecondes(touche:XboxControllerToInt.XboxCommandBasic, duree_de_la_pression_en_milliseconds:int):
+	facade_nes.xbox_stroke_enum_key_for_milliseconds(touche, duree_de_la_pression_en_milliseconds)
+
+func xbox_frapper_une_touche_avec_enum_pour_secondes(touche:XboxControllerToInt.XboxCommandBasic, duree_de_la_pression_en_secondes:float):
+	facade_nes.xbox_stroke_enum_key_for_seconds(touche, duree_de_la_pression_en_secondes)
+
+func xbox_frapper_une_touche_avec_enum_en_millisecondes(touche:XboxControllerToInt.XboxCommandBasic, delai_en_milliseconds:int, duree_de_la_pression_en_milliseconds:int):
+	facade_nes.xbox_stroke_enum_key_in_milliseconds(touche, delai_en_milliseconds, duree_de_la_pression_en_milliseconds)
+
+func xbox_frapper_une_touche_avec_enum_en_secondes(touche:XboxControllerToInt.XboxCommandBasic, delai_en_secondes:float, duree_de_la_pression_en_secondes:float):
+	facade_nes.xbox_stroke_enum_key_in_seconds(touche, delai_en_secondes, duree_de_la_pression_en_secondes)
+
+func xbox_definir_une_touche_xbox_comme_presser_ou_relacher(touche :XboxControllerToInt.XboxCommandBasic, valeur_presser_ou_relacher:bool):
+	facade_nes.xbox_set_enum_key_down_up(touche, valeur_presser_ou_relacher)
+
+func xbox_plusieurs_clics_enum(touche:XboxControllerToInt.XboxCommandBasic, number_of_clicks:int, delai_en_milliseconds_entre_les_clicks:int, duree_pression_en_milliseconds:int):
+	facade_nes.xbox_several_enum_click(touche, number_of_clicks, delai_en_milliseconds_entre_les_clicks, duree_pression_en_milliseconds)
+
+func xbox_double_enum_click(touche:XboxControllerToInt.XboxCommandBasic, delai_en_milliseconds_entre_les_clicks:int, duree_de_la_pression_en_milliseconds:int):
+	facade_nes.xbox_double_enum_click(touche, delai_en_milliseconds_entre_les_clicks, duree_de_la_pression_en_milliseconds)
+
+func xbox_triple_enum_click(touche:XboxControllerToInt.XboxCommandBasic, delai_en_milliseconds_entre_les_clicks:int, duree_de_la_pression_en_milliseconds:int):
+	facade_nes.xbox_triple_enum_click(touche, delai_en_milliseconds_entre_les_clicks, duree_de_la_pression_en_milliseconds)
+
+
+
+#endregion
+
+
+#region KEYBOARD ACCESS
+
+func clavier_obtenir_valeur_de_touche_depuis_un_enum(touche:KeyboardControllerToInt.KeyboardCommandInt) -> int:
+	return facade_nes.keyboard_get_key_value_from_enum(touche)
+
+func clavier_appuyer_sur_une_touche(touche:KeyboardControllerToInt.KeyboardCommandInt):
+	facade_nes.keyboard_press_enum_key(touche)
+
+func clavier_relacher_une_touche(touche:KeyboardControllerToInt.KeyboardCommandInt):
+	facade_nes.keyboard_release_enum_key(touche)	
+
+func clavier_frapper_une_touche_sans_delai(touche:KeyboardControllerToInt.KeyboardCommandInt):
+	facade_nes.keyboard_stroke_key_no_delay(touche)	
+
+func clavier_appuyer_sur_une_touche_dans_des_millisecondes(touche:KeyboardControllerToInt.KeyboardCommandInt, duree_de_la_pression_en_milliseconds:int):
+	facade_nes.keyboard_press_key_in_milliseconds(touche, duree_de_la_pression_en_milliseconds)
+
+func clavier_relacher_une_touche_dans_des_millisecondes(touche:KeyboardControllerToInt.KeyboardCommandInt, delai_de_relachement_en_milliseconds:int):
+	facade_nes.keyboard_release_key_in_milliseconds(touche, delai_de_relachement_en_milliseconds)
+
+func clavier_appuyer_sur_une_touche_dans_des_secondes(touche:KeyboardControllerToInt.KeyboardCommandInt, duree_de_la_pression_en_secondes:float):
+	facade_nes.keyboard_press_key_in_seconds(touche, duree_de_la_pression_en_secondes)	
+
+func clavier_relacher_une_touche_dans_des_secondes(touche:KeyboardControllerToInt.KeyboardCommandInt, delai_de_relachement_en_secondes:float):
+	facade_nes.keyboard_release_key_in_seconds(touche, delai_de_relachement_en_secondes)
+
+
+func clavier_frapper_une_touche_pour_des_millisecondes(touche:KeyboardControllerToInt.KeyboardCommandInt, duree_de_la_pression_en_milliseconds:int):
+	facade_nes.keyboard_stroke_enum_key_for_milliseconds(touche, duree_de_la_pression_en_milliseconds)	
+
+func clavier_frapper_une_touche_pour_des_secondes(touche:KeyboardControllerToInt.KeyboardCommandInt, duree_de_la_pression_en_secondes:float):
+	facade_nes.keyboard_stroke_enum_key_for_seconds(touche, duree_de_la_pression_en_secondes)	
+
+func clavier_frapper_une_touche_dans_des_millisecondes(touche:KeyboardControllerToInt.KeyboardCommandInt, delai_en_milliseconds:int, duree_de_la_pression_en_milliseconds:int):
+	facade_nes.keyboard_stroke_enum_key_in_milliseconds(touche, delai_en_milliseconds, duree_de_la_pression_en_milliseconds)
+
+func clavier_frapper_une_touche_dans_des_secondes(touche:KeyboardControllerToInt.KeyboardCommandInt	, delai_en_secondes:float, duree_de_la_pression_en_secondes:float):
+	facade_nes.keyboard_stroke_enum_key_in_seconds(touche, delai_en_secondes, duree_de_la_pression_en_secondes)
+
+func clavier_plusieurs_frappe(touche:KeyboardControllerToInt.KeyboardCommandInt, nombre_de_clics:int, delai_entre_les_clics_en_milliseconds:int, duree_de_la_pression_en_milliseconds:int):
+	facade_nes.keyboard_several_enum_click(touche, nombre_de_clics, delai_entre_les_clics_en_milliseconds, duree_de_la_pression_en_milliseconds)
+
+func clavier_double_frappe(touche:KeyboardControllerToInt.KeyboardCommandInt, delai_entre_les_clics_en_milliseconds:int, duree_de_la_pression_en_milliseconds:int):
+	facade_nes.keyboard_double_enum_click(touche, delai_entre_les_clics_en_milliseconds, duree_de_la_pression_en_milliseconds)
+
+func clavier_triple_frappe(touche:KeyboardControllerToInt.KeyboardCommandInt, delai_entre_les_clics_en_milliseconds:int, duree_de_la_pression_en_milliseconds:int):
+	facade_nes.keyboard_triple_enum_click(touche, delai_entre_les_clics_en_milliseconds, duree_de_la_pression_en_milliseconds)
+
+
+#endregion
+
+	
+
+
+#region OVERRIDE NES PAD TO INT
+
+func changer_pour_la_nes_le_button_b_par_xbox_x():
+	facade_nes.override_b_as_xbox_x()
+
+func changer_pour_la_nes_le_button_b_par_xbox_b():
+	facade_nes.override_b_as_xbox_b()
+
+func changer_pour_la_nes_le_button_b_par_xbox_y():
+	facade_nes.override_b_as_xbox_y()
+
+func remettre_pour_la_nes_les_fleches_au_dpad_par_defaut():
+	facade_nes.reset_arrows_to_default()
+
+func utiliser_pour_la_nes_le_joystick_xbox_gauche_pour_les_fleches():
+	facade_nes.override_arrows_with_joystick_left()
+
+func utiliser_pour_la_nes_le_joystick_xbox_droit_pour_les_fleches():
+	facade_nes.override_arrows_with_joystick_right()
+
+func utiliser_pour_la_nes_les_joysticks_xbox_melangant_vertical_gauche_horizontal_droite():
+	facade_nes.override_arrows_with_stick_left_vertical_stick_right_horizontal()
+
+
+func changer_toutes_les_touches_de_la_nes(gauche:int, droite:int, haut:int, bas:int, a:int, b:int, select:int, start:int):
+	facade_nes.override_all_nes_buttons(gauche, droite, haut, bas, a, b, select, start)
+
+func changer_toutes_les_touches_de_la_nes_avec_la_xbox(gauche:XboxControllerToInt.XboxCommandBasic,
+	droite:XboxControllerToInt.XboxCommandBasic,
+	haut:XboxControllerToInt.XboxCommandBasic,
+	bas:XboxControllerToInt.XboxCommandBasic,
+	a:XboxControllerToInt.XboxCommandBasic,
+	b:XboxControllerToInt.XboxCommandBasic,
+	select:XboxControllerToInt.XboxCommandBasic,
+	start:XboxControllerToInt.XboxCommandBasic):
+	changer_toutes_les_touches_de_la_nes(int(gauche), int(droite), int(haut), int(bas), int(a), int(b), int(select), int(start))
+
+func changer_toutes_les_touches_de_la_nes_avec_le_clavier(gauche:KeyboardControllerToInt.KeyboardCommandInt,
+	droite:KeyboardControllerToInt.KeyboardCommandInt, 
+	haut:KeyboardControllerToInt.KeyboardCommandInt,
+	bas:KeyboardControllerToInt.KeyboardCommandInt,
+	a:KeyboardControllerToInt.KeyboardCommandInt,
+	b:KeyboardControllerToInt.KeyboardCommandInt,
+	select:KeyboardControllerToInt.KeyboardCommandInt,
+	start:KeyboardControllerToInt.KeyboardCommandInt):
+	changer_toutes_les_touches_de_la_nes(int(gauche), int(droite), int(haut), int(bas), int(a), int(b), int(select), int(start))
+
+#endregion
+
+
+#region NES BASIC
+
+func nes_basique_appuyer_a(): facade_nes.nes_basic_press_a()    
+func nes_basique_appuyer_b(): facade_nes.nes_basic_press_b()
+func nes_basique_appuyer_le_menu_gauche_select(): facade_nes.nes_basic_press_menu_left_select()
+func nes_basique_appuyer_le_menu_droite_start(): facade_nes.nes_basic_press_menu_right_start()
+func nes_basique_appuyer_fleche_gauche(): facade_nes.nes_basic_press_arrow_left()
+func nes_basique_appuyer_fleche_droite(): facade_nes.nes_basic_press_arrow_right()
+func nes_basique_appuyer_fleche_haut(): facade_nes.nes_basic_press_arrow_up()
+func nes_basique_appuyer_fleche_bas(): facade_nes.nes_basic_press_arrow_down()  
+
+func nes_basique_relacher_a(): facade_nes.nes_basic_release_a()
+func nes_basique_relacher_b(): facade_nes.nes_basic_release_b()
+func nes_basique_relacher_le_menu_gauche_select(): facade_nes.nes_basic_release_menu_left_select()
+func nes_basique_relacher_le_menu_droite_start(): facade_nes.nes_basic_release_menu_right_start()
+func nes_basique_relacher_fleche_gauche(): facade_nes.nes_basic_release_arrow_left()
+func nes_basique_relacher_fleche_droite(): facade_nes.nes_basic_release_arrow_right()
+func nes_basique_relacher_fleche_haut(): facade_nes.nes_basic_release_arrow_up()
+func nes_basique_relacher_fleche_bas(): facade_nes.nes_basic_release_arrow_down()
+
+
+func nes_basique_definir_touche_a_comme(enfoncee:bool): facade_nes.nes_basic_set_a(enfoncee)
+func nes_basique_definir_touche_b_comme(enfoncee:bool): facade_nes.nes_basic_set_b(enfoncee)
+func nes_basique_definir_touche_menu_gauche_select_comme(enfoncee:bool): facade_nes.nes_basic_set_menu_left_select(enfoncee)
+func nes_basique_definir_touche_menu_droite_start_comme(enfoncee:bool): facade_nes.nes_basic_set_menu_right_start(enfoncee)
+func nes_basique_definir_touche_fleche_gauche_comme(enfoncee:bool): facade_nes.nes_basic_set_arrow_left(enfoncee)
+func nes_basique_definir_touche_fleche_droite_comme(enfoncee:bool): facade_nes.nes_basic_set_arrow_right(enfoncee)
+func nes_basique_definir_touche_fleche_haut_comme(enfoncee:bool): facade_nes.nes_basic_set_arrow_up(enfoncee)
+func nes_basique_definir_touche_fleche_bas_comme(enfoncee:bool): facade_nes.nes_basic_set_arrow_down(enfoncee)
+
+
+func nes_basique_appuyer_a_dans_des_millisecondes(milliseconds_delay:int):facade_nes.nes_basic_press_a_in_milliseconds(milliseconds_delay)
+func nes_basique_appuyer_b_dans_des_millisecondes(milliseconds_delay:int):facade_nes.nes_basic_press_b_in_milliseconds(milliseconds_delay)
+func nes_basique_appuyer_le_menu_gauche_select_dans_des_millisecondes(milliseconds_delay:int):facade_nes.nes_basic_press_menu_left_in_milliseconds(milliseconds_delay)
+func nes_basique_appuyer_le_menu_droite_start_dans_des_millisecondes(milliseconds_delay:int):facade_nes.nes_basic_press_menu_right_in_milliseconds(milliseconds_delay)
+func nes_basique_appuyer_fleche_gauche_dans_des_millisecondes(milliseconds_delay:int):facade_nes.nes_basic_press_arrow_left_in_milliseconds(milliseconds_delay)
+func nes_basique_appuyer_fleche_droite_dans_des_millisecondes(milliseconds_delay:int):facade_nes.nes_basic_press_arrow_right_in_milliseconds(milliseconds_delay)
+func nes_basique_appuyer_fleche_haut_dans_des_millisecondes(milliseconds_delay:int):facade_nes.nes_basic_press_arrow_up_in_milliseconds(milliseconds_delay)
+func nes_basique_appuyer_fleche_bas_dans_des_millisecondes(milliseconds_delay:int):facade_nes.nes_basic_press_arrow_down_in_milliseconds(milliseconds_delay)    
+
+func nes_basique_relacher_a_dans_des_millisecondes(milliseconds_delay:int): facade_nes.nes_basic_release_a_in_milliseconds(milliseconds_delay)
+func nes_basique_relacher_b_dans_des_millisecondes(milliseconds_delay:int): facade_nes.nes_basic_release_b_in_milliseconds(milliseconds_delay)
+func nes_basique_relacher_le_menu_gauche_select_dans_des_millisecondes(milliseconds_delay:int): facade_nes.nes_basic_release_menu_left_in_milliseconds(milliseconds_delay)
+func nes_basique_relacher_le_menu_droite_start_dans_des_millisecondes(milliseconds_delay:int): facade_nes.nes_basic_release_menu_right_in_milliseconds(milliseconds_delay)
+func nes_basique_relacher_fleche_gauche_dans_des_millisecondes(milliseconds_delay:int): facade_nes.nes_basic_release_arrow_left_in_milliseconds(milliseconds_delay)
+func nes_basique_relacher_fleche_droite_dans_des_millisecondes(milliseconds_delay:int): facade_nes.nes_basic_release_arrow_right_in_milliseconds(milliseconds_delay)
+func nes_basique_relacher_fleche_haut_dans_des_millisecondes(milliseconds_delay:int): facade_nes.nes_basic_release_arrow_up_in_milliseconds(milliseconds_delay)
+func nes_basique_relacher_fleche_bas_dans_des_millisecondes(milliseconds_delay:int): facade_nes.nes_basic_release_arrow_down_in_milliseconds(milliseconds_delay)    
+
+#endregion

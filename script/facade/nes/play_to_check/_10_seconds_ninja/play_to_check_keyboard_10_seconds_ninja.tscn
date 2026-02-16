@@ -1,0 +1,187 @@
+[gd_scene format=3 uid="uid://cd3a02i0powai"]
+
+[ext_resource type="PackedScene" uid="uid://cfvwlr3pd0m3e" path="res://addons/2026_01_18_gdp_nes_controller_udp/scene/element/facade/francais_facade_nes_to_udp.tscn" id="1_s5sgj"]
+[ext_resource type="Script" uid="uid://bvjv1mtx3xovm" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/facade/nes/play_to_check/_10_seconds_ninja/keyboard/nes_fr_jouer_10_seconds_ninja.gd" id="2_s5sgj"]
+[ext_resource type="Texture2D" uid="uid://c052oi13teyq8" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/2d/xbox/a.png" id="3_8td51"]
+[ext_resource type="Script" uid="uid://5sfgv5jc0gxu" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/nes_texture_button_plus_to_down_up_bool.gd" id="4_b6gdu"]
+[ext_resource type="Texture2D" uid="uid://cfg3k1aaeru3y" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/2d/xbox/b.png" id="5_ktm4t"]
+[ext_resource type="Texture2D" uid="uid://cc5cbkk5unknu" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/2d/xbox/menu.png" id="6_7kcva"]
+[ext_resource type="Texture2D" uid="uid://dhfakprofgdou" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/2d/xbox/Start.png" id="7_8mupo"]
+[ext_resource type="Texture2D" uid="uid://bwx4h2y551qgq" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/2d/xbox/dpad_left.png" id="8_eq6ji"]
+[ext_resource type="Texture2D" uid="uid://cvfn5x553acfd" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/2d/xbox/dpad_right.png" id="9_bb0ns"]
+[ext_resource type="Texture2D" uid="uid://cg02sfdtrf24g" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/2d/xbox/dpad_down.png" id="10_jv6ja"]
+[ext_resource type="Texture2D" uid="uid://dfegk2rghlkfp" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/2d/xbox/dpad_up.png" id="11_7wv2c"]
+[ext_resource type="Script" uid="uid://ce3wk1gb164fi" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/input/nes_input_map_action_down_up.gd" id="12_b6gdu"]
+
+[node name="PlayToCheckKeyboard10SecondsNinja" type="Node" unique_id=1749833123]
+
+[node name="FrancaisFacadeNesToUdp" parent="." unique_id=2101678709 instance=ExtResource("1_s5sgj")]
+
+[node name="NesFrJouer10SeconsdNinja" type="Node" parent="." unique_id=1603078905 node_paths=PackedStringArray("nes_francais", "debug_label")]
+script = ExtResource("2_s5sgj")
+nes_francais = NodePath("../FrancaisFacadeNesToUdp")
+debug_label = NodePath("../Label")
+utiliser_des_prints_pour_debugger = false
+utiliser_une_boucle_infinie_au_demarrage = false
+metadata/_custom_type_script = "uid://dmilg8mjcjq5k"
+
+[node name="Label" type="Label" parent="." unique_id=1187955331]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "0000"
+
+[node name="Panel UI NES Control" type="Panel" parent="." unique_id=820363324]
+anchors_preset = -1
+anchor_top = 0.87600005
+anchor_right = 0.99200004
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -9.200012
+offset_right = 0.39996338
+offset_bottom = -14.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel UI NES Control" unique_id=626199551]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NES A" type="Button" parent="Panel UI NES Control/HBoxContainer" unique_id=928347181]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+focus_mode = 0
+icon = ExtResource("3_8td51")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("4_b6gdu")
+metadata/_custom_type_script = "uid://5sfgv5jc0gxu"
+
+[node name="NES B" type="Button" parent="Panel UI NES Control/HBoxContainer" unique_id=302678160]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+focus_mode = 0
+icon = ExtResource("5_ktm4t")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("4_b6gdu")
+metadata/_custom_type_script = "uid://5sfgv5jc0gxu"
+
+[node name="NES LEFT MENU" type="Button" parent="Panel UI NES Control/HBoxContainer" unique_id=392404719]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+focus_mode = 0
+text = "ML"
+icon = ExtResource("6_7kcva")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("4_b6gdu")
+metadata/_custom_type_script = "uid://5sfgv5jc0gxu"
+
+[node name="NES RIGHT MENU" type="Button" parent="Panel UI NES Control/HBoxContainer" unique_id=1604550774]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+focus_mode = 0
+text = "MR"
+icon = ExtResource("7_8mupo")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("4_b6gdu")
+metadata/_custom_type_script = "uid://5sfgv5jc0gxu"
+
+[node name="NES ARROW LEFT" type="Button" parent="Panel UI NES Control/HBoxContainer" unique_id=1738076425]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+focus_mode = 0
+icon = ExtResource("8_eq6ji")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("4_b6gdu")
+metadata/_custom_type_script = "uid://5sfgv5jc0gxu"
+
+[node name="NES ARROW RIGHT" type="Button" parent="Panel UI NES Control/HBoxContainer" unique_id=1755156573]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+focus_mode = 0
+icon = ExtResource("9_bb0ns")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("4_b6gdu")
+metadata/_custom_type_script = "uid://5sfgv5jc0gxu"
+
+[node name="NES ARROW DOWN" type="Button" parent="Panel UI NES Control/HBoxContainer" unique_id=2103414924]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+focus_mode = 0
+icon = ExtResource("10_jv6ja")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("4_b6gdu")
+metadata/_custom_type_script = "uid://5sfgv5jc0gxu"
+
+[node name="NES ARROW UP" type="Button" parent="Panel UI NES Control/HBoxContainer" unique_id=166020206]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+focus_mode = 0
+icon = ExtResource("11_7wv2c")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("4_b6gdu")
+metadata/_custom_type_script = "uid://5sfgv5jc0gxu"
+
+[node name="Input NES Control" type="Node" parent="." unique_id=1831364424]
+
+[node name="BUTTON A" type="Node" parent="Input NES Control" unique_id=664797906]
+script = ExtResource("12_b6gdu")
+action_name = "NES_A"
+metadata/_custom_type_script = "uid://ce3wk1gb164fi"
+
+[node name="BUTTON B" type="Node" parent="Input NES Control" unique_id=1304917759]
+script = ExtResource("12_b6gdu")
+action_name = "NES_B"
+metadata/_custom_type_script = "uid://ce3wk1gb164fi"
+
+[node name="BUTTON ML" type="Node" parent="Input NES Control" unique_id=1541786785]
+script = ExtResource("12_b6gdu")
+action_name = "NES_MENU_LEFT"
+metadata/_custom_type_script = "uid://ce3wk1gb164fi"
+
+[node name="BUTTON MR" type="Node" parent="Input NES Control" unique_id=521047243]
+script = ExtResource("12_b6gdu")
+action_name = "NES_MENU_RIGHT"
+metadata/_custom_type_script = "uid://ce3wk1gb164fi"
+
+[node name="BUTTON AL" type="Node" parent="Input NES Control" unique_id=956561623]
+script = ExtResource("12_b6gdu")
+action_name = "NES_ARROW_LEFT"
+metadata/_custom_type_script = "uid://ce3wk1gb164fi"
+
+[node name="BUTTON AR" type="Node" parent="Input NES Control" unique_id=1841004859]
+script = ExtResource("12_b6gdu")
+action_name = "NES_ARROW_RIGHT"
+metadata/_custom_type_script = "uid://ce3wk1gb164fi"
+
+[node name="BUTTON AD" type="Node" parent="Input NES Control" unique_id=178145922]
+script = ExtResource("12_b6gdu")
+action_name = "NES_ARROW_DOWN"
+metadata/_custom_type_script = "uid://ce3wk1gb164fi"
+
+[node name="BUTTON AU" type="Node" parent="Input NES Control" unique_id=2052928674]
+script = ExtResource("12_b6gdu")
+action_name = "NES_ARROW_UP"
+metadata/_custom_type_script = "uid://ce3wk1gb164fi"
+
+[connection signal="on_down_up_value_changed" from="Panel UI NES Control/HBoxContainer/NES A" to="FrancaisFacadeNesToUdp" method="nes_basique_definir_touche_a_comme"]
+[connection signal="on_down_up_value_changed" from="Panel UI NES Control/HBoxContainer/NES B" to="FrancaisFacadeNesToUdp" method="nes_basique_definir_touche_b_comme"]
+[connection signal="on_down_up_value_changed" from="Panel UI NES Control/HBoxContainer/NES LEFT MENU" to="FrancaisFacadeNesToUdp" method="nes_basique_definir_touche_menu_gauche_select_comme"]
+[connection signal="on_down_up_value_changed" from="Panel UI NES Control/HBoxContainer/NES RIGHT MENU" to="FrancaisFacadeNesToUdp" method="nes_basique_definir_touche_menu_droite_start_comme"]
+[connection signal="on_down_up_value_changed" from="Panel UI NES Control/HBoxContainer/NES ARROW LEFT" to="FrancaisFacadeNesToUdp" method="nes_basique_definir_touche_fleche_gauche_comme"]
+[connection signal="on_down_up_value_changed" from="Panel UI NES Control/HBoxContainer/NES ARROW RIGHT" to="FrancaisFacadeNesToUdp" method="nes_basique_definir_touche_fleche_droite_comme"]
+[connection signal="on_down_up_value_changed" from="Panel UI NES Control/HBoxContainer/NES ARROW DOWN" to="FrancaisFacadeNesToUdp" method="nes_basique_definir_touche_fleche_bas_comme"]
+[connection signal="on_down_up_value_changed" from="Panel UI NES Control/HBoxContainer/NES ARROW UP" to="FrancaisFacadeNesToUdp" method="nes_basique_definir_touche_fleche_haut_comme"]
+[connection signal="on_down_up" from="Input NES Control/BUTTON A" to="FrancaisFacadeNesToUdp" method="nes_basique_definir_touche_a_comme"]
+[connection signal="on_down_up" from="Input NES Control/BUTTON B" to="FrancaisFacadeNesToUdp" method="nes_basique_definir_touche_b_comme"]
+[connection signal="on_down_up" from="Input NES Control/BUTTON ML" to="FrancaisFacadeNesToUdp" method="nes_basique_definir_touche_menu_gauche_select_comme"]
+[connection signal="on_down_up" from="Input NES Control/BUTTON MR" to="FrancaisFacadeNesToUdp" method="nes_basique_definir_touche_menu_droite_start_comme"]
+[connection signal="on_down_up" from="Input NES Control/BUTTON AL" to="FrancaisFacadeNesToUdp" method="nes_basique_definir_touche_fleche_gauche_comme"]
+[connection signal="on_down_up" from="Input NES Control/BUTTON AR" to="FrancaisFacadeNesToUdp" method="nes_basique_definir_touche_fleche_droite_comme"]
+[connection signal="on_down_up" from="Input NES Control/BUTTON AD" to="FrancaisFacadeNesToUdp" method="nes_basique_definir_touche_fleche_bas_comme"]
+[connection signal="on_down_up" from="Input NES Control/BUTTON AU" to="FrancaisFacadeNesToUdp" method="nes_basique_definir_touche_fleche_haut_comme"]
