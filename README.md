@@ -6,6 +6,11 @@ git submodule add https://github.com/EloiStree/2026_01_18_gdp_nes_controller_udp
 git submodule update --init --recursive
 ```
 
+```
+git clone https://github.com/EloiStree/2026_01_18_gdp_nes_controller_udp.git addons/2026_01_18_gdp_nes_controller_udp
+```
+Test on https://github.com/EloiStree/2026_01_18_unity_nes_multi_controller/releases/tag/2026_02_12
+
 Project to test:  
 https://github.com/EloiStree/2026_01_18_godot_nes_controller_udp  
 
