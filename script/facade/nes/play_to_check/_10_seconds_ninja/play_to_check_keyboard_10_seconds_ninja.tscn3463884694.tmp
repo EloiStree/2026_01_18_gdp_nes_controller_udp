@@ -1,63 +1,22 @@
 [gd_scene format=3 uid="uid://cd3a02i0powai"]
 
-[ext_resource type="Script" uid="uid://bjngdes58no60" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/facade/francais/francais_facade_nes_udp.gd" id="1_cpqse"]
-[ext_resource type="Script" uid="uid://dwgdhk3xdsfcn" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/facade/facade_nes_to_udp.gd" id="2_m26st"]
+[ext_resource type="PackedScene" uid="uid://cfvwlr3pd0m3e" path="res://addons/2026_01_18_gdp_nes_controller_udp/scene/element/facade/francais_facade_nes_to_udp.tscn" id="1_s5sgj"]
 [ext_resource type="Script" uid="uid://bvjv1mtx3xovm" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/facade/nes/play_to_check/_10_seconds_ninja/keyboard/nes_fr_jouer_10_seconds_ninja.gd" id="2_s5sgj"]
-[ext_resource type="Script" uid="uid://blvuiqbp0bc0y" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/nes_res_target_player_by_udp.gd" id="3_3y0cr"]
 [ext_resource type="Texture2D" uid="uid://c052oi13teyq8" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/2d/xbox/a.png" id="3_8td51"]
-[ext_resource type="Script" uid="uid://csyi6i1k70xws" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/nes_send_integer_message_udp.gd" id="4_a1epn"]
 [ext_resource type="Script" uid="uid://5sfgv5jc0gxu" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/nes_texture_button_plus_to_down_up_bool.gd" id="4_b6gdu"]
-[ext_resource type="Script" uid="uid://ddjcmkwir4osd" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/nes_controller_to_int.gd" id="5_a5t76"]
 [ext_resource type="Texture2D" uid="uid://cfg3k1aaeru3y" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/2d/xbox/b.png" id="5_ktm4t"]
 [ext_resource type="Texture2D" uid="uid://cc5cbkk5unknu" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/2d/xbox/menu.png" id="6_7kcva"]
-[ext_resource type="Script" uid="uid://60ryksq12k1c" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/xbox_controller_to_int.gd" id="6_r02je"]
 [ext_resource type="Texture2D" uid="uid://dhfakprofgdou" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/2d/xbox/Start.png" id="7_8mupo"]
-[ext_resource type="Script" uid="uid://bye1ongxqd7bx" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/keyboard_controller_to_int.gd" id="7_sbuij"]
-[ext_resource type="Script" uid="uid://batpkfgtryf71" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/delayer/nes_int_delayer.gd" id="8_3heg3"]
 [ext_resource type="Texture2D" uid="uid://bwx4h2y551qgq" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/2d/xbox/dpad_left.png" id="8_eq6ji"]
 [ext_resource type="Texture2D" uid="uid://cvfn5x553acfd" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/2d/xbox/dpad_right.png" id="9_bb0ns"]
 [ext_resource type="Texture2D" uid="uid://cg02sfdtrf24g" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/2d/xbox/dpad_down.png" id="10_jv6ja"]
 [ext_resource type="Texture2D" uid="uid://dfegk2rghlkfp" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/2d/xbox/dpad_up.png" id="11_7wv2c"]
 [ext_resource type="Script" uid="uid://ce3wk1gb164fi" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/input/nes_input_map_action_down_up.gd" id="12_b6gdu"]
-[ext_resource type="Script" uid="uid://dtoapfr0n74xh" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/interpreter/nes_macro_interpretor.gd" id="13_ktm4t"]
-
-[sub_resource type="Resource" id="Resource_o7v2n"]
-script = ExtResource("3_3y0cr")
-metadata/_custom_type_script = "uid://blvuiqbp0bc0y"
+[ext_resource type="Script" uid="uid://bbtqu6hmru1o3" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/facade/nes/play_to_check/_10_seconds_ninja/scirpt_10SecNin_Solo.gd" id="13_ktm4t"]
 
 [node name="PlayToCheckKeyboard10SecondsNinja" type="Node" unique_id=1749833123]
 
-[node name="FrancaisFacadeNesToUdp" type="Node" parent="." unique_id=2101678709 node_paths=PackedStringArray("facade_nes")]
-script = ExtResource("1_cpqse")
-facade_nes = NodePath("FacadeNesToUdp")
-
-[node name="FacadeNesToUdp" type="Node" parent="FrancaisFacadeNesToUdp" unique_id=574021232 node_paths=PackedStringArray("udp_sender", "nes_pad", "int_delayer", "xbox", "keyboard")]
-script = ExtResource("2_m26st")
-udp_sender = NodePath("SendIntegerUDP")
-nes_pad = NodePath("NesControllerToInt")
-int_delayer = NodePath("NesIntDelayer")
-xbox = NodePath("XboxControllerToInt")
-keyboard = NodePath("KeyboardControllerToInt")
-target_at_init = SubResource("Resource_o7v2n")
-
-[node name="SendIntegerUDP" type="Node" parent="FrancaisFacadeNesToUdp/FacadeNesToUdp" unique_id=1523918253]
-script = ExtResource("4_a1epn")
-
-[node name="NesControllerToInt" type="Node" parent="FrancaisFacadeNesToUdp/FacadeNesToUdp" unique_id=629148759]
-script = ExtResource("5_a5t76")
-metadata/_custom_type_script = "uid://ddjcmkwir4osd"
-
-[node name="XboxControllerToInt" type="Node" parent="FrancaisFacadeNesToUdp/FacadeNesToUdp" unique_id=1622638145]
-script = ExtResource("6_r02je")
-metadata/_custom_type_script = "uid://60ryksq12k1c"
-
-[node name="KeyboardControllerToInt" type="Node" parent="FrancaisFacadeNesToUdp/FacadeNesToUdp" unique_id=1683305880]
-script = ExtResource("7_sbuij")
-metadata/_custom_type_script = "uid://bye1ongxqd7bx"
-
-[node name="NesIntDelayer" type="Node" parent="FrancaisFacadeNesToUdp/FacadeNesToUdp" unique_id=585688852]
-script = ExtResource("8_3heg3")
-metadata/_custom_type_script = "uid://batpkfgtryf71"
+[node name="FrancaisFacadeNesToUdp" parent="." unique_id=2101678709 instance=ExtResource("1_s5sgj")]
 
 [node name="NesFrJouer10SeconsdNinja" type="Node" parent="." unique_id=1603078905 node_paths=PackedStringArray("nes_francais", "debug_label")]
 script = ExtResource("2_s5sgj")
@@ -211,42 +170,21 @@ script = ExtResource("12_b6gdu")
 action_name = "NES_ARROW_UP"
 metadata/_custom_type_script = "uid://ce3wk1gb164fi"
 
-[node name="Button lancement 10SN" type="Button" parent="." unique_id=1814162434]
+[node name="Button lancer un shuriken" type="Button" parent="." unique_id=1814162434]
 anchors_preset = -1
 anchor_left = 0.27600002
 anchor_top = 0.187
-anchor_right = 0.54
-anchor_bottom = 0.689
+anchor_right = 0.53900003
+anchor_bottom = 0.32200003
 offset_left = 0.19998169
 offset_top = -0.15000153
-offset_right = -3.0517578e-05
-offset_bottom = -0.05001831
-text = "lancement du jeu"
+offset_right = -0.2000122
+offset_bottom = 0.099990845
+text = "lancer un shuriken"
 
-[node name="Node" type="Node" parent="." unique_id=1549542945]
+[node name="try ninja solo script" type="Node" parent="." unique_id=1962495030]
 script = ExtResource("13_ktm4t")
 
-[node name="NesMacroInterpreterToInt" type="Node" parent="." unique_id=1732345453]
-script = ExtResource("13_ktm4t")
-use_print_to_debug = true
-metadata/_custom_type_script = "uid://dtoapfr0n74xh"
-
-[node name="LineEdit" type="LineEdit" parent="." unique_id=684114830]
-anchors_preset = -1
-anchor_left = 0.586
-anchor_right = 1.0
-anchor_bottom = 0.082
-offset_left = 0.19998169
-offset_right = -3.0
-offset_bottom = 0.099998474
-
-[connection signal="on_integer_to_send_requested" from="FrancaisFacadeNesToUdp/FacadeNesToUdp/NesControllerToInt" to="FrancaisFacadeNesToUdp/FacadeNesToUdp/SendIntegerUDP" method="send_integer"]
-[connection signal="on_integer_to_send_requested_with_milliseconds_delay" from="FrancaisFacadeNesToUdp/FacadeNesToUdp/NesControllerToInt" to="FrancaisFacadeNesToUdp/FacadeNesToUdp/NesIntDelayer" method="add_action_to_delay_as_integer_in_milliseconds"]
-[connection signal="on_integer_to_send_requested" from="FrancaisFacadeNesToUdp/FacadeNesToUdp/XboxControllerToInt" to="FrancaisFacadeNesToUdp/FacadeNesToUdp/SendIntegerUDP" method="send_integer"]
-[connection signal="on_integer_with_millisecond_delay_to_send_requested" from="FrancaisFacadeNesToUdp/FacadeNesToUdp/XboxControllerToInt" to="FrancaisFacadeNesToUdp/FacadeNesToUdp/NesIntDelayer" method="add_action_to_delay_as_integer_in_milliseconds"]
-[connection signal="on_integer_to_send_requested" from="FrancaisFacadeNesToUdp/FacadeNesToUdp/KeyboardControllerToInt" to="FrancaisFacadeNesToUdp/FacadeNesToUdp/SendIntegerUDP" method="send_integer"]
-[connection signal="on_integer_with_millisecond_delay_to_send_requested" from="FrancaisFacadeNesToUdp/FacadeNesToUdp/KeyboardControllerToInt" to="FrancaisFacadeNesToUdp/FacadeNesToUdp/NesIntDelayer" method="add_action_to_delay_as_integer_in_milliseconds"]
-[connection signal="action_integer_requested" from="FrancaisFacadeNesToUdp/FacadeNesToUdp/NesIntDelayer" to="FrancaisFacadeNesToUdp/FacadeNesToUdp/SendIntegerUDP" method="send_integer"]
 [connection signal="on_down_up_value_changed" from="Panel UI NES Control/HBoxContainer/NES A" to="FrancaisFacadeNesToUdp" method="nes_basique_definir_touche_a_comme"]
 [connection signal="on_down_up_value_changed" from="Panel UI NES Control/HBoxContainer/NES B" to="FrancaisFacadeNesToUdp" method="nes_basique_definir_touche_b_comme"]
 [connection signal="on_down_up_value_changed" from="Panel UI NES Control/HBoxContainer/NES LEFT MENU" to="FrancaisFacadeNesToUdp" method="nes_basique_definir_touche_menu_gauche_select_comme"]
@@ -263,7 +201,4 @@ offset_bottom = 0.099998474
 [connection signal="on_down_up" from="Input NES Control/BUTTON AR" to="FrancaisFacadeNesToUdp" method="nes_basique_definir_touche_fleche_droite_comme"]
 [connection signal="on_down_up" from="Input NES Control/BUTTON AD" to="FrancaisFacadeNesToUdp" method="nes_basique_definir_touche_fleche_bas_comme"]
 [connection signal="on_down_up" from="Input NES Control/BUTTON AU" to="FrancaisFacadeNesToUdp" method="nes_basique_definir_touche_fleche_haut_comme"]
-[connection signal="pressed" from="Button lancement 10SN" to="NesFrJouer10SeconsdNinja" method="level_one"]
-[connection signal="on_integer_to_send_requested" from="NesMacroInterpreterToInt" to="FrancaisFacadeNesToUdp/FacadeNesToUdp/SendIntegerUDP" method="send_integer"]
-[connection signal="on_integer_to_send_requested_with_milliseconds_delay" from="NesMacroInterpreterToInt" to="FrancaisFacadeNesToUdp/FacadeNesToUdp/NesIntDelayer" method="add_action_to_delay_as_integer_in_milliseconds"]
-[connection signal="text_submitted" from="LineEdit" to="NesMacroInterpreterToInt" method="translate_text_to_integer_and_callable"]
+[connection signal="pressed" from="Button lancer un shuriken" to="NesFrJouer10SeconsdNinja" method="level_one"]

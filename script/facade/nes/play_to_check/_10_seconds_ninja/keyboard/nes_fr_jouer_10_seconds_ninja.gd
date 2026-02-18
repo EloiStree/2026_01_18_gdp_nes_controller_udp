@@ -54,10 +54,10 @@ func _ready() -> void:
 	# pas necessaire a l exercice mais peut etre utiliser dans un autre exercice utilisant les touches de la nes
 	nes_francais.changer_toutes_les_touches_de_la_nes_avec_le_clavier(touche_gauche, touche_droite, touche_haut, touche_bas, touche_epee, touche_shuriken, touche_escape, redemarrer_niveau)
 
-	if test_des_methodes_au_demarrage:
-		tester_les_methodes()
-	if utiliser_une_boucle_infinie_au_demarrage:
-		boucle_infinie()
+	#if test_des_methodes_au_demarrage:
+		#tester_les_methodes()
+	#if utiliser_une_boucle_infinie_au_demarrage:
+		#boucle_infinie()
 
 
 
@@ -76,7 +76,30 @@ func coup_d_epee():
 @export var sauter_moyenement_milliseconds:int = 400
 @export var sauter_maximum_milliseconds:int = 1000
 
+func level_one():
+	redemarrer_le_niveau()
+	await attendre_des_seconds(0.5)
+	commencer_aller_a_droite()
+	envoyer_shuriken()
+	await attendre_des_seconds(0.5)
+	arreter_aller_a_droite()
+	
+	
+	#await attendre_des_seconds(0.1)
+	#sauter_pendant_n_milliseconds(45)
+	commencer_aller_a_gauche()
+	await attendre_des_milliseconds(10)
+	commencer_a_sauter()
+	await attendre_des_milliseconds(100)
+	arreter_de_sauter()
+	await attendre_des_milliseconds(60)
+	commencer_a_sauter()
+	await attendre_des_milliseconds(300)
+	arreter_de_sauter()
 
+	arreter_aller_a_gauche()
+	
+	
 func redemarrer_le_niveau():
 	if utiliser_des_prints_pour_debugger:
 		print("redemarrer_le_niveau")
