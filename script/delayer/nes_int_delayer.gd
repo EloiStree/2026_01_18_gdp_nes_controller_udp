@@ -1,7 +1,7 @@
 extends Node
 class_name NesIntDelayer
 
-signal action_integer_requested(value: int)
+signal on_action_integer_requested(value: int)
 
 var time_in_milliseconds: int = 0
 var waiting_to_be_executed: Array[WhenToExecuteIntAction] = []
@@ -15,7 +15,7 @@ func _process(_delta: float) -> void:
 		if item.when_to_execute_in_milliseconds < time_in_milliseconds:
 			var to_execute := item.action_to_execute
 			waiting_to_be_executed.remove_at(i)
-			action_integer_requested.emit(to_execute)
+			on_action_integer_requested.emit(to_execute)
 
 func add_action_to_delay_as_integer_in_seconds(action_in_integer: int, seconds_delay: float) -> void:
 	add_action_to_delay_as_integer_in_milliseconds(

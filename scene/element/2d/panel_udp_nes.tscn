@@ -297,6 +297,7 @@ label_to_affect = [NodePath("..")]
 metadata/_custom_type_script = "uid://dba4mrwl7xh3v"
 
 [node name="Button Change B Mode" type="Button" parent="AspectRatioContainer/PanelRatioNES" unique_id=1659201372]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -316,6 +317,7 @@ script = ExtResource("10_sf5ed")
 metadata/_custom_type_script = "uid://bty8kgte7clr1"
 
 [node name="Button Change Arrow Mode" type="Button" parent="AspectRatioContainer/PanelRatioNES" unique_id=23435156]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.33400002
@@ -331,19 +333,6 @@ script = ExtResource("10_b33vo")
 [node name="NesSaveLoadStringValueFromFileMemory2" type="Node" parent="AspectRatioContainer/PanelRatioNES/Button Change Arrow Mode" unique_id=1373594805]
 script = ExtResource("10_sf5ed")
 metadata/_custom_type_script = "uid://bty8kgte7clr1"
-
-[node name="Button" type="Button" parent="AspectRatioContainer/PanelRatioNES" unique_id=472936983]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.88600004
-anchor_top = 0.256
-anchor_right = 0.9760001
-anchor_bottom = 0.5
-offset_left = -4.800049
-offset_top = 2.521408
-offset_right = -4.800049
-offset_bottom = 4.0000153
-text = "Test"
 
 [node name="Input" type="Node" parent="." unique_id=35613654]
 
@@ -490,5 +479,17 @@ metadata/_custom_type_script = "uid://ds80rs80plamt"
 [connection signal="on_down_up" from="Input/SuperFamicomController/NesButtonArrowRight" to="FacadeNesToUdp" method="nes_basic_set_arrow_right"]
 [connection signal="on_down_up" from="Input/SuperFamicomController/NesButtonArrowUp" to="FacadeNesToUdp" method="nes_basic_set_arrow_up"]
 [connection signal="on_down_up" from="Input/SuperFamicomController/NesButtonArrowDown" to="FacadeNesToUdp" method="nes_basic_set_arrow_down"]
+[connection signal="on_down_up" from="Input/InputMap/Action A" to="FacadeNesToUdp" method="nes_basic_set_a"]
+[connection signal="on_down_up" from="Input/InputMap/Action B" to="FacadeNesToUdp" method="nes_basic_set_b"]
+[connection signal="on_down_up" from="Input/InputMap/Action ML" to="FacadeNesToUdp" method="nes_basic_set_menu_left_select"]
+[connection signal="on_down_up" from="Input/InputMap/Action MR" to="FacadeNesToUdp" method="nes_basic_set_menu_right_start"]
+[connection signal="on_down_up" from="Input/InputMap/Action AL" to="FacadeNesToUdp" method="nes_basic_set_arrow_left"]
+[connection signal="on_down_up" from="Input/InputMap/Action AR" to="FacadeNesToUdp" method="nes_basic_set_arrow_right"]
+[connection signal="on_down_up" from="Input/InputMap/Action AU" to="FacadeNesToUdp" method="nes_basic_set_arrow_up"]
+[connection signal="on_down_up" from="Input/InputMap/Action AD" to="FacadeNesToUdp" method="nes_basic_set_arrow_down"]
+[connection signal="on_negative_zone_changed" from="Input/InputMap/GamepadJoystickToEvent/Left Horizontal Axis" to="FacadeNesToUdp" method="nes_basic_set_arrow_left"]
+[connection signal="on_positive_zone_changed" from="Input/InputMap/GamepadJoystickToEvent/Left Horizontal Axis" to="FacadeNesToUdp" method="nes_basic_set_arrow_right"]
 [connection signal="on_float_axis_value_changed" from="Input/InputMap/GamepadJoystickToEvent/Left Horizontal Axis/NesInputMapActionFloatAxis" to="Input/InputMap/GamepadJoystickToEvent/Left Horizontal Axis" method="push_in_float_value"]
+[connection signal="on_negative_zone_changed" from="Input/InputMap/GamepadJoystickToEvent/Left Vertical Axis" to="FacadeNesToUdp" method="nes_basic_set_arrow_down"]
+[connection signal="on_positive_zone_changed" from="Input/InputMap/GamepadJoystickToEvent/Left Vertical Axis" to="FacadeNesToUdp" method="nes_basic_set_arrow_up"]
 [connection signal="on_float_axis_value_changed" from="Input/InputMap/GamepadJoystickToEvent/Left Vertical Axis/NesInputMapActionFloatAxis" to="Input/InputMap/GamepadJoystickToEvent/Left Vertical Axis" method="push_in_float_value"]

@@ -23,6 +23,9 @@ func set_mode_with_str_index(index:String):
 	set_mode_with_index(int(index))
 
 func set_mode_with_index(index: int):
+	if nes_controller==null:
+		return
+
 	var previous :int= button_index;
 	button_index = index % 4
 	var changed :bool= previous != button_index
@@ -40,17 +43,26 @@ func set_mode_with_index(index: int):
 		on_mode_changed_index.emit(button_index)
 
 func set_mode_as_arrow_classic():
+	if nes_controller==null:
+		return
+
 	nes_controller.reset_arrows_to_default()
 	on_mode_changed_label.emit(label_arrows_classic)
 
 func set_mode_as_joystick_left():
+	if nes_controller==null:
+		return
 	nes_controller.override_arrows_with_joystick_left()
 	on_mode_changed_label.emit(label_arrows_left_joystick)
 
 func set_mode_as_joystick_right():
+	if nes_controller==null:
+		return
 	nes_controller.override_arrows_with_joystick_right()
 	on_mode_changed_label.emit(label_arrows_right_joystick)
 
 func set_mode_as_joystick_mixed_vertical_left_horizontal_right():
+	if nes_controller==null:
+		return
 	nes_controller.override_arrows_with_stick_left_vertical_stick_right_horizontal()
 	on_mode_changed_label.emit(label_arrows_vertical_left_horizontal_right)

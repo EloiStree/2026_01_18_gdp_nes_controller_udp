@@ -7,22 +7,28 @@
 [ext_resource type="Script" uid="uid://batpkfgtryf71" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/delayer/nes_int_delayer.gd" id="3_dia6v"]
 [ext_resource type="Script" uid="uid://60ryksq12k1c" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/xbox_controller_to_int.gd" id="4_qt75i"]
 [ext_resource type="Script" uid="uid://bye1ongxqd7bx" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/keyboard_controller_to_int.gd" id="6_o7v2n"]
+[ext_resource type="Script" uid="uid://dtoapfr0n74xh" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/interpreter/nes_macro_interpretor.gd" id="8_4cieo"]
 
 [sub_resource type="Resource" id="Resource_o7v2n"]
 script = ExtResource("2_qt75i")
 metadata/_custom_type_script = "uid://blvuiqbp0bc0y"
 
-[node name="FacadeNesToUdp" type="Node" unique_id=574021232 node_paths=PackedStringArray("udp_sender", "nes_pad", "int_delayer", "xbox", "keyboard")]
+[node name="FacadeNesToUdp" type="Node" unique_id=574021232 node_paths=PackedStringArray("udp_sender", "nes_pad", "int_delayer", "xbox", "keyboard", "interpreter")]
 script = ExtResource("1_ofjs3")
 udp_sender = NodePath("SendIntegerUDP")
 nes_pad = NodePath("NesControllerToInt")
 int_delayer = NodePath("NesIntDelayer")
 xbox = NodePath("XboxControllerToInt")
 keyboard = NodePath("KeyboardControllerToInt")
+interpreter = NodePath("InterpreterToInt")
 target_at_init = SubResource("Resource_o7v2n")
 
 [node name="SendIntegerUDP" type="Node" parent="." unique_id=1523918253]
 script = ExtResource("1_dwqut")
+
+[node name="NesIntDelayer" type="Node" parent="." unique_id=585688852]
+script = ExtResource("3_dia6v")
+metadata/_custom_type_script = "uid://batpkfgtryf71"
 
 [node name="NesControllerToInt" type="Node" parent="." unique_id=629148759]
 script = ExtResource("2_ofjs3")
@@ -36,14 +42,6 @@ metadata/_custom_type_script = "uid://60ryksq12k1c"
 script = ExtResource("6_o7v2n")
 metadata/_custom_type_script = "uid://bye1ongxqd7bx"
 
-[node name="NesIntDelayer" type="Node" parent="." unique_id=585688852]
-script = ExtResource("3_dia6v")
-metadata/_custom_type_script = "uid://batpkfgtryf71"
-
-[connection signal="on_integer_to_send_requested" from="NesControllerToInt" to="SendIntegerUDP" method="send_integer"]
-[connection signal="on_integer_to_send_requested_with_milliseconds_delay" from="NesControllerToInt" to="NesIntDelayer" method="add_action_to_delay_as_integer_in_milliseconds"]
-[connection signal="on_integer_to_send_requested" from="XboxControllerToInt" to="SendIntegerUDP" method="send_integer"]
-[connection signal="on_integer_with_millisecond_delay_to_send_requested" from="XboxControllerToInt" to="NesIntDelayer" method="add_action_to_delay_as_integer_in_milliseconds"]
-[connection signal="on_integer_to_send_requested" from="KeyboardControllerToInt" to="SendIntegerUDP" method="send_integer"]
-[connection signal="on_integer_with_millisecond_delay_to_send_requested" from="KeyboardControllerToInt" to="NesIntDelayer" method="add_action_to_delay_as_integer_in_milliseconds"]
-[connection signal="action_integer_requested" from="NesIntDelayer" to="SendIntegerUDP" method="send_integer"]
+[node name="InterpreterToInt" type="Node" parent="." unique_id=1181720975]
+script = ExtResource("8_4cieo")
+metadata/_custom_type_script = "uid://dtoapfr0n74xh"

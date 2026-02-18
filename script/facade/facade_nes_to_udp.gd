@@ -9,6 +9,7 @@ signal on_send_int_to_target(new_value:int)
 @export var int_delayer: NesIntDelayer
 @export var xbox: XboxControllerToInt
 @export var keyboard: KeyboardControllerToInt
+@export var interpreter: NesMacroInterpreterToInt
 	
 @export var target_at_init:NesResTargetPlayerByUdp
 
@@ -19,9 +20,172 @@ signal on_send_int_to_target(new_value:int)
 @export var target_index:int
 @export var waiting_command_in_queue:int
 
+
+# 🕹️A 🕹️B 🕹️AL 🕹️AR 🕹️AD 🕹️AU 🕹️ML 🕹️MD 
+# 🎮A 🎮B 🎮Y 🎮X
+# 🎮ML 🎮MC 🎮MR  
+# 🎮AL 🎮AR 🎮AD 🎮AU
+# 🎮SBL 🎮SBL 🎮TL 🎮TR
+# 🎮AL 🎮AR 🎮AD 🎮AU 
+# 🎮JL 🎮JR 
+# 🎮JLU 🎮JLR 🎮JLD 🎮JLL
+# 🎮JRU 🎮JRR 🎮JRD 🎮JRL
+# ⌨️A ⌨️B ⌨️C ⌨️D ⌨️E ⌨️F ⌨️G ⌨️H ⌨️I ⌨️J ⌨️K ⌨️L ⌨️M ⌨️N ⌨️O ⌨️P ⌨️Q ⌨️R ⌨️S ⌨️T ⌨️U ⌨️V ⌨️W ⌨️X ⌨️Y ⌨️Z
+# ⌨️0 ⌨️1 ⌨️2 ⌨️3 ⌨️4 ⌨️5 ⌨️6 ⌨️7 ⌨️8 ⌨️9
+# ⌨️F1 ⌨️F2 ⌨️F3 ⌨️F4 ⌨️F5 ⌨️F6 ⌨️F7 ⌨️F8 ⌨️F9 ⌨️F10 ⌨️F11 ⌨️F12
+# ⌨️ESC ⌨️TAB ⌨️CAPS ⌨️LSHIFT ⌨️LCTRL ⌨️LALT ⌨️SPACE ⌨️RALT ⌨️RCTRL ⌨️RSHIFT ⌨️ENTER ⌨️BACKSPACE ⌨️INS ⌨️DEL ⌨️HOME ⌨️END ⌨️PGUP ⌨️PGDN
+# ⌨️MINUS  ⌨️EQUAL ⌨️DIVIDE ⌨️MULTIPLY 
+# ⌨️LEFT ⌨️RIGHT ⌨️UP ⌨️DOWN ⌨️AL ⌨️AR ⌨️AU ⌨️AD
+
+# macro  🕹️A+ 2000> 🕹️A- 2000> ⌨️A+  2000> ⌨️A- 2000>  🎮A+ 2000> 🎮A-
+
+
+@export var add_xbox_unicode_macro:bool=true
+@export var add_nes_unicode_macro:bool=true
+@export var add_keyboard_unicode_macro:bool=true
+
+
+func _add_nes_value_to_interpreter(word:String, nes:NesControllerToInt.NesButton):
+		interpreter_add_word_to_key_press_integer_macro(word, nes_get_key_value_from_enum(nes))
+
+func _add_xbox_value_to_interpreter(word:String, xbox_enum:XboxControllerToInt.XboxCommandBasic):
+		interpreter_add_word_to_key_press_integer_macro(word, xbox_get_key_value_from_enum(xbox_enum))
+
+func _add_keyboard_value_to_interpreter(word:String, keyboard_enum:KeyboardControllerToInt.KeyboardCommandInt):
+		interpreter_add_word_to_key_press_integer_macro(word, keyboard_get_key_value_from_enum(keyboard_enum))
+
+# 🎮A 🕹️A ⌨️A
+func _add_joystick_and_nes_default_macro():
+	if add_nes_unicode_macro:
+		_add_nes_value_to_interpreter("🕹️A", NesControllerToInt.NesButton.BUTTON_A)
+		_add_nes_value_to_interpreter("🕹️B", NesControllerToInt.NesButton.BUTTON_B)
+		_add_nes_value_to_interpreter("🕹️ML", NesControllerToInt.NesButton.MENU_LEFT)
+		_add_nes_value_to_interpreter("🕹️MR", NesControllerToInt.NesButton.MENU_RIGHT)
+		_add_nes_value_to_interpreter("🕹️AD", NesControllerToInt.NesButton.ARROW_DOWN)
+		_add_nes_value_to_interpreter("🕹️AU", NesControllerToInt.NesButton.ARROW_UP)
+		_add_nes_value_to_interpreter("🕹️AL", NesControllerToInt.NesButton.ARROW_LEFT)
+		_add_nes_value_to_interpreter("🕹️AR", NesControllerToInt.NesButton.ARROW_RIGHT)
+	if add_xbox_unicode_macro:
+		_add_xbox_value_to_interpreter("🎮A", XboxControllerToInt.XboxCommandBasic.BUTTON_DOWN_A)
+		_add_xbox_value_to_interpreter("🎮B", XboxControllerToInt.XboxCommandBasic.BUTTON_RIGHT_B)
+		_add_xbox_value_to_interpreter("🎮X", XboxControllerToInt.XboxCommandBasic.BUTTON_LEFT_X)
+		_add_xbox_value_to_interpreter("🎮Y", XboxControllerToInt.XboxCommandBasic.BUTTON_UP_Y)
+		_add_xbox_value_to_interpreter("🎮ML",XboxControllerToInt.XboxCommandBasic.BUTTON_MENU_LEFT)
+		_add_xbox_value_to_interpreter("🎮MR",XboxControllerToInt.XboxCommandBasic.BUTTON_MENU_RIGHT)
+		_add_xbox_value_to_interpreter("🎮MC",XboxControllerToInt.XboxCommandBasic.XBOX_HOME_BUTTON)		
+		_add_xbox_value_to_interpreter("🎮AL",XboxControllerToInt.XboxCommandBasic.ARROW_LEFT)
+		_add_xbox_value_to_interpreter("🎮AR",XboxControllerToInt.XboxCommandBasic.ARROW_RIGHT)
+		_add_xbox_value_to_interpreter("🎮AD",XboxControllerToInt.XboxCommandBasic.ARROW_DOWN)
+		_add_xbox_value_to_interpreter("🎮AU",XboxControllerToInt.XboxCommandBasic.ARROW_UP)
+		_add_xbox_value_to_interpreter("🎮TL",XboxControllerToInt.XboxCommandBasic.LEFT_TRIGGER_100)
+		_add_xbox_value_to_interpreter("🎮TR",XboxControllerToInt.XboxCommandBasic.RIGHT_TRIGGER_100)
+		_add_xbox_value_to_interpreter("🎮SBL",XboxControllerToInt.XboxCommandBasic.BUTTON_LEFT_SIDE)
+		_add_xbox_value_to_interpreter("🎮SBR",XboxControllerToInt.XboxCommandBasic.BUTTON_RIGHT_SIDE)
+		_add_xbox_value_to_interpreter("🎮JL",XboxControllerToInt.XboxCommandBasic.BUTTON_LEFT_STICK)
+		_add_xbox_value_to_interpreter("🎮JR",XboxControllerToInt.XboxCommandBasic.BUTTON_RIGHT_STICK)
+		_add_xbox_value_to_interpreter("🎮JLU",XboxControllerToInt.XboxCommandBasic.LEFT_STICK_VERTICAL_P100)
+		_add_xbox_value_to_interpreter("🎮JLR",XboxControllerToInt.XboxCommandBasic.LEFT_STICK_HORIZONTAL_P100)
+		_add_xbox_value_to_interpreter("🎮JLD",XboxControllerToInt.XboxCommandBasic.LEFT_STICK_VERTICAL_N100)
+		_add_xbox_value_to_interpreter("🎮JLL",XboxControllerToInt.XboxCommandBasic.LEFT_STICK_HORIZONTAL_N100)
+		_add_xbox_value_to_interpreter("🎮JRU",XboxControllerToInt.XboxCommandBasic.RIGHT_STICK_VERTICAL_P100)
+		_add_xbox_value_to_interpreter("🎮JRR",XboxControllerToInt.XboxCommandBasic.RIGHT_STICK_HORIZONTAL_P100)
+		_add_xbox_value_to_interpreter("🎮JRD",XboxControllerToInt.XboxCommandBasic.RIGHT_STICK_VERTICAL_N100)
+		_add_xbox_value_to_interpreter("🎮JRL",XboxControllerToInt.XboxCommandBasic.RIGHT_STICK_HORIZONTAL_N100)
+	if add_keyboard_unicode_macro:
+		# # ⌨️A ⌨️B ⌨️C ⌨️D ⌨️E ⌨️F ⌨️G ⌨️H ⌨️I ⌨️J ⌨️K ⌨️L ⌨️M ⌨️N ⌨️O ⌨️P ⌨️Q ⌨️R ⌨️S ⌨️T ⌨️U ⌨️V ⌨️W ⌨️X ⌨️Y ⌨️Z
+		# # ⌨️0 ⌨️1 ⌨️2 ⌨️3 ⌨️4 ⌨️5 ⌨️6 ⌨️7 ⌨️8 ⌨️9
+		# # ⌨️F1 ⌨️F2 ⌨️F3 ⌨️F4 ⌨️F5 ⌨️F6 ⌨️F7 ⌨️F8 ⌨️F9 ⌨️F10 ⌨️F11 ⌨️F12
+		# # ⌨️ESC ⌨️TAB ⌨️CAPS ⌨️LSHIFT ⌨️LCTRL ⌨️LALT ⌨️SPACE ⌨️RALT ⌨️RCTRL ⌨️RSHIFT ⌨️ENTER ⌨️BACKSPACE ⌨️INS ⌨️DEL ⌨️HOME ⌨️END ⌨️PGUP ⌨️PGDN
+		# # ⌨️MINUS  ⌨️EQUAL ⌨️DIVIDE ⌨️MULTIPLY 
+		# # ⌨️LEFT ⌨️RIGHT ⌨️UP ⌨️DOWN ⌨️AL ⌨️AR ⌨️AU ⌨️AD
+
+		_add_keyboard_value_to_interpreter("⌨️A", KeyboardControllerToInt.KeyboardCommandInt.A)
+		_add_keyboard_value_to_interpreter("⌨️B", KeyboardControllerToInt.KeyboardCommandInt.B)
+		_add_keyboard_value_to_interpreter("⌨️C", KeyboardControllerToInt.KeyboardCommandInt.C)
+		_add_keyboard_value_to_interpreter("⌨️D", KeyboardControllerToInt.KeyboardCommandInt.D)
+		_add_keyboard_value_to_interpreter("⌨️E", KeyboardControllerToInt.KeyboardCommandInt.E)
+		_add_keyboard_value_to_interpreter("⌨️F", KeyboardControllerToInt.KeyboardCommandInt.F)
+		_add_keyboard_value_to_interpreter("⌨️G", KeyboardControllerToInt.KeyboardCommandInt.G)
+		_add_keyboard_value_to_interpreter("⌨️H", KeyboardControllerToInt.KeyboardCommandInt.H)
+		_add_keyboard_value_to_interpreter("⌨️I", KeyboardControllerToInt.KeyboardCommandInt.I)
+		_add_keyboard_value_to_interpreter("⌨️J", KeyboardControllerToInt.KeyboardCommandInt.J)
+		_add_keyboard_value_to_interpreter("⌨️K", KeyboardControllerToInt.KeyboardCommandInt.K)
+		_add_keyboard_value_to_interpreter("⌨️L", KeyboardControllerToInt.KeyboardCommandInt.L)
+		_add_keyboard_value_to_interpreter("⌨️M", KeyboardControllerToInt.KeyboardCommandInt.M)
+		_add_keyboard_value_to_interpreter("⌨️N", KeyboardControllerToInt.KeyboardCommandInt.N)
+		_add_keyboard_value_to_interpreter("⌨️O", KeyboardControllerToInt.KeyboardCommandInt.O)
+		_add_keyboard_value_to_interpreter("⌨️P", KeyboardControllerToInt.KeyboardCommandInt.P)
+		_add_keyboard_value_to_interpreter("⌨️Q", KeyboardControllerToInt.KeyboardCommandInt.Q)
+		_add_keyboard_value_to_interpreter("⌨️R", KeyboardControllerToInt.KeyboardCommandInt.R)
+		_add_keyboard_value_to_interpreter("⌨️S", KeyboardControllerToInt.KeyboardCommandInt.S)
+		_add_keyboard_value_to_interpreter("⌨️T", KeyboardControllerToInt.KeyboardCommandInt.T)
+		_add_keyboard_value_to_interpreter("⌨️U", KeyboardControllerToInt.KeyboardCommandInt.U)
+		_add_keyboard_value_to_interpreter("⌨️V", KeyboardControllerToInt.KeyboardCommandInt.V)
+		_add_keyboard_value_to_interpreter("⌨️W", KeyboardControllerToInt.KeyboardCommandInt.W)
+		_add_keyboard_value_to_interpreter("⌨️X", KeyboardControllerToInt.KeyboardCommandInt.X)
+		_add_keyboard_value_to_interpreter("⌨️Y", KeyboardControllerToInt.KeyboardCommandInt.Y)
+		_add_keyboard_value_to_interpreter("⌨️Z", KeyboardControllerToInt.KeyboardCommandInt.Z)
+		_add_keyboard_value_to_interpreter("⌨️0", KeyboardControllerToInt.KeyboardCommandInt.Alpha0)
+		_add_keyboard_value_to_interpreter("⌨️1", KeyboardControllerToInt.KeyboardCommandInt.Alpha1)
+		_add_keyboard_value_to_interpreter("⌨️2", KeyboardControllerToInt.KeyboardCommandInt.Alpha2)
+		_add_keyboard_value_to_interpreter("⌨️3", KeyboardControllerToInt.KeyboardCommandInt.Alpha3)
+		_add_keyboard_value_to_interpreter("⌨️4", KeyboardControllerToInt.KeyboardCommandInt.Alpha4)
+		_add_keyboard_value_to_interpreter("⌨️5", KeyboardControllerToInt.KeyboardCommandInt.Alpha5)
+		_add_keyboard_value_to_interpreter("⌨️6", KeyboardControllerToInt.KeyboardCommandInt.Alpha6)
+		_add_keyboard_value_to_interpreter("⌨️7", KeyboardControllerToInt.KeyboardCommandInt.Alpha7)
+		_add_keyboard_value_to_interpreter("⌨️8", KeyboardControllerToInt.KeyboardCommandInt.Alpha8)
+		_add_keyboard_value_to_interpreter("⌨️9", KeyboardControllerToInt.KeyboardCommandInt.Alpha9)
+		_add_keyboard_value_to_interpreter("⌨️F1", KeyboardControllerToInt.KeyboardCommandInt.F1)
+		_add_keyboard_value_to_interpreter("⌨️F2", KeyboardControllerToInt.KeyboardCommandInt.F2)
+		_add_keyboard_value_to_interpreter("⌨️F3", KeyboardControllerToInt.KeyboardCommandInt.F3)
+		_add_keyboard_value_to_interpreter("⌨️F4", KeyboardControllerToInt.KeyboardCommandInt.F4)
+		_add_keyboard_value_to_interpreter("⌨️F5", KeyboardControllerToInt.KeyboardCommandInt.F5)
+		_add_keyboard_value_to_interpreter("⌨️F6", KeyboardControllerToInt.KeyboardCommandInt.F6)
+		_add_keyboard_value_to_interpreter("⌨️F7", KeyboardControllerToInt.KeyboardCommandInt.F7)
+		_add_keyboard_value_to_interpreter("⌨️F8", KeyboardControllerToInt.KeyboardCommandInt.F8)
+		_add_keyboard_value_to_interpreter("⌨️F9", KeyboardControllerToInt.KeyboardCommandInt.F9)
+		_add_keyboard_value_to_interpreter("⌨️F10", KeyboardControllerToInt.KeyboardCommandInt.F10)
+		_add_keyboard_value_to_interpreter("⌨️F11", KeyboardControllerToInt.KeyboardCommandInt.F11)
+		_add_keyboard_value_to_interpreter("⌨️F12", KeyboardControllerToInt.KeyboardCommandInt.F12)
+		_add_keyboard_value_to_interpreter("⌨️ESC", KeyboardControllerToInt.KeyboardCommandInt.Escape)
+		_add_keyboard_value_to_interpreter("⌨️TAB", KeyboardControllerToInt.KeyboardCommandInt.Tab)
+		_add_keyboard_value_to_interpreter("⌨️CAPS", KeyboardControllerToInt.KeyboardCommandInt.CapsLock)
+		_add_keyboard_value_to_interpreter("⌨️LSHIFT", KeyboardControllerToInt.KeyboardCommandInt.LeftShift)
+		_add_keyboard_value_to_interpreter("⌨️LCTRL", KeyboardControllerToInt.KeyboardCommandInt.LeftControl)
+		_add_keyboard_value_to_interpreter("⌨️LALT", KeyboardControllerToInt.KeyboardCommandInt.LeftAlt)
+		_add_keyboard_value_to_interpreter("⌨️SPACE", KeyboardControllerToInt.KeyboardCommandInt.Space)
+		_add_keyboard_value_to_interpreter("⌨️RALT", KeyboardControllerToInt.KeyboardCommandInt.RightAlt)
+		_add_keyboard_value_to_interpreter("⌨️RCTRL", KeyboardControllerToInt.KeyboardCommandInt.RightControl)
+		_add_keyboard_value_to_interpreter("⌨️RSHIFT", KeyboardControllerToInt.KeyboardCommandInt.RightShift)
+		_add_keyboard_value_to_interpreter("⌨️ENTER", KeyboardControllerToInt.KeyboardCommandInt.Enter)
+		_add_keyboard_value_to_interpreter("⌨️BACKSPACE", KeyboardControllerToInt.KeyboardCommandInt.Backspace)
+		_add_keyboard_value_to_interpreter("⌨️INS", KeyboardControllerToInt.KeyboardCommandInt.Insert)
+		_add_keyboard_value_to_interpreter("⌨️DEL", KeyboardControllerToInt.KeyboardCommandInt.Delete)
+		_add_keyboard_value_to_interpreter("⌨️HOME", KeyboardControllerToInt.KeyboardCommandInt.Home)
+		_add_keyboard_value_to_interpreter("⌨️END", KeyboardControllerToInt.KeyboardCommandInt.End)
+		_add_keyboard_value_to_interpreter("⌨️PGUP", KeyboardControllerToInt.KeyboardCommandInt.PageUp)
+		_add_keyboard_value_to_interpreter("⌨️PGDN", KeyboardControllerToInt.KeyboardCommandInt.PageDown)
+		_add_keyboard_value_to_interpreter("⌨️MINUS", KeyboardControllerToInt.KeyboardCommandInt.NumpadSubtract)
+		_add_keyboard_value_to_interpreter("⌨️DIVIDE", KeyboardControllerToInt.KeyboardCommandInt.NumpadDivide)
+		_add_keyboard_value_to_interpreter("⌨️MULTIPLY", KeyboardControllerToInt.KeyboardCommandInt.NumpadMultiply)
+		_add_keyboard_value_to_interpreter("⌨️LEFT", KeyboardControllerToInt.KeyboardCommandInt.Left)
+		_add_keyboard_value_to_interpreter("⌨️RIGHT", KeyboardControllerToInt.KeyboardCommandInt.Right)
+		_add_keyboard_value_to_interpreter("⌨️UP", KeyboardControllerToInt.KeyboardCommandInt.Up)
+		_add_keyboard_value_to_interpreter("⌨️AD", KeyboardControllerToInt.KeyboardCommandInt.Down)
+		_add_keyboard_value_to_interpreter("⌨️AL", KeyboardControllerToInt.KeyboardCommandInt.Left)
+		_add_keyboard_value_to_interpreter("⌨️AR", KeyboardControllerToInt.KeyboardCommandInt.Right)
+		_add_keyboard_value_to_interpreter("⌨️AU", KeyboardControllerToInt.KeyboardCommandInt.Up)
+		
+
 func _update_last_sent_int_to_target(new_value:int):
 	last_sent_int_to_target = new_value
 	on_send_int_to_target.emit(new_value)
+
+func _send_integer_to_udp_target(new_value:int):
+	get_udp_sender().send_integer(new_value)
+
+func _append_integer_with_delay_to_udp_target(new_value:int, delay_milliseconds:int):
+	get_int_delayer().add_action_to_delay_as_integer_in_milliseconds(new_value, delay_milliseconds)
 
 func _init() -> void:
 	if target_at_init != null:
@@ -30,9 +194,33 @@ func _init() -> void:
 		udp_sender.set_target_player_index(target_at_init.target_player_index)
 		print("Target set at init: " + target_at_init.target_ip + ":" + str(target_at_init.target_port) + " player index: " + str(target_at_init.target_player_index))
 
+
+@export var auto_connect_signal_to_udp := true
+
 func _ready() -> void:
+	_add_joystick_and_nes_default_macro()
+
 	if udp_sender != null:
 		udp_sender.on_integer_sent.connect(_update_last_sent_int_to_target)
+	
+	if auto_connect_signal_to_udp:
+		if int_delayer != null:
+			int_delayer.on_action_integer_requested.connect(_send_integer_to_udp_target)
+		
+		if interpreter != null:
+			interpreter.on_integer_to_send_requested.connect(_send_integer_to_udp_target)
+			interpreter.on_integer_to_send_requested_with_milliseconds_delay.connect(_append_integer_with_delay_to_udp_target)
+		if nes_pad != null:
+			nes_pad.on_integer_to_send_requested.connect(_send_integer_to_udp_target)
+			nes_pad.on_integer_to_send_requested_with_milliseconds_delay.connect(_append_integer_with_delay_to_udp_target)
+		if xbox != null:
+			xbox.on_integer_to_send_requested.connect(_send_integer_to_udp_target)
+			xbox.on_integer_with_millisecond_delay_to_send_requested.connect(_append_integer_with_delay_to_udp_target)
+		if keyboard != null:
+			keyboard.on_integer_to_send_requested.connect(_send_integer_to_udp_target)
+			keyboard.on_integer_with_millisecond_delay_to_send_requested.connect(_append_integer_with_delay_to_udp_target)
+			
+
 
 
 func _process(delta: float) -> void:
@@ -41,7 +229,30 @@ func _process(delta: float) -> void:
 	target_index = udp_sender.player_to_target
 	waiting_command_in_queue = int_delayer.get_waiting_command_in_queue()
 
+
+
+
+
+#region MACRO INTERPRETOR
+
+func interpreter_translate_text_macro_to_int_and_callable(text:String):
+	interpreter.translate_text_to_integer_and_callable(text)
 	
+func interpreter_clear_all_words(word_name:String, callback:Callable):
+	interpreter.clear_all_words()
+
+func interpreter_add_callable_macro(word_name:String, callback:Callable):
+	interpreter.add_callable_by_key_name(word_name, callback)
+	
+func interpreter_add_word_to_integer_macro(word_name:String, value:int):
+	interpreter.add_integer_by_key_name(word_name, value)
+	
+func interpreter_add_word_to_key_press_integer_macro(word_name:String, key_press:int):
+	interpreter.add_press_release_integer_by_key_name(word_name, key_press)
+
+#endregion
+
+
 #region GET MAIN COMPONENTS
 func get_nes()-> NesControllerToInt:
 	return nes_pad
@@ -56,6 +267,10 @@ func get_xbox()->XboxControllerToInt:
 
 func get_keyboard()->KeyboardControllerToInt:
 	return keyboard
+
+func get_interpreter()->NesMacroInterpreterToInt:
+	return interpreter
+
 #endregion
 
 #region UDP SENDER ACCESS
@@ -192,7 +407,7 @@ func xbox_triple_enum_click(key_press_value:XboxControllerToInt.XboxCommandBasic
 #region KEYBOARD ACCESS
 
 func keyboard_get_key_value_from_enum(key_enum:KeyboardControllerToInt.KeyboardCommandInt) -> int:
-	return get_keyboard().get_key_value_from_enum(key_enum)
+	return get_keyboard().get_key_int_value_from_enum(key_enum)
 
 func keyboard_press_enum_key(enum_key:KeyboardControllerToInt.KeyboardCommandInt):
 	get_keyboard().press_key(enum_key)
@@ -383,3 +598,54 @@ func nes_basic_release_arrow_down_in_milliseconds(milliseconds_delay:int):
 	get_nes().release_key_with_enum_in_milliseconds(NesControllerToInt.NesButton.ARROW_DOWN, milliseconds_delay)
 
 #endregion
+
+
+#region PLAY NES AS
+
+func play_nes_as_keyboard_10_seconds_ninja():
+	override_all_nes_buttons_with_keyboard(
+		KeyboardControllerToInt.KeyboardCommandInt.Left,
+		KeyboardControllerToInt.KeyboardCommandInt.Right,
+		KeyboardControllerToInt.KeyboardCommandInt.Up,
+		KeyboardControllerToInt.KeyboardCommandInt.Down,
+		KeyboardControllerToInt.KeyboardCommandInt.Z,
+		KeyboardControllerToInt.KeyboardCommandInt.X,
+		KeyboardControllerToInt.KeyboardCommandInt.Escape,
+		KeyboardControllerToInt.KeyboardCommandInt.R
+	)
+
+func play_nes_as_xbox_10_seconds_ninja():
+	override_all_nes_buttons_with_xbox(
+		XboxControllerToInt.XboxCommandBasic.ARROW_LEFT,
+		XboxControllerToInt.XboxCommandBasic.ARROW_RIGHT,
+		XboxControllerToInt.XboxCommandBasic.ARROW_UP,
+		XboxControllerToInt.XboxCommandBasic.ARROW_DOWN,
+		XboxControllerToInt.XboxCommandBasic.BUTTON_DOWN_A,
+		XboxControllerToInt.XboxCommandBasic.BUTTON_RIGHT_B,
+		XboxControllerToInt.XboxCommandBasic.BUTTON_MENU_LEFT,
+		XboxControllerToInt.XboxCommandBasic.BUTTON_MENU_RIGHT
+	)	
+
+func play_nes_as_xbox_stealth_bastard():
+	override_all_nes_buttons_with_xbox(
+		XboxControllerToInt.XboxCommandBasic.ARROW_LEFT,
+		XboxControllerToInt.XboxCommandBasic.ARROW_RIGHT,
+		XboxControllerToInt.XboxCommandBasic.ARROW_UP,
+		XboxControllerToInt.XboxCommandBasic.ARROW_DOWN,
+		XboxControllerToInt.XboxCommandBasic.BUTTON_DOWN_A,
+		XboxControllerToInt.XboxCommandBasic.BUTTON_RIGHT_B,
+		XboxControllerToInt.XboxCommandBasic.BUTTON_MENU_LEFT,
+		XboxControllerToInt.XboxCommandBasic.BUTTON_MENU_RIGHT
+	)	
+
+func play_nes_as_xbox_hollow_knight_silksong():
+	override_all_nes_buttons_with_xbox(
+		XboxControllerToInt.XboxCommandBasic.ARROW_LEFT,
+		XboxControllerToInt.XboxCommandBasic.ARROW_RIGHT,
+		XboxControllerToInt.XboxCommandBasic.ARROW_UP,
+		XboxControllerToInt.XboxCommandBasic.ARROW_DOWN,
+		XboxControllerToInt.XboxCommandBasic.BUTTON_DOWN_A,
+		XboxControllerToInt.XboxCommandBasic.BUTTON_LEFT_X,
+		XboxControllerToInt.XboxCommandBasic.BUTTON_MENU_LEFT,
+		XboxControllerToInt.XboxCommandBasic.BUTTON_MENU_RIGHT
+	)	

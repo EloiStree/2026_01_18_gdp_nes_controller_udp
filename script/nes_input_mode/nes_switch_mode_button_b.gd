@@ -29,6 +29,9 @@ func set_mode_with_str_index(index:String):
 	set_mode_with_index(int(index))
 	
 func set_mode_with_index(index: int):
+	if nes_controller==null:
+		return
+
 	var previous :int= button_index;
 	button_index = index % 7
 	var changed :bool= previous != button_index
@@ -51,37 +54,43 @@ func set_mode_with_index(index: int):
 		on_mode_changed_index.emit(button_index)
 
 func set_mode_as_button_b():
+	if nes_controller==null:
+		return
 	nes_controller.override_button_b(1302)
 	on_mode_changed_label.emit(label_b)
 
 func set_mode_as_button_x():
+	if nes_controller==null:
+		return
 	nes_controller.override_button_b(1301)
 	on_mode_changed_label.emit(label_x)
 
 func set_mode_as_button_y():
+	if nes_controller==null:
+		return
 	nes_controller.override_button_b(1303)
 	on_mode_changed_label.emit(label_y)
 
 func set_mode_as_button_left_side():
+	if nes_controller==null:
+		return
 	nes_controller.override_button_b(1304)
 	on_mode_changed_label.emit(label_side_button_left)
 
 func set_mode_as_button_right_side():
+	if nes_controller==null:
+		return
 	nes_controller.override_button_b(1305)
 	on_mode_changed_label.emit(label_side_button_right)
 
 func set_mode_as_trigger_left_side():
+	if nes_controller==null:
+		return
 	nes_controller.override_button_b(1358)
 	on_mode_changed_label.emit(label_trigger_left)
 
 func set_mode_as_trigger_right_side():
+	if nes_controller==null:
+		return
 	nes_controller.override_button_b(1359)
 	on_mode_changed_label.emit(label_trigger_right)
-
-
-func _on_button_change_b_mode_pressed() -> void:
-	pass # Replace with function body.
-
-
-func _on_nes_save_load_string_value_from_file_memory_on_value_loaded_from_file(text: String) -> void:
-	pass # Replace with function body.
