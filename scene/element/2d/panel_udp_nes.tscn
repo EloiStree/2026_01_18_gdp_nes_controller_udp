@@ -1,8 +1,6 @@
 [gd_scene format=3 uid="uid://ca77ll412gruh"]
 
-[ext_resource type="Script" uid="uid://csyi6i1k70xws" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/nes_send_integer_message_udp.gd" id="1_8dnwd"]
-[ext_resource type="Script" uid="uid://ddjcmkwir4osd" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/nes_controller_to_int.gd" id="2_cplfa"]
-[ext_resource type="Script" uid="uid://batpkfgtryf71" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/delayer/nes_int_delayer.gd" id="3_cn7a8"]
+[ext_resource type="PackedScene" uid="uid://bbwn03yllootl" path="res://addons/2026_01_18_gdp_nes_controller_udp/scene/element/facade/facade_nes_to_udp.tscn" id="1_v5dd5"]
 [ext_resource type="Texture2D" uid="uid://b5nfry4efhp5l" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/2d/nes_icon/nes_controller.png" id="3_pgyg6"]
 [ext_resource type="Script" uid="uid://c7jenviiw66o" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/nes_ui2d_button_to_down_up_bool.gd" id="4_fg5n1"]
 [ext_resource type="Texture2D" uid="uid://dsf3xc8lj6mip" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/2d/nes_icon/nes_controller_layer_red_button.png" id="5_lu23p"]
@@ -22,18 +20,7 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="SendIntegerUDP" type="Node" parent="." unique_id=1778952455]
-script = ExtResource("1_8dnwd")
-use_debug_print = true
-
-[node name="NesControllerToInt" type="Node" parent="." unique_id=76676000]
-script = ExtResource("2_cplfa")
-use_print_debugging = true
-metadata/_custom_type_script = "uid://ddjcmkwir4osd"
-
-[node name="NesIntDelayer" type="Node" parent="NesControllerToInt" unique_id=1298074060]
-script = ExtResource("3_cn7a8")
-metadata/_custom_type_script = "uid://batpkfgtryf71"
+[node name="FacadeNesToUdp" parent="." unique_id=574021232 instance=ExtResource("1_v5dd5")]
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="." unique_id=1377516107]
 layout_mode = 1
@@ -175,10 +162,10 @@ anchor_left = 0.135
 anchor_top = 0.36900002
 anchor_right = 0.194
 anchor_bottom = 0.517
-offset_left = 0.12108612
-offset_top = 0.09300995
-offset_right = 0.08644867
-offset_bottom = 0.04901123
+offset_left = 0.12107849
+offset_top = 0.09301758
+offset_right = 2.5119934
+offset_bottom = -0.07853699
 theme_override_font_sizes/font_size = 15
 toggle_mode = true
 text = "AU
@@ -321,9 +308,8 @@ offset_bottom = 0.151474
 theme_override_font_sizes/font_size = 10
 text = "B Mode"
 
-[node name="Node" type="Node" parent="AspectRatioContainer/PanelRatioNES/Button Change B Mode" unique_id=252231350 node_paths=PackedStringArray("nes_controller")]
+[node name="NodeModeButtonB" type="Node" parent="AspectRatioContainer/PanelRatioNES/Button Change B Mode" unique_id=252231350]
 script = ExtResource("9_v5dd5")
-nes_controller = NodePath("../../../../NesControllerToInt")
 
 [node name="NesSaveLoadStringValueFromFileMemory" type="Node" parent="AspectRatioContainer/PanelRatioNES/Button Change B Mode" unique_id=125551124]
 script = ExtResource("10_sf5ed")
@@ -339,9 +325,8 @@ anchor_bottom = 0.245
 theme_override_font_sizes/font_size = 10
 text = "Arrow Mode"
 
-[node name="Node" type="Node" parent="AspectRatioContainer/PanelRatioNES/Button Change Arrow Mode" unique_id=1742292129 node_paths=PackedStringArray("nes_controller")]
+[node name="NesModeArrowMode" type="Node" parent="AspectRatioContainer/PanelRatioNES/Button Change Arrow Mode" unique_id=1742292129]
 script = ExtResource("10_b33vo")
-nes_controller = NodePath("../../../../NesControllerToInt")
 
 [node name="NesSaveLoadStringValueFromFileMemory2" type="Node" parent="AspectRatioContainer/PanelRatioNES/Button Change Arrow Mode" unique_id=1373594805]
 script = ExtResource("10_sf5ed")
@@ -476,49 +461,34 @@ action_name_positive_01 = "GAMEPAD_LEFT_VERTICAL_POSITIVE"
 action_name_negative_01 = "GAMEPAD_LEFT_VERTICAL_NEGATIVE"
 metadata/_custom_type_script = "uid://ds80rs80plamt"
 
-[connection signal="on_integer_sent" from="SendIntegerUDP" to="AspectRatioContainer/PanelRatioNES/Label Last Push Integer/NesParseIntegerToString" method="push_in_integer_to_parse"]
-[connection signal="on_integer_to_send_requested" from="NesControllerToInt" to="SendIntegerUDP" method="send_integer"]
-[connection signal="action_integer_requested" from="NesControllerToInt/NesIntDelayer" to="SendIntegerUDP" method="send_integer"]
-[connection signal="on_down_up_value_changed" from="AspectRatioContainer/PanelRatioNES/Button Press A/NesUiButtonToDownUpBool" to="NesControllerToInt" method="set_down_up_key_a"]
-[connection signal="on_down_up_value_changed" from="AspectRatioContainer/PanelRatioNES/Button Press B/NesUiButtonToDownUpBool2" to="NesControllerToInt" method="set_down_up_key_b"]
-[connection signal="on_down_up_value_changed" from="AspectRatioContainer/PanelRatioNES/Button Press Menu Left/NesUiButtonToDownUpBool3" to="NesControllerToInt" method="set_down_up_key_menu_left"]
-[connection signal="on_down_up_value_changed" from="AspectRatioContainer/PanelRatioNES/Button Press Menu Right/NesUiButtonToDownUpBool4" to="NesControllerToInt" method="set_down_up_key_menu_right"]
-[connection signal="on_down_up_value_changed" from="AspectRatioContainer/PanelRatioNES/Button Press Arrow Right/NesUiButtonToDownUpBool5" to="NesControllerToInt" method="set_down_up_key_arrow_right"]
-[connection signal="on_down_up_value_changed" from="AspectRatioContainer/PanelRatioNES/Button Press Arrow Up/NesUiButtonToDownUpBool6" to="NesControllerToInt" method="set_down_up_key_arrow_up"]
-[connection signal="on_down_up_value_changed" from="AspectRatioContainer/PanelRatioNES/Button Press Arrow Down/NesUiButtonToDownUpBool7" to="NesControllerToInt" method="set_down_up_key_arrow_down"]
-[connection signal="on_down_up_value_changed" from="AspectRatioContainer/PanelRatioNES/Button Press Arrow Left/NesUiButtonToDownUpBool8" to="NesControllerToInt" method="set_down_up_key_arrow_left"]
-[connection signal="text_changed" from="AspectRatioContainer/PanelRatioNES/LineEdit IP" to="SendIntegerUDP" method="set_target_ipv4"]
-[connection signal="text_changed" from="AspectRatioContainer/PanelRatioNES/LineEdit Port" to="SendIntegerUDP" method="set_target_port"]
-[connection signal="text_changed" from="AspectRatioContainer/PanelRatioNES/LineEdit PlayerID" to="SendIntegerUDP" method="set_target_player_index"]
+[connection signal="on_send_int_to_target" from="FacadeNesToUdp" to="AspectRatioContainer/PanelRatioNES/Label Last Push Integer/NesParseIntegerToString" method="push_in_integer_to_parse"]
+[connection signal="on_down_up_value_changed" from="AspectRatioContainer/PanelRatioNES/Button Press A/NesUiButtonToDownUpBool" to="FacadeNesToUdp" method="nes_basic_set_a"]
+[connection signal="on_down_up_value_changed" from="AspectRatioContainer/PanelRatioNES/Button Press B/NesUiButtonToDownUpBool2" to="FacadeNesToUdp" method="nes_basic_set_b"]
+[connection signal="on_down_up_value_changed" from="AspectRatioContainer/PanelRatioNES/Button Press Menu Left/NesUiButtonToDownUpBool3" to="FacadeNesToUdp" method="nes_basic_set_menu_left_select"]
+[connection signal="on_down_up_value_changed" from="AspectRatioContainer/PanelRatioNES/Button Press Menu Right/NesUiButtonToDownUpBool4" to="FacadeNesToUdp" method="nes_basic_set_menu_right_start"]
+[connection signal="on_down_up_value_changed" from="AspectRatioContainer/PanelRatioNES/Button Press Arrow Right/NesUiButtonToDownUpBool5" to="FacadeNesToUdp" method="nes_basic_set_arrow_right"]
+[connection signal="on_down_up_value_changed" from="AspectRatioContainer/PanelRatioNES/Button Press Arrow Up/NesUiButtonToDownUpBool6" to="FacadeNesToUdp" method="nes_basic_set_arrow_up"]
+[connection signal="on_down_up_value_changed" from="AspectRatioContainer/PanelRatioNES/Button Press Arrow Down/NesUiButtonToDownUpBool7" to="FacadeNesToUdp" method="nes_basic_set_arrow_down"]
+[connection signal="on_down_up_value_changed" from="AspectRatioContainer/PanelRatioNES/Button Press Arrow Left/NesUiButtonToDownUpBool8" to="FacadeNesToUdp" method="nes_basic_set_arrow_left"]
+[connection signal="text_changed" from="AspectRatioContainer/PanelRatioNES/LineEdit IP" to="FacadeNesToUdp" method="set_target_ipv4"]
+[connection signal="text_changed" from="AspectRatioContainer/PanelRatioNES/LineEdit Port" to="FacadeNesToUdp" method="set_target_port"]
+[connection signal="text_changed" from="AspectRatioContainer/PanelRatioNES/LineEdit PlayerID" to="FacadeNesToUdp" method="set_target_index"]
 [connection signal="on_integer_parsed" from="AspectRatioContainer/PanelRatioNES/Label Last Push Integer/NesParseIntegerToString" to="AspectRatioContainer/PanelRatioNES/Label Last Push Integer" method="set_text"]
-[connection signal="pressed" from="AspectRatioContainer/PanelRatioNES/Button Change B Mode" to="AspectRatioContainer/PanelRatioNES/Button Change B Mode/Node" method="increment_mode_index"]
-[connection signal="on_mode_changed_index" from="AspectRatioContainer/PanelRatioNES/Button Change B Mode/Node" to="AspectRatioContainer/PanelRatioNES/Button Change B Mode/NesSaveLoadStringValueFromFileMemory" method="save_given_integer"]
-[connection signal="on_mode_changed_label" from="AspectRatioContainer/PanelRatioNES/Button Change B Mode/Node" to="AspectRatioContainer/PanelRatioNES/Button Press B" method="set_text"]
-[connection signal="on_value_loaded_from_file" from="AspectRatioContainer/PanelRatioNES/Button Change B Mode/NesSaveLoadStringValueFromFileMemory" to="AspectRatioContainer/PanelRatioNES/Button Change B Mode/Node" method="set_mode_with_str_index"]
-[connection signal="pressed" from="AspectRatioContainer/PanelRatioNES/Button Change Arrow Mode" to="AspectRatioContainer/PanelRatioNES/Button Change Arrow Mode/Node" method="increment_mode_index"]
-[connection signal="on_mode_changed_index" from="AspectRatioContainer/PanelRatioNES/Button Change Arrow Mode/Node" to="AspectRatioContainer/PanelRatioNES/Button Change Arrow Mode/NesSaveLoadStringValueFromFileMemory2" method="save_given_integer"]
-[connection signal="on_mode_changed_label" from="AspectRatioContainer/PanelRatioNES/Button Change Arrow Mode/Node" to="AspectRatioContainer/PanelRatioNES/Button Change Arrow Mode" method="set_text"]
-[connection signal="on_value_loaded_from_file" from="AspectRatioContainer/PanelRatioNES/Button Change Arrow Mode/NesSaveLoadStringValueFromFileMemory2" to="AspectRatioContainer/PanelRatioNES/Button Change Arrow Mode/Node" method="set_mode_with_str_index"]
-[connection signal="pressed" from="AspectRatioContainer/PanelRatioNES/Button" to="SendIntegerUDP" method="test_send_iid_array_of_a_b_x_y"]
-[connection signal="on_down_up" from="Input/SuperFamicomController/NesButtonA" to="NesControllerToInt" method="set_down_up_key_a"]
-[connection signal="on_down_up" from="Input/SuperFamicomController/NesButtonB" to="NesControllerToInt" method="set_down_up_key_b"]
-[connection signal="on_down_up" from="Input/SuperFamicomController/NesButtonMenuLeft" to="NesControllerToInt" method="set_down_up_key_menu_left"]
-[connection signal="on_down_up" from="Input/SuperFamicomController/NesButtonMenuRight" to="NesControllerToInt" method="set_down_up_key_menu_right"]
-[connection signal="on_down_up" from="Input/SuperFamicomController/NesButtonArrowLeft" to="NesControllerToInt" method="set_down_up_key_arrow_left"]
-[connection signal="on_down_up" from="Input/SuperFamicomController/NesButtonArrowRight" to="NesControllerToInt" method="set_down_up_key_arrow_right"]
-[connection signal="on_down_up" from="Input/SuperFamicomController/NesButtonArrowUp" to="NesControllerToInt" method="set_down_up_key_arrow_up"]
-[connection signal="on_down_up" from="Input/SuperFamicomController/NesButtonArrowDown" to="NesControllerToInt" method="set_down_up_key_arrow_down"]
-[connection signal="on_down_up" from="Input/InputMap/Action A" to="NesControllerToInt" method="set_down_up_key_a"]
-[connection signal="on_down_up" from="Input/InputMap/Action B" to="NesControllerToInt" method="set_down_up_key_b"]
-[connection signal="on_down_up" from="Input/InputMap/Action ML" to="NesControllerToInt" method="set_down_up_key_menu_left"]
-[connection signal="on_down_up" from="Input/InputMap/Action MR" to="NesControllerToInt" method="set_down_up_key_menu_right"]
-[connection signal="on_down_up" from="Input/InputMap/Action AL" to="NesControllerToInt" method="set_down_up_key_arrow_left"]
-[connection signal="on_down_up" from="Input/InputMap/Action AR" to="NesControllerToInt" method="set_down_up_key_arrow_right"]
-[connection signal="on_down_up" from="Input/InputMap/Action AU" to="NesControllerToInt" method="set_down_up_key_arrow_up"]
-[connection signal="on_down_up" from="Input/InputMap/Action AD" to="NesControllerToInt" method="set_down_up_key_arrow_down"]
-[connection signal="on_negative_zone_changed" from="Input/InputMap/GamepadJoystickToEvent/Left Horizontal Axis" to="NesControllerToInt" method="set_down_up_key_arrow_left"]
-[connection signal="on_positive_zone_changed" from="Input/InputMap/GamepadJoystickToEvent/Left Horizontal Axis" to="NesControllerToInt" method="set_down_up_key_arrow_right"]
+[connection signal="pressed" from="AspectRatioContainer/PanelRatioNES/Button Change B Mode" to="AspectRatioContainer/PanelRatioNES/Button Change B Mode/NodeModeButtonB" method="increment_mode_index"]
+[connection signal="on_mode_changed_index" from="AspectRatioContainer/PanelRatioNES/Button Change B Mode/NodeModeButtonB" to="AspectRatioContainer/PanelRatioNES/Button Change B Mode/NesSaveLoadStringValueFromFileMemory" method="save_given_integer"]
+[connection signal="on_mode_changed_label" from="AspectRatioContainer/PanelRatioNES/Button Change B Mode/NodeModeButtonB" to="AspectRatioContainer/PanelRatioNES/Button Press B" method="set_text"]
+[connection signal="on_value_loaded_from_file" from="AspectRatioContainer/PanelRatioNES/Button Change B Mode/NesSaveLoadStringValueFromFileMemory" to="AspectRatioContainer/PanelRatioNES/Button Change B Mode/NodeModeButtonB" method="set_mode_with_str_index"]
+[connection signal="pressed" from="AspectRatioContainer/PanelRatioNES/Button Change Arrow Mode" to="AspectRatioContainer/PanelRatioNES/Button Change Arrow Mode/NesModeArrowMode" method="increment_mode_index"]
+[connection signal="on_mode_changed_index" from="AspectRatioContainer/PanelRatioNES/Button Change Arrow Mode/NesModeArrowMode" to="AspectRatioContainer/PanelRatioNES/Button Change Arrow Mode/NesSaveLoadStringValueFromFileMemory2" method="save_given_integer"]
+[connection signal="on_mode_changed_label" from="AspectRatioContainer/PanelRatioNES/Button Change Arrow Mode/NesModeArrowMode" to="AspectRatioContainer/PanelRatioNES/Button Change Arrow Mode" method="set_text"]
+[connection signal="on_value_loaded_from_file" from="AspectRatioContainer/PanelRatioNES/Button Change Arrow Mode/NesSaveLoadStringValueFromFileMemory2" to="AspectRatioContainer/PanelRatioNES/Button Change Arrow Mode/NesModeArrowMode" method="set_mode_with_str_index"]
+[connection signal="on_down_up" from="Input/SuperFamicomController/NesButtonA" to="FacadeNesToUdp" method="nes_basic_set_a"]
+[connection signal="on_down_up" from="Input/SuperFamicomController/NesButtonB" to="FacadeNesToUdp" method="nes_basic_set_b"]
+[connection signal="on_down_up" from="Input/SuperFamicomController/NesButtonMenuLeft" to="FacadeNesToUdp" method="nes_basic_set_menu_left_select"]
+[connection signal="on_down_up" from="Input/SuperFamicomController/NesButtonMenuRight" to="FacadeNesToUdp" method="nes_basic_set_menu_right_start"]
+[connection signal="on_down_up" from="Input/SuperFamicomController/NesButtonArrowLeft" to="FacadeNesToUdp" method="nes_basic_set_arrow_left"]
+[connection signal="on_down_up" from="Input/SuperFamicomController/NesButtonArrowRight" to="FacadeNesToUdp" method="nes_basic_set_arrow_right"]
+[connection signal="on_down_up" from="Input/SuperFamicomController/NesButtonArrowUp" to="FacadeNesToUdp" method="nes_basic_set_arrow_up"]
+[connection signal="on_down_up" from="Input/SuperFamicomController/NesButtonArrowDown" to="FacadeNesToUdp" method="nes_basic_set_arrow_down"]
 [connection signal="on_float_axis_value_changed" from="Input/InputMap/GamepadJoystickToEvent/Left Horizontal Axis/NesInputMapActionFloatAxis" to="Input/InputMap/GamepadJoystickToEvent/Left Horizontal Axis" method="push_in_float_value"]
-[connection signal="on_negative_zone_changed" from="Input/InputMap/GamepadJoystickToEvent/Left Vertical Axis" to="NesControllerToInt" method="set_down_up_key_arrow_down"]
-[connection signal="on_positive_zone_changed" from="Input/InputMap/GamepadJoystickToEvent/Left Vertical Axis" to="NesControllerToInt" method="set_down_up_key_arrow_up"]
 [connection signal="on_float_axis_value_changed" from="Input/InputMap/GamepadJoystickToEvent/Left Vertical Axis/NesInputMapActionFloatAxis" to="Input/InputMap/GamepadJoystickToEvent/Left Vertical Axis" method="push_in_float_value"]
