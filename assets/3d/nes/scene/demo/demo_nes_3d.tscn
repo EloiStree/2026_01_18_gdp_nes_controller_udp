@@ -8,6 +8,16 @@
 
 [node name="Node3D" type="Node3D" unique_id=1974664198]
 
+[node name="TextureRect" type="TextureRect" parent="." unique_id=226824215]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_up6bp")
+expand_mode = 2
+stretch_mode = 5
+
 [node name="NesVertex" parent="." unique_id=1060493397 instance=ExtResource("1_njp8s")]
 
 [node name="NesStandard" parent="." unique_id=715256786 instance=ExtResource("2_up6bp")]
@@ -18,16 +28,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00020729005, -1.4901161e-08
 
 [node name="NesImage" parent="." unique_id=395067171 instance=ExtResource("4_38y15")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.2347548)
-
-[node name="TextureRect" type="TextureRect" parent="." unique_id=226824215]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("5_up6bp")
-expand_mode = 2
-stretch_mode = 5
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=816380543]
 transform = Transform3D(1, 0, 0, 0, 0.78900903, 0.6143816, 0, -0.6143816, 0.78900903, 0, 0.30915862, 0.42732447)
