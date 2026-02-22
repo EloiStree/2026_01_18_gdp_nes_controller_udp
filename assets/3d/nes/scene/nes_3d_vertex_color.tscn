@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cqm6od06htnt3"]
+
+[ext_resource type="PackedScene" uid="uid://dwl0kft7ib2vf" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/3d/nes/nes.fbx" id="1_6brey"]
+
+[node name="Nes" unique_id=715256786 instance=ExtResource("1_6brey")]
+
+[node name="DrawTexture" parent="." index="0" unique_id=180076539]
+transform = Transform3D(100.000015, 0, 0, 0, -100.00001, -1.6292068e-05, 0, 1.6292068e-05, -100.00001, 0, 0, 0)
+
+[node name="NesElement" parent="." index="1" unique_id=431040022]
+transform = Transform3D(0.1, 0, 0, 0, -1.1920929e-08, 0.1, 0, -0.1, -1.1920929e-08, 0, 0, 0)

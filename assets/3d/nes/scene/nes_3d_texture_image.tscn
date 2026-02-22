@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://cjnqp26j6ouba"]
+
+[ext_resource type="PackedScene" uid="uid://dwl0kft7ib2vf" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/3d/nes/nes.fbx" id="1_pbjhh"]
+[ext_resource type="Texture2D" uid="uid://caxuffiy01dr5" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/3d/nes/NES_UV_IMAGE.png" id="2_pbjhh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nfclu"]
+cull_mode = 2
+depth_draw_mode = 1
+albedo_texture = ExtResource("2_pbjhh")
+
+[node name="Nes" unique_id=715256786 instance=ExtResource("1_pbjhh")]
+
+[node name="DrawTexture" parent="." index="0" unique_id=1905964633]
+transform = Transform3D(100.000015, 0, 0, 0, -100.00001, -1.6292068e-05, 0, 1.6292068e-05, -100.00001, 0, 0, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_nfclu")
+
+[node name="NesElement" parent="." index="1" unique_id=1326253851]
+transform = Transform3D(0.1, 0, 0, 0, -1.1920929e-08, 0.1, 0, -0.1, -1.1920929e-08, 0, 0, 0)
+
+[node name="Arrows" parent="NesElement" index="0" unique_id=651390356]
+surface_material_override/0 = SubResource("StandardMaterial3D_nfclu")
+
+[node name="BorderMenuNES" parent="NesElement" index="1" unique_id=181363994]
+surface_material_override/0 = SubResource("StandardMaterial3D_nfclu")
+
+[node name="Button_A" parent="NesElement" index="2" unique_id=1632960688]
+surface_material_override/0 = SubResource("StandardMaterial3D_nfclu")
+
+[node name="Button_A_Under" parent="NesElement" index="3" unique_id=1578208316]
+surface_material_override/0 = SubResource("StandardMaterial3D_nfclu")
+
+[node name="Button_B" parent="NesElement" index="4" unique_id=170131158]
+surface_material_override/0 = SubResource("StandardMaterial3D_nfclu")
+
+[node name="Button_B_Under" parent="NesElement" index="5" unique_id=1441564976]
+surface_material_override/0 = SubResource("StandardMaterial3D_nfclu")
+
+[node name="Button_ML" parent="NesElement" index="6" unique_id=888695408]
+surface_material_override/0 = SubResource("StandardMaterial3D_nfclu")
+
+[node name="Button_MR" parent="NesElement" index="7" unique_id=1857907918]
+surface_material_override/0 = SubResource("StandardMaterial3D_nfclu")
+
+[node name="OutterBody" parent="NesElement" index="8" unique_id=2132756503]
+surface_material_override/0 = SubResource("StandardMaterial3D_nfclu")

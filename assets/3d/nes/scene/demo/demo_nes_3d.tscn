@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://dlottqso3y0k6"]
+
+[ext_resource type="PackedScene" uid="uid://cqm6od06htnt3" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/3d/nes/scene/nes_3d_vertex_color.tscn" id="1_njp8s"]
+[ext_resource type="PackedScene" uid="uid://diw3mkfu2u5ka" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/3d/nes/scene/nes_3d_texture.tscn" id="2_up6bp"]
+[ext_resource type="PackedScene" uid="uid://cvotd4k0h4fho" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/3d/nes/scene/nes_3d_texture_unlit.tscn" id="3_5jrwv"]
+[ext_resource type="PackedScene" uid="uid://cjnqp26j6ouba" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/3d/nes/scene/nes_3d_texture_image.tscn" id="4_38y15"]
+[ext_resource type="Texture2D" uid="uid://bgxmsrlo4gk6b" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/3d/nes/svg/NES_COLOR_SVG.svg" id="5_up6bp"]
+
+[node name="Node3D" type="Node3D" unique_id=1974664198]
+
+[node name="NesVertex" parent="." unique_id=1060493397 instance=ExtResource("1_njp8s")]
+
+[node name="NesStandard" parent="." unique_id=715256786 instance=ExtResource("2_up6bp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.08497602)
+
+[node name="NesUnlit" parent="." unique_id=799236583 instance=ExtResource("3_5jrwv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00020729005, -1.4901161e-08, 0.16356292)
+
+[node name="NesImage" parent="." unique_id=395067171 instance=ExtResource("4_38y15")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.2347548)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=226824215]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_up6bp")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=816380543]
+transform = Transform3D(1, 0, 0, 0, 0.78900903, 0.6143816, 0, -0.6143816, 0.78900903, 0, 0.30915862, 0.42732447)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1301950932]
+transform = Transform3D(0.92201865, 0.30134, -0.24305524, 0, 0.62781364, 0.7783637, 0.38714552, -0.71766585, 0.5788559, -1.2282598, 0, 0)

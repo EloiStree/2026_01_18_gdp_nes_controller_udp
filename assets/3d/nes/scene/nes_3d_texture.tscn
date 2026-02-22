@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://diw3mkfu2u5ka"]
+
+[ext_resource type="PackedScene" uid="uid://dwl0kft7ib2vf" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/3d/nes/nes.fbx" id="1_feur8"]
+[ext_resource type="Material" uid="uid://e7lfpyytpdah" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/3d/nes/mat_nes_default_uv.tres" id="2_h3kwd"]
+
+[node name="Nes" unique_id=715256786 instance=ExtResource("1_feur8")]
+
+[node name="DrawTexture" parent="." index="0" unique_id=180076539]
+transform = Transform3D(100.000015, 0, 0, 0, -100.00001, -1.6292068e-05, 0, 1.6292068e-05, -100.00001, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_h3kwd")
+
+[node name="NesElement" parent="." index="1" unique_id=431040022]
+transform = Transform3D(0.1, 0, 0, 0, -1.1920929e-08, 0.1, 0, -0.1, -1.1920929e-08, 0, 0, 0)
+
+[node name="Arrows" parent="NesElement" index="0" unique_id=732416937]
+surface_material_override/0 = ExtResource("2_h3kwd")
+
+[node name="BorderMenuNES" parent="NesElement" index="1" unique_id=661078964]
+surface_material_override/0 = ExtResource("2_h3kwd")
+
+[node name="Button_A" parent="NesElement" index="2" unique_id=110655602]
+surface_material_override/0 = ExtResource("2_h3kwd")
+
+[node name="Button_A_Under" parent="NesElement" index="3" unique_id=2140480195]
+surface_material_override/0 = ExtResource("2_h3kwd")
+
+[node name="Button_B" parent="NesElement" index="4" unique_id=1244490973]
+surface_material_override/0 = ExtResource("2_h3kwd")
+
+[node name="Button_B_Under" parent="NesElement" index="5" unique_id=748396352]
+surface_material_override/0 = ExtResource("2_h3kwd")
+
+[node name="Button_ML" parent="NesElement" index="6" unique_id=486275864]
+surface_material_override/0 = ExtResource("2_h3kwd")
+
+[node name="Button_MR" parent="NesElement" index="7" unique_id=1854498661]
+surface_material_override/0 = ExtResource("2_h3kwd")
+
+[node name="OutterBody" parent="NesElement" index="8" unique_id=2052403324]
+surface_material_override/0 = ExtResource("2_h3kwd")
