@@ -1,0 +1,12 @@
+
+class_name NesableGameMappingKeyboard
+extends Resource
+
+@export var arrow_up:KeyboardControllerToInt.KeyboardCommandInt = KeyboardControllerToInt.KeyboardCommandInt.Up
+@export var arrow_right:KeyboardControllerToInt.KeyboardCommandInt= KeyboardControllerToInt.KeyboardCommandInt.Right 
+@export var arrow_down:KeyboardControllerToInt.KeyboardCommandInt= KeyboardControllerToInt.KeyboardCommandInt.Down
+@export var arrow_left:KeyboardControllerToInt.KeyboardCommandInt= KeyboardControllerToInt.KeyboardCommandInt.Left
+@export var button_a:KeyboardControllerToInt.KeyboardCommandInt= KeyboardControllerToInt.KeyboardCommandInt.Alpha1
+@export var button_b:KeyboardControllerToInt.KeyboardCommandInt= KeyboardControllerToInt.KeyboardCommandInt.Alpha2
+@export var menu_left:KeyboardControllerToInt.KeyboardCommandInt= KeyboardControllerToInt.KeyboardCommandInt.Alpha3
+@export var menu_right:KeyboardControllerToInt.KeyboardCommandInt= KeyboardControllerToInt.KeyboardCommandInt.Alpha4

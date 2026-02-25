@@ -26,14 +26,25 @@ enum PressType {
 
 
 enum NesButton {
-	BUTTON_A,
-	BUTTON_B,
-	MENU_LEFT,
-	MENU_RIGHT,
-	ARROW_UP,
-	ARROW_RIGHT,
-	ARROW_DOWN,
-	ARROW_LEFT
+	ARROW_UP=1281,
+	ARROW_RIGHT=1282,
+	ARROW_DOWN=1283,
+	ARROW_LEFT=1284,
+	BUTTON_A=1285,
+	BUTTON_B=1286,
+	MENU_LEFT=1287,
+	MENU_RIGHT=1288
+}
+
+enum NesLocalRemappingButton {
+	ARROW_UP=1291,
+	ARROW_RIGHT=1292,
+	ARROW_DOWN=1293,
+	ARROW_LEFT=1294,
+	BUTTON_A=1295,
+	BUTTON_B=1296,
+	MENU_LEFT=1297,
+	MENU_RIGHT=1298
 }
 
 
@@ -543,6 +554,16 @@ func set_down_up_key_with_enum(key_enum:NesButton, value_down_up:bool):
 	set_down_up_key(key_value, value_down_up)
 
 
+func override_all_buttons_from_text(left:String, right:String, up:String, down:String, a:String, b:String, select:String, start:String):
+	override_button_arrow_left(_parse_text_to_integer(left))
+	override_button_arrow_right(_parse_text_to_integer(right))
+	override_button_arrow_up(_parse_text_to_integer(up))
+	override_button_arrow_down(_parse_text_to_integer(down))
+	override_button_a(_parse_text_to_integer(a))
+	override_button_b(_parse_text_to_integer(b))
+	override_button_menu_left(_parse_text_to_integer(select))
+	override_button_menu_right(_parse_text_to_integer(start))	
+
 
 func override_all_buttons(left:int, right:int, up:int, down:int, a:int, b:int, select:int, start:int):
 	override_button_arrow_left(left)
@@ -553,3 +574,91 @@ func override_all_buttons(left:int, right:int, up:int, down:int, a:int, b:int, s
 	override_button_b(b)
 	override_button_menu_left(select)
 	override_button_menu_right(start)
+
+
+
+#region GET BUTTONS
+func get_nes_button_arrow_up_as_int()->int:
+	return button_arrow_up
+func get_nes_button_arrow_right_as_int()->int:
+	return button_arrow_right
+func get_nes_button_arrow_down_as_int()->int:
+	return button_arrow_down
+func get_nes_button_arrow_left_as_int()->int:
+	return button_arrow_left
+func get_nes_button_a_as_int()->int:
+	return button_a
+func get_nes_button_b_as_int()->int:
+	return button_b
+func get_nes_button_menu_left_as_int()->int:
+	return button_menu_left
+func get_nes_button_menu_right_as_int()->int:
+	return button_menu_right
+#endregion
+
+
+
+#region override button
+func _parse_text_to_integer(text:String, error_value:int=0)->int:
+	var parsed_value = int(text)
+	if parsed_value == null:
+		return error_value
+	return int(text)
+
+func _clamp_between_1000_1999(value:int)->int:
+	if value>0 and value <1000:
+		return value+1000
+	if value>1999 and value <3000:
+		return value-1000
+	return value
+
+func override_buttons_with_resource_int( resource: NesableGameMappingInt):
+	button_a = _clamp_between_1000_1999(resource.button_a)
+	button_b = _clamp_between_1000_1999(resource.button_b)
+	button_menu_left = _clamp_between_1000_1999(resource.menu_left)
+	button_menu_right = _clamp_between_1000_1999(resource.menu_right)
+	button_arrow_up = _clamp_between_1000_1999(resource.arrow_up)
+	button_arrow_down = _clamp_between_1000_1999(resource.arrow_down)
+	button_arrow_left = _clamp_between_1000_1999(resource.arrow_left)
+	button_arrow_right = _clamp_between_1000_1999(resource.arrow_right)
+
+func override_buttons_with_resource_keyboard( resource: NesableGameMappingKeyboard):
+	button_a = _clamp_between_1000_1999(int(resource.button_a))
+	button_b = _clamp_between_1000_1999(int(resource.button_b))
+	button_menu_left = _clamp_between_1000_1999(int(resource.menu_left))
+	button_menu_right = _clamp_between_1000_1999(int(resource.menu_right))
+	button_arrow_up = _clamp_between_1000_1999(int(resource.arrow_up))
+	button_arrow_down = _clamp_between_1000_1999(int(resource.arrow_down))
+	button_arrow_left = _clamp_between_1000_1999(int(resource.arrow_left))
+	button_arrow_right = _clamp_between_1000_1999(int(resource.arrow_right))
+
+func override_buttons_with_resource_xbox( resource: NesableGameMappingXboxBasic):
+	button_a = _clamp_between_1000_1999(int(resource.button_a))
+	button_b = _clamp_between_1000_1999(int(resource.button_b))
+	button_menu_left = _clamp_between_1000_1999(int(resource.menu_left))
+	button_menu_right = _clamp_between_1000_1999(int(resource.menu_right))
+	button_arrow_up = _clamp_between_1000_1999(int(resource.arrow_up))
+	button_arrow_down = _clamp_between_1000_1999(int(resource.arrow_down))
+	button_arrow_left = _clamp_between_1000_1999(int(resource.arrow_left))
+	button_arrow_right = _clamp_between_1000_1999(int(resource.arrow_right))
+
+func override_button_a_from_int_text(integer_as_text):
+	button_a = _clamp_between_1000_1999(_parse_text_to_integer(integer_as_text))
+func override_button_b_from_int_text(integer_as_text):
+	button_b= _clamp_between_1000_1999(_parse_text_to_integer(integer_as_text))
+
+func override_menu_left_from_int_text(integer_as_text):
+	button_menu_left= _clamp_between_1000_1999(_parse_text_to_integer(integer_as_text))	
+func override_menu_right_from_int_text(integer_as_text):
+	button_menu_right= _clamp_between_1000_1999(_parse_text_to_integer(integer_as_text))
+	
+func override_arrow_up_from_int_text(integer_as_text):
+	button_arrow_up= _clamp_between_1000_1999(_parse_text_to_integer(integer_as_text))
+func override_arrow_down_from_int_text(integer_as_text):
+	button_arrow_down= _clamp_between_1000_1999(_parse_text_to_integer(integer_as_text))
+func override_arrow_left_from_int_text(integer_as_text):
+	button_arrow_left= _clamp_between_1000_1999(_parse_text_to_integer(integer_as_text))
+func override_arrow_right_from_int_text(integer_as_text):
+	button_arrow_right= _clamp_between_1000_1999(_parse_text_to_integer(integer_as_text))
+
+#endregion

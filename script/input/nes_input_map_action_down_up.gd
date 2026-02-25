@@ -8,7 +8,7 @@ signal on_down_up(pressed: bool)
 
 @export_group("For Debugging")
 @export var input_state: bool = false
-
+@export var debug_has_action_map_at_ready: bool = false
 
 func _ready() -> void:
 	if action_name.is_empty():
@@ -17,8 +17,13 @@ func _ready() -> void:
 
 	if not InputMap.has_action(action_name):
 		push_error("NesInputMapActionDownUp: Input action '%s' does not exist." % action_name)
+	debug_has_action_map_at_ready=true
 
 func _input(event):
+	if not debug_has_action_map_at_ready:
+		return 
+		
+
 	if not listening_enabled:
 		return
 	if action_name.is_empty():

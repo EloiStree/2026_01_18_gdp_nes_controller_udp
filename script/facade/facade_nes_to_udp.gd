@@ -46,7 +46,7 @@ signal on_send_int_to_target(new_value:int)
 
 
 func _add_nes_value_to_interpreter(word:String, nes:NesControllerToInt.NesButton):
-		interpreter_add_word_to_key_press_integer_macro(word, nes_get_key_value_from_enum(nes))
+		interpreter_add_word_to_key_press_integer_macro(word, int(nes))
 
 func _add_xbox_value_to_interpreter(word:String, xbox_enum:XboxControllerToInt.XboxCommandBasic):
 		interpreter_add_word_to_key_press_integer_macro(word, xbox_get_key_value_from_enum(xbox_enum))
@@ -65,6 +65,9 @@ func _add_joystick_and_nes_default_macro():
 		_add_nes_value_to_interpreter("🕹️AU", NesControllerToInt.NesButton.ARROW_UP)
 		_add_nes_value_to_interpreter("🕹️AL", NesControllerToInt.NesButton.ARROW_LEFT)
 		_add_nes_value_to_interpreter("🕹️AR", NesControllerToInt.NesButton.ARROW_RIGHT)
+
+
+
 	if add_xbox_unicode_macro:
 		_add_xbox_value_to_interpreter("🎮A", XboxControllerToInt.XboxCommandBasic.BUTTON_DOWN_A)
 		_add_xbox_value_to_interpreter("🎮B", XboxControllerToInt.XboxCommandBasic.BUTTON_RIGHT_B)
@@ -312,6 +315,46 @@ func send_custom_index_integer_to_target(target_index:int,new_value:int):
 
 #endregion
 
+
+#region OVERRIDE NES TOUCH
+
+func _parse_text_to_integer(text:String, error_value:int=0)->int:
+	var parsed_value = int(text)
+	if parsed_value == null:
+		return error_value
+	return int(text)
+	
+
+func nes_override_button_a_from_int_text(integer_as_text):
+	get_nes().override_button_a_from_int_text(integer_as_text)
+func nes_override_button_b_from_int_text(integer_as_text):
+	get_nes().override_button_b_from_int_text(integer_as_text)
+
+func nes_override_menu_left_from_int_text(integer_as_text):
+	get_nes().override_menu_left_from_int_text(integer_as_text)
+	
+func nes_override_menu_right_from_int_text(integer_as_text):
+	get_nes().override_menu_right_from_int_text(integer_as_text)
+	
+func nes_override_arrow_up_from_int_text(integer_as_text):
+	get_nes().override_arrow_up_from_int_text(integer_as_text)
+func nes_override_arrow_down_from_int_text(integer_as_text):
+	get_nes().override_arrow_down_from_int_text(integer_as_text)
+func nes_override_arrow_left_from_int_text(integer_as_text):
+	get_nes().override_arrow_left_from_int_text(integer_as_text)
+func nes_override_arrow_right_from_int_text(integer_as_text):
+	get_nes().override_arrow_right_from_int_text(integer_as_text)
+
+func nes_override_buttons_with_resource_int(resource:Resource):
+	get_nes().override_buttons_with_resource_int(resource)
+func nes_override_buttons_with_resource_keyboard(resource:Resource):
+	get_nes().override_buttons_with_resource_keyboard(resource)
+func nes_override_buttons_with_resource_xbox(resource:Resource):
+	get_nes().override_buttons_with_resource_xbox(resource)
+
+
+#endregion
+
 #region NES ACCESS
 
 func nes_get_key_value_from_enum(key_enum:NesControllerToInt.NesButton) -> int:
@@ -457,7 +500,8 @@ func keyboard_triple_enum_click(enum_key:KeyboardControllerToInt.KeyboardCommand
 
 #endregion
 
-	
+func override_all_nes_buttons_from_text(gauche:String, droite:String, haut:String, bas:String, a:String, b:String, select:String, start:String):
+	get_nes().override_all_buttons_from_text(gauche, droite, haut, bas, a, b, select, start)
 
 func override_all_nes_buttons(gauche:int, droite:int, haut:int, bas:int, a:int, b:int, select:int, start:int):
 	get_nes().override_all_buttons(gauche, droite, haut, bas, a, b, select, start)
@@ -505,6 +549,34 @@ func set_arrows_to_mixed_joystick_vertical_left_horizontal_right():
 	get_nes().override_arrows_with_stick_left_vertical_stick_right_horizontal()
 #endregion
 
+
+#region GET BUTTONS
+
+func get_nes_button_arrow_up_as_int()->int:
+	return get_nes().get_nes_button_arrow_up_as_int()
+
+func get_nes_button_arrow_right_as_int()->int:
+	return get_nes().get_nes_button_arrow_right_as_int()
+
+func get_nes_button_arrow_down_as_int()->int:
+	return get_nes().get_nes_button_arrow_down_as_int()
+
+func get_nes_button_arrow_left_as_int()->int:
+	return get_nes().get_nes_button_arrow_left_as_int()
+
+func get_nes_button_a_as_int()->int:
+	return get_nes().get_nes_button_a_as_int()
+
+func get_nes_button_b_as_int()->int:
+	return get_nes().get_nes_button_b_as_int()
+
+func get_nes_button_menu_left_as_int()->int:
+	return get_nes().get_nes_button_menu_left_as_int()
+
+func get_nes_button_menu_right_as_int()->int:
+	return get_nes().get_nes_button_menu_right_as_int()
+
+#endregion
 
 
 #region NES BASIC ACCESS 

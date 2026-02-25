@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="NesableGameMappingKeyboard" format=3 uid="uid://dgcdij1uxs0kd"]
+
+[ext_resource type="Script" uid="uid://d2q2jowoyxij8" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/facade/nesable_resource/nesable_game_mapping_keyboard.gd" id="1_55a0m"]
+
+[resource]
+script = ExtResource("1_55a0m")
+arrow_up = 1081
+arrow_right = 1068
+arrow_down = 1013
+arrow_left = 1065
+button_a = 1032
+button_b = 1069
+menu_left = 1027
+menu_right = 1082
+metadata/_custom_type_script = "uid://d2q2jowoyxij8"
