@@ -612,6 +612,17 @@ func _clamp_between_1000_1999(value:int)->int:
 		return value-1000
 	return value
 
+func override_buttons_with_abstract_resource_int(resource: NesableGameMappingAbstractGet):
+	button_a = _clamp_between_1000_1999(resource.get_button_a())
+	button_b = _clamp_between_1000_1999(resource.get_button_b())
+	button_menu_left = _clamp_between_1000_1999(resource.get_button_menu_left())
+	button_menu_right = _clamp_between_1000_1999(resource.get_button_menu_right())
+	button_arrow_up = _clamp_between_1000_1999(resource.get_button_arrow_up())
+	button_arrow_down = _clamp_between_1000_1999(resource.get_button_arrow_down())
+	button_arrow_left = _clamp_between_1000_1999(resource.get_button_arrow_left())
+	button_arrow_right = _clamp_between_1000_1999(resource.get_button_arrow_right())
+
+
 func override_buttons_with_resource_int( resource: NesableGameMappingInt):
 	button_a = _clamp_between_1000_1999(resource.button_a)
 	button_b = _clamp_between_1000_1999(resource.button_b)

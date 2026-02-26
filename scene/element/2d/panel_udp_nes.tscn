@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ca77ll412gruh"]
 
 [ext_resource type="PackedScene" uid="uid://bbwn03yllootl" path="res://addons/2026_01_18_gdp_nes_controller_udp/scene/element/facade/facade_nes_to_udp.tscn" id="1_v5dd5"]
+[ext_resource type="Script" uid="uid://dw1t707t5x0n2" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/in_dev/nes_display_finger_touch_panel.gd" id="2_3uk2w"]
 [ext_resource type="Texture2D" uid="uid://b5nfry4efhp5l" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/2d/nes_icon/nes_controller.png" id="3_pgyg6"]
 [ext_resource type="Script" uid="uid://bpljkf42nmeyr" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/in_dev/nes_touchable_button.gd" id="3_xgd7e"]
 [ext_resource type="Script" uid="uid://c7jenviiw66o" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/nes_ui2d_button_to_down_up_bool.gd" id="4_fg5n1"]
@@ -23,6 +24,7 @@
 [ext_resource type="Resource" uid="uid://nvwgbmru1sq2" path="res://addons/2026_01_18_gdp_nes_controller_udp/resource/playto_amazoo_xbox.tres" id="13_lhrs0"]
 [ext_resource type="Script" uid="uid://s6j5ixiidx60" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/ui/ui_nes_resource_relayer_int.gd" id="15_62xdi"]
 [ext_resource type="Resource" uid="uid://b5rpud4lnujl4" path="res://addons/2026_01_18_gdp_nes_controller_udp/resource/playto_nesable_game_1280.tres" id="16_xgd7e"]
+[ext_resource type="Texture2D" uid="uid://14jk5nsg4qf" path="res://icon.svg" id="25_xjou1"]
 
 [node name="PanelUdpNES" type="Panel" unique_id=834786804]
 anchors_preset = 15
@@ -30,6 +32,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="FacadeNesToUdp" parent="." unique_id=574021232 instance=ExtResource("1_v5dd5")]
+
+[node name="NesDisplayFingersTouchPanel" type="Node" parent="." unique_id=328119452 node_paths=PackedStringArray("panel_to_move")]
+script = ExtResource("2_3uk2w")
+panel_to_move = [NodePath("../PanelUnderFinger/Panel"), NodePath("../PanelUnderFinger/Panel2"), NodePath("../PanelUnderFinger/Panel3"), NodePath("../PanelUnderFinger/Panel4"), NodePath("../PanelUnderFinger/Panel5"), NodePath("../PanelUnderFinger/Panel6"), NodePath("../PanelUnderFinger/Panel7"), NodePath("../PanelUnderFinger/Panel8"), NodePath("../PanelUnderFinger/Panel9"), NodePath("../PanelUnderFinger/Panel10")]
+metadata/_custom_type_script = "uid://dw1t707t5x0n2"
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="." unique_id=1377516107]
 layout_mode = 1
@@ -777,6 +784,112 @@ script = ExtResource("13_53map")
 action_name_positive_01 = "GAMEPAD_LEFT_VERTICAL_POSITIVE"
 action_name_negative_01 = "GAMEPAD_LEFT_VERTICAL_NEGATIVE"
 metadata/_custom_type_script = "uid://ds80rs80plamt"
+
+[node name="PanelUnderFinger" type="Panel" parent="." unique_id=568814087]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="TextureRect" parent="PanelUnderFinger" unique_id=927040215]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+focus_behavior_recursive = 1
+mouse_filter = 2
+mouse_behavior_recursive = 1
+mouse_default_cursor_shape = 3
+texture = ExtResource("25_xjou1")
+
+[node name="Panel2" type="TextureRect" parent="PanelUnderFinger" unique_id=749491137]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+focus_behavior_recursive = 1
+mouse_filter = 2
+mouse_behavior_recursive = 1
+mouse_default_cursor_shape = 3
+texture = ExtResource("25_xjou1")
+
+[node name="Panel3" type="TextureRect" parent="PanelUnderFinger" unique_id=1926780803]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+focus_behavior_recursive = 1
+mouse_filter = 2
+mouse_behavior_recursive = 1
+mouse_default_cursor_shape = 3
+texture = ExtResource("25_xjou1")
+
+[node name="Panel4" type="TextureRect" parent="PanelUnderFinger" unique_id=1114865113]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+focus_behavior_recursive = 1
+mouse_filter = 2
+mouse_behavior_recursive = 1
+mouse_default_cursor_shape = 3
+texture = ExtResource("25_xjou1")
+
+[node name="Panel5" type="TextureRect" parent="PanelUnderFinger" unique_id=100930429]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+focus_behavior_recursive = 1
+mouse_filter = 2
+mouse_behavior_recursive = 1
+mouse_default_cursor_shape = 3
+texture = ExtResource("25_xjou1")
+
+[node name="Panel6" type="TextureRect" parent="PanelUnderFinger" unique_id=2060067013]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+focus_behavior_recursive = 1
+mouse_filter = 2
+mouse_behavior_recursive = 1
+mouse_default_cursor_shape = 3
+texture = ExtResource("25_xjou1")
+
+[node name="Panel7" type="TextureRect" parent="PanelUnderFinger" unique_id=768709707]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+focus_behavior_recursive = 1
+mouse_filter = 2
+mouse_behavior_recursive = 1
+mouse_default_cursor_shape = 3
+texture = ExtResource("25_xjou1")
+
+[node name="Panel8" type="TextureRect" parent="PanelUnderFinger" unique_id=620101844]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+focus_behavior_recursive = 1
+mouse_filter = 2
+mouse_behavior_recursive = 1
+mouse_default_cursor_shape = 3
+texture = ExtResource("25_xjou1")
+
+[node name="Panel9" type="TextureRect" parent="PanelUnderFinger" unique_id=1697655074]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+focus_behavior_recursive = 1
+mouse_filter = 2
+mouse_behavior_recursive = 1
+mouse_default_cursor_shape = 3
+texture = ExtResource("25_xjou1")
+
+[node name="Panel10" type="TextureRect" parent="PanelUnderFinger" unique_id=423237727]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+focus_behavior_recursive = 1
+mouse_filter = 2
+mouse_behavior_recursive = 1
+mouse_default_cursor_shape = 3
+texture = ExtResource("25_xjou1")
 
 [connection signal="on_send_int_to_target" from="FacadeNesToUdp" to="AspectRatioContainer/PanelRatioNES/Label Last Push Integer/NesParseIntegerToString" method="push_in_integer_to_parse"]
 [connection signal="on_down_up_value_changed" from="AspectRatioContainer/PanelRatioNES/Button Press A/NesUiButtonToDownUpBool" to="FacadeNesToUdp" method="nes_basic_set_a"]

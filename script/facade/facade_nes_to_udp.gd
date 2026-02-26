@@ -13,6 +13,8 @@ signal on_send_int_to_target(new_value:int)
 	
 @export var target_at_init:NesResTargetPlayerByUdp
 
+@export var override_nes_integer_at_ready:NesableGameMappingAbstractGet
+
 @export_group("For Debugging (Do not touch)")
 @export var last_sent_int_to_target:int
 @export var target_ipv4:String
@@ -223,6 +225,9 @@ func _ready() -> void:
 			keyboard.on_integer_to_send_requested.connect(_send_integer_to_udp_target)
 			keyboard.on_integer_with_millisecond_delay_to_send_requested.connect(_append_integer_with_delay_to_udp_target)
 			
+	if override_nes_integer_at_ready!=null:
+		get_nes().override_buttons_with_abstract_resource_int(override_nes_integer_at_ready)
+
 
 
 
