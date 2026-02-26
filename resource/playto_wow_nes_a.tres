@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="NesableGameMappingXboxBasic" format=3 uid="uid://dfd5xc5nrw3jj"]
+
+[ext_resource type="Script" uid="uid://e2a0m5wwlb5y" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/facade/nesable_resource/nesable_game_mapping_xbox.gd" id="1_ytkms"]
+
+[resource]
+script = ExtResource("1_ytkms")
+arrow_up = 1300
+arrow_right = 1354
+arrow_down = 1305
+arrow_left = 1355
+button_a = 1352
+menu_left = 1304
+menu_right = 1358
+metadata/_custom_type_script = "uid://e2a0m5wwlb5y"

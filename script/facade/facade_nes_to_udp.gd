@@ -244,6 +244,7 @@ func _process(delta: float) -> void:
 #region MACRO INTERPRETOR
 
 func interpreter_translate_text_macro_to_int_and_callable(text:String):
+	
 	interpreter.translate_text_to_integer_and_callable(text)
 	
 func interpreter_clear_all_words(word_name:String, callback:Callable):

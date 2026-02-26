@@ -52,4 +52,5 @@ metadata/_custom_type_script = "uid://d22m38c4l6in7"
 
 [node name="InterpreterToInt" type="Node" parent="." unique_id=1181720975]
 script = ExtResource("8_4cieo")
+use_print_to_debug = true
 metadata/_custom_type_script = "uid://dtoapfr0n74xh"
