@@ -3,17 +3,16 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c052oi13teyq8"
-path.s3tc="res://.godot/imported/a.png-69993c5564f61efd602803a6736ced77.s3tc.ctex"
 path.etc2="res://.godot/imported/a.png-69993c5564f61efd602803a6736ced77.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://addons/2026_01_18_gdp_nes_controller_udp/assets/2d/xbox/a.png"
-dest_files=["res://.godot/imported/a.png-69993c5564f61efd602803a6736ced77.s3tc.ctex", "res://.godot/imported/a.png-69993c5564f61efd602803a6736ced77.etc2.ctex"]
+dest_files=["res://.godot/imported/a.png-69993c5564f61efd602803a6736ced77.etc2.ctex"]
 
 [params]
 
