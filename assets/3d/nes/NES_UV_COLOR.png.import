@@ -3,17 +3,16 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cwt0ke0ned5bt"
-path.s3tc="res://.godot/imported/NES_UV_COLOR.png-6a685390d3a1299c121158f7cea31694.s3tc.ctex"
 path.etc2="res://.godot/imported/NES_UV_COLOR.png-6a685390d3a1299c121158f7cea31694.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://addons/2026_01_18_gdp_nes_controller_udp/assets/3d/nes/NES_UV_COLOR.png"
-dest_files=["res://.godot/imported/NES_UV_COLOR.png-6a685390d3a1299c121158f7cea31694.s3tc.ctex", "res://.godot/imported/NES_UV_COLOR.png-6a685390d3a1299c121158f7cea31694.etc2.ctex"]
+dest_files=["res://.godot/imported/NES_UV_COLOR.png-6a685390d3a1299c121158f7cea31694.etc2.ctex"]
 
 [params]
 

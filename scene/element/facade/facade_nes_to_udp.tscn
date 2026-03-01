@@ -4,10 +4,12 @@
 [ext_resource type="Script" uid="uid://dwgdhk3xdsfcn" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/facade/facade_nes_to_udp.gd" id="1_ofjs3"]
 [ext_resource type="Script" uid="uid://ddjcmkwir4osd" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/nes_controller_to_int.gd" id="2_ofjs3"]
 [ext_resource type="Script" uid="uid://blvuiqbp0bc0y" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/nes_res_target_player_by_udp.gd" id="2_qt75i"]
+[ext_resource type="Resource" uid="uid://b5rpud4lnujl4" path="res://addons/2026_01_18_gdp_nes_controller_udp/resource/playto_nesable_game_1280.tres" id="3_afh0g"]
 [ext_resource type="Script" uid="uid://batpkfgtryf71" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/delayer/nes_int_delayer.gd" id="3_dia6v"]
 [ext_resource type="Script" uid="uid://60ryksq12k1c" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/xbox_controller_to_int.gd" id="4_qt75i"]
 [ext_resource type="Script" uid="uid://bye1ongxqd7bx" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/keyboard_controller_to_int.gd" id="6_o7v2n"]
 [ext_resource type="Script" uid="uid://dtoapfr0n74xh" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/interpreter/nes_macro_interpretor.gd" id="8_4cieo"]
+[ext_resource type="Script" uid="uid://d22m38c4l6in7" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/nes_local_remapping_to_facade.gd" id="8_p46lp"]
 
 [sub_resource type="Resource" id="Resource_o7v2n"]
 script = ExtResource("2_qt75i")
@@ -22,6 +24,7 @@ xbox = NodePath("XboxControllerToInt")
 keyboard = NodePath("KeyboardControllerToInt")
 interpreter = NodePath("InterpreterToInt")
 target_at_init = SubResource("Resource_o7v2n")
+override_nes_integer_at_ready = ExtResource("3_afh0g")
 
 [node name="SendIntegerUDP" type="Node" parent="." unique_id=1523918253]
 script = ExtResource("1_dwqut")
@@ -42,6 +45,12 @@ metadata/_custom_type_script = "uid://60ryksq12k1c"
 script = ExtResource("6_o7v2n")
 metadata/_custom_type_script = "uid://bye1ongxqd7bx"
 
+[node name="NesLocalRemappingToFacade" type="Node" parent="." unique_id=1465328598 node_paths=PackedStringArray("nes_to_affect")]
+script = ExtResource("8_p46lp")
+nes_to_affect = NodePath("..")
+metadata/_custom_type_script = "uid://d22m38c4l6in7"
+
 [node name="InterpreterToInt" type="Node" parent="." unique_id=1181720975]
 script = ExtResource("8_4cieo")
+use_print_to_debug = true
 metadata/_custom_type_script = "uid://dtoapfr0n74xh"

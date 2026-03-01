@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="NesableGameMappingInt" format=3 uid="uid://b5rpud4lnujl4"]
+
+[ext_resource type="Script" uid="uid://cgrt2ydwnfuwl" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/facade/nesable_resource/nesable_game_mapping_int.gd" id="1_7vcc4"]
+
+[resource]
+script = ExtResource("1_7vcc4")
+metadata/_custom_type_script = "uid://e2a0m5wwlb5y"

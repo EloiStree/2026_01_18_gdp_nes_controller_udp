@@ -25,3 +25,7 @@ I need to make a copy of this code, but rewritten in GDScript for Godot:
 
 I really liked this workshop I did with the students.
 
+
+Video Making Off:
+- Unity: https://www.youtube.com/watch?v=dLRaB3z-4DQ
+- Godot: https://www.youtube.com/watch?v=vK-fF6DpObk

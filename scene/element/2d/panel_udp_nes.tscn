@@ -1,19 +1,35 @@
 [gd_scene format=3 uid="uid://ca77ll412gruh"]
 
 [ext_resource type="PackedScene" uid="uid://bbwn03yllootl" path="res://addons/2026_01_18_gdp_nes_controller_udp/scene/element/facade/facade_nes_to_udp.tscn" id="1_v5dd5"]
+[ext_resource type="Script" uid="uid://dw1t707t5x0n2" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/in_dev/nes_display_finger_touch_panel.gd" id="2_3uk2w"]
 [ext_resource type="Texture2D" uid="uid://b5nfry4efhp5l" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/2d/nes_icon/nes_controller.png" id="3_pgyg6"]
+[ext_resource type="Script" uid="uid://bpljkf42nmeyr" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/in_dev/nes_touchable_button.gd" id="3_xgd7e"]
 [ext_resource type="Script" uid="uid://c7jenviiw66o" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/nes_ui2d_button_to_down_up_bool.gd" id="4_fg5n1"]
-[ext_resource type="Texture2D" uid="uid://dsf3xc8lj6mip" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/2d/nes_icon/nes_controller_layer_red_button.png" id="5_lu23p"]
 [ext_resource type="Script" uid="uid://syyy1oerlepj" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/nes_input_field_file_memory.gd" id="6_mgti4"]
 [ext_resource type="Script" uid="uid://dba4mrwl7xh3v" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/nes_parse_integer_to_string.gd" id="7_mpy40"]
+[ext_resource type="Script" uid="uid://b568p33kr01ir" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/ui/ui_line_edit_nes_buttons_to_facade.gd" id="9_b33vo"]
 [ext_resource type="Script" uid="uid://ybf4bgif5umu" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/input/nes_input_display_button_name_id.gd" id="9_ttdvb"]
 [ext_resource type="Script" uid="uid://bkuserkgd0gn8" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/nes_input_mode/nes_switch_mode_button_b.gd" id="9_v5dd5"]
 [ext_resource type="Script" uid="uid://ga8sc73fxkch" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/nes_input_mode/nes_switch_mode_arrows.gd" id="10_b33vo"]
 [ext_resource type="Script" uid="uid://bm4rc83orqaig" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/input/nes_input_device_button_down_up.gd" id="10_lsjjd"]
-[ext_resource type="Script" uid="uid://bty8kgte7clr1" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/nes_save_load_string_value_from_file_memory.gd" id="10_sf5ed"]
+[ext_resource type="Script" uid="uid://bvhwouusvirme" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/ui/ui_nes_resource_relayer_keyboard.gd" id="10_omkqn"]
+[ext_resource type="Script" uid="uid://bty8kgte7clr1" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/save_load/nes_save_load_string_value_from_file_memory.gd" id="10_sf5ed"]
+[ext_resource type="Script" uid="uid://iwjlcj7s4rxf" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/in_dev/nes_display_ipv4_list.gd" id="10_v126c"]
+[ext_resource type="Resource" uid="uid://dgcdij1uxs0kd" path="res://addons/2026_01_18_gdp_nes_controller_udp/resource/playto_amazoo_keyboard.tres" id="11_1bslu"]
 [ext_resource type="Script" uid="uid://ce3wk1gb164fi" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/input/nes_input_map_action_down_up.gd" id="11_lsjjd"]
+[ext_resource type="Script" uid="uid://bba81vyoxppia" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/ui/ui_nes_resource_relayer_xbox.gd" id="12_1bslu"]
 [ext_resource type="Script" uid="uid://ctt1kl7yyqd4h" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/float_to_bool_event/nes_float_axis_to_bool_event.gd" id="12_8ovte"]
+[ext_resource type="Resource" uid="uid://cnn0w58snpu7d" path="res://addons/2026_01_18_gdp_nes_controller_udp/resource/playto_amazoo_keyboard_menu.tres" id="12_lhrs0"]
 [ext_resource type="Script" uid="uid://ds80rs80plamt" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/input/nes_input_map_action_float_axis.gd" id="13_53map"]
+[ext_resource type="Resource" uid="uid://nvwgbmru1sq2" path="res://addons/2026_01_18_gdp_nes_controller_udp/resource/playto_amazoo_xbox.tres" id="13_lhrs0"]
+[ext_resource type="Script" uid="uid://s6j5ixiidx60" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/ui/ui_nes_resource_relayer_int.gd" id="15_62xdi"]
+[ext_resource type="Resource" uid="uid://b5rpud4lnujl4" path="res://addons/2026_01_18_gdp_nes_controller_udp/resource/playto_nesable_game_1280.tres" id="16_xgd7e"]
+[ext_resource type="Script" uid="uid://cnwfjmaetsth6" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/save_load/nes_save_load_string_link_to_text_edit.gd" id="20_v1nuc"]
+[ext_resource type="Script" uid="uid://c3plxvogohgsc" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/ui/nes_ui_text_edit_to_string_event.gd" id="20_wewd1"]
+[ext_resource type="Resource" uid="uid://bbop55bsqv7ho" path="res://addons/2026_01_18_gdp_nes_controller_udp/resource/playto_mixed_joystick_ax.tres" id="20_x7r48"]
+[ext_resource type="Resource" uid="uid://dfd5xc5nrw3jj" path="res://addons/2026_01_18_gdp_nes_controller_udp/resource/playto_wow_nes_a.tres" id="21_j726w"]
+[ext_resource type="Script" uid="uid://besvh1w1ekwak" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/ui/nes_ui_append_text_to_text_edit.gd" id="22_iwyqg"]
+[ext_resource type="Texture2D" uid="uid://14jk5nsg4qf" path="res://icon.svg" id="25_xjou1"]
 
 [node name="PanelUdpNES" type="Panel" unique_id=834786804]
 anchors_preset = 15
@@ -21,6 +37,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="FacadeNesToUdp" parent="." unique_id=574021232 instance=ExtResource("1_v5dd5")]
+
+[node name="NesDisplayFingersTouchPanel" type="Node" parent="." unique_id=328119452 node_paths=PackedStringArray("panel_to_move")]
+script = ExtResource("2_3uk2w")
+panel_to_move = [NodePath("../PanelUnderFinger/Panel"), NodePath("../PanelUnderFinger/Panel2"), NodePath("../PanelUnderFinger/Panel3"), NodePath("../PanelUnderFinger/Panel4"), NodePath("../PanelUnderFinger/Panel5"), NodePath("../PanelUnderFinger/Panel6"), NodePath("../PanelUnderFinger/Panel7"), NodePath("../PanelUnderFinger/Panel8"), NodePath("../PanelUnderFinger/Panel9"), NodePath("../PanelUnderFinger/Panel10")]
+metadata/_custom_type_script = "uid://dw1t707t5x0n2"
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="." unique_id=1377516107]
 layout_mode = 1
@@ -44,7 +65,7 @@ grow_vertical = 2
 texture = ExtResource("3_pgyg6")
 expand_mode = 1
 
-[node name="Button Press A" type="Button" parent="AspectRatioContainer/PanelRatioNES" unique_id=448297372]
+[node name="Button Press A" type="Button" parent="AspectRatioContainer/PanelRatioNES" unique_id=1342188739]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.77300006
@@ -52,12 +73,14 @@ anchor_top = 0.57100004
 anchor_right = 0.887
 anchor_bottom = 0.84200007
 offset_left = 0.15325928
-offset_top = 0.08699036
+offset_top = 0.0869751
 offset_right = 0.0524292
 offset_bottom = 0.07397461
 theme_override_font_sizes/font_size = 33
 toggle_mode = true
 text = "A"
+script = ExtResource("3_xgd7e")
+metadata/_custom_type_script = "uid://bpljkf42nmeyr"
 
 [node name="NesUiButtonToDownUpBool" type="Node" parent="AspectRatioContainer/PanelRatioNES/Button Press A" unique_id=247162341 node_paths=PackedStringArray("button_to_listen")]
 script = ExtResource("4_fg5n1")
@@ -65,12 +88,7 @@ button_to_listen = NodePath("..")
 debug_value_on_off = true
 metadata/_custom_type_script = "uid://c7jenviiw66o"
 
-[node name="TextureRect3" type="TextureRect" parent="AspectRatioContainer/PanelRatioNES/Button Press A" unique_id=1734982935]
-layout_mode = 1
-texture = ExtResource("5_lu23p")
-expand_mode = 1
-
-[node name="Button Press B" type="Button" parent="AspectRatioContainer/PanelRatioNES" unique_id=2060903088]
+[node name="Button Press B" type="Button" parent="AspectRatioContainer/PanelRatioNES" unique_id=138082660]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.64500004
@@ -84,13 +102,15 @@ offset_bottom = 0.27700806
 theme_override_font_sizes/font_size = 33
 toggle_mode = true
 text = "B"
+script = ExtResource("3_xgd7e")
+metadata/_custom_type_script = "uid://bpljkf42nmeyr"
 
 [node name="NesUiButtonToDownUpBool2" type="Node" parent="AspectRatioContainer/PanelRatioNES/Button Press B" unique_id=2022861198 node_paths=PackedStringArray("button_to_listen")]
 script = ExtResource("4_fg5n1")
 button_to_listen = NodePath("..")
 metadata/_custom_type_script = "uid://c7jenviiw66o"
 
-[node name="Button Press Menu Left" type="Button" parent="AspectRatioContainer/PanelRatioNES" unique_id=1881952252]
+[node name="Button Press Menu Left" type="Button" parent="AspectRatioContainer/PanelRatioNES" unique_id=2051851762]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.33400002
@@ -98,43 +118,47 @@ anchor_top = 0.62600005
 anchor_right = 0.45200002
 anchor_bottom = 0.79300004
 offset_left = 0.19067383
-offset_top = -0.07801819
-offset_right = 0.3999939
+offset_top = -0.07800293
+offset_right = 0.39996338
 offset_bottom = 0.020996094
 theme_override_font_sizes/font_size = 15
 toggle_mode = true
 text = "ML
 "
 autowrap_trim_flags = 192
+script = ExtResource("3_xgd7e")
+metadata/_custom_type_script = "uid://bpljkf42nmeyr"
 
 [node name="NesUiButtonToDownUpBool3" type="Node" parent="AspectRatioContainer/PanelRatioNES/Button Press Menu Left" unique_id=1044767354 node_paths=PackedStringArray("button_to_listen")]
 script = ExtResource("4_fg5n1")
 button_to_listen = NodePath("..")
 metadata/_custom_type_script = "uid://c7jenviiw66o"
 
-[node name="Button Press Menu Right" type="Button" parent="AspectRatioContainer/PanelRatioNES" unique_id=2123293795]
+[node name="Button Press Menu Right" type="Button" parent="AspectRatioContainer/PanelRatioNES" unique_id=209098675]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.476
 anchor_top = 0.63100004
 anchor_right = 0.586
 anchor_bottom = 0.79300004
-offset_left = 0.19998169
-offset_top = -0.09300232
-offset_right = 0.17831421
+offset_left = 0.2000122
+offset_top = -0.09301758
+offset_right = 0.17834473
 offset_bottom = 0.020996094
 theme_override_font_sizes/font_size = 15
 toggle_mode = true
 text = "MR
 "
 autowrap_trim_flags = 192
+script = ExtResource("3_xgd7e")
+metadata/_custom_type_script = "uid://bpljkf42nmeyr"
 
 [node name="NesUiButtonToDownUpBool4" type="Node" parent="AspectRatioContainer/PanelRatioNES/Button Press Menu Right" unique_id=338437731 node_paths=PackedStringArray("button_to_listen")]
 script = ExtResource("4_fg5n1")
 button_to_listen = NodePath("..")
 metadata/_custom_type_script = "uid://c7jenviiw66o"
 
-[node name="Button Press Arrow Right" type="Button" parent="AspectRatioContainer/PanelRatioNES" unique_id=992908717]
+[node name="Button Press Arrow Right" type="Button" parent="AspectRatioContainer/PanelRatioNES" unique_id=151774691]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.194
@@ -142,20 +166,22 @@ anchor_top = 0.522
 anchor_right = 0.25500003
 anchor_bottom = 0.66
 offset_left = 0.08647156
-offset_top = 0.03400421
-offset_right = 0.067588806
+offset_top = 0.03401184
+offset_right = 0.067596436
 offset_bottom = 0.019989014
 theme_override_font_sizes/font_size = 15
 toggle_mode = true
 text = "AR
 "
+script = ExtResource("3_xgd7e")
+metadata/_custom_type_script = "uid://bpljkf42nmeyr"
 
 [node name="NesUiButtonToDownUpBool5" type="Node" parent="AspectRatioContainer/PanelRatioNES/Button Press Arrow Right" unique_id=1157970121 node_paths=PackedStringArray("button_to_listen")]
 script = ExtResource("4_fg5n1")
 button_to_listen = NodePath("..")
 metadata/_custom_type_script = "uid://c7jenviiw66o"
 
-[node name="Button Press Arrow Up" type="Button" parent="AspectRatioContainer/PanelRatioNES" unique_id=690591411]
+[node name="Button Press Arrow Up" type="Button" parent="AspectRatioContainer/PanelRatioNES" unique_id=703806620]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.135
@@ -170,33 +196,37 @@ theme_override_font_sizes/font_size = 15
 toggle_mode = true
 text = "AU
 "
+script = ExtResource("3_xgd7e")
+metadata/_custom_type_script = "uid://bpljkf42nmeyr"
 
 [node name="NesUiButtonToDownUpBool6" type="Node" parent="AspectRatioContainer/PanelRatioNES/Button Press Arrow Up" unique_id=258038893 node_paths=PackedStringArray("button_to_listen")]
 script = ExtResource("4_fg5n1")
 button_to_listen = NodePath("..")
 metadata/_custom_type_script = "uid://c7jenviiw66o"
 
-[node name="Button Press Arrow Down" type="Button" parent="AspectRatioContainer/PanelRatioNES" unique_id=1308747933]
+[node name="Button Press Arrow Down" type="Button" parent="AspectRatioContainer/PanelRatioNES" unique_id=261199807]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.13700001
 anchor_top = 0.671
 anchor_right = 0.192
 anchor_bottom = 0.813
-offset_left = 0.13689423
-offset_right = 0.0707016
-offset_bottom = -0.039016724
+offset_left = 0.13690186
+offset_right = 0.07069397
+offset_bottom = -0.039031982
 theme_override_font_sizes/font_size = 15
 toggle_mode = true
 text = "AD
 "
+script = ExtResource("3_xgd7e")
+metadata/_custom_type_script = "uid://bpljkf42nmeyr"
 
 [node name="NesUiButtonToDownUpBool7" type="Node" parent="AspectRatioContainer/PanelRatioNES/Button Press Arrow Down" unique_id=1443710388 node_paths=PackedStringArray("button_to_listen")]
 script = ExtResource("4_fg5n1")
 button_to_listen = NodePath("..")
 metadata/_custom_type_script = "uid://c7jenviiw66o"
 
-[node name="Button Press Arrow Left" type="Button" parent="AspectRatioContainer/PanelRatioNES" unique_id=670559388]
+[node name="Button Press Arrow Left" type="Button" parent="AspectRatioContainer/PanelRatioNES" unique_id=1683452866]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.074
@@ -206,11 +236,13 @@ anchor_bottom = 0.66
 offset_left = 0.1399765
 offset_top = 0.033981323
 offset_right = 0.10533142
-offset_bottom = -0.059005737
+offset_bottom = -0.05899048
 theme_override_font_sizes/font_size = 15
 toggle_mode = true
 text = "AL
 "
+script = ExtResource("3_xgd7e")
+metadata/_custom_type_script = "uid://bpljkf42nmeyr"
 
 [node name="NesUiButtonToDownUpBool8" type="Node" parent="AspectRatioContainer/PanelRatioNES/Button Press Arrow Left" unique_id=455001962 node_paths=PackedStringArray("button_to_listen")]
 script = ExtResource("4_fg5n1")
@@ -334,10 +366,741 @@ script = ExtResource("10_b33vo")
 script = ExtResource("10_sf5ed")
 metadata/_custom_type_script = "uid://bty8kgte7clr1"
 
-[node name="Input" type="Node" parent="." unique_id=35613654]
+[node name="Button" type="Button" parent="AspectRatioContainer/PanelRatioNES" unique_id=1079711353]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.91400003
+anchor_top = 0.17300001
+anchor_right = 0.975
+anchor_bottom = 0.31100002
+text = "Edit"
 
-[node name="DisplayInputJoystickButton" type="Node" parent="Input" unique_id=1537884294]
+[node name="Label IP" type="Label" parent="AspectRatioContainer/PanelRatioNES" unique_id=47956584]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.030000001
+anchor_top = 0.93500006
+anchor_right = 0.98200005
+anchor_bottom = 1.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "127.0.0.1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NesDisplayIpv4List" type="Node" parent="AspectRatioContainer/PanelRatioNES/Label IP" unique_id=298391824]
+script = ExtResource("10_v126c")
+metadata/_custom_type_script = "uid://iwjlcj7s4rxf"
+
+[node name="PanelEditNES" type="Panel" parent="AspectRatioContainer" unique_id=337155125]
+layout_mode = 2
+
+[node name="TabContainer" type="TabContainer" parent="AspectRatioContainer/PanelEditNES" unique_id=543152539]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 0
+tab_0/title = "Setup Key"
+tab_1/title = "Interpretor"
+tab_2/title = "S2W"
+tab_3/title = "INPUT"
+tab_4/title = "MACRO"
+tab_5/title = "NES"
+
+[node name="TabBar Setup Keys" type="TabBar" parent="AspectRatioContainer/PanelEditNES/TabContainer" unique_id=225138243]
+layout_mode = 2
+metadata/_tab_index = 0
+metadata/_tab_name = "Setup Key"
+
+[node name="ReferenceRect" type="ReferenceRect" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys" unique_id=2108004500]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys" unique_id=1239205844]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.29500002
+anchor_bottom = 1.0
+offset_right = -153.84003
+offset_bottom = -98.20828
+
+[node name="LineEdit Up" type="LineEdit" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer" unique_id=1297785648]
+layout_mode = 2
+placeholder_text = "Arrow Up"
+
+[node name="NesInputFieldFileMemory" type="Node" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer/LineEdit Up" unique_id=546516983 node_paths=PackedStringArray("input_field")]
+script = ExtResource("6_mgti4")
+input_field = NodePath("..")
+save_unique_id = "PREF_NES_ARROW_UP"
+default_if_not_set = "1284"
+metadata/_custom_type_script = "uid://syyy1oerlepj"
+
+[node name="Label" type="Label" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer/LineEdit Up" unique_id=1269588516]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.78800005
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Up"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="LineEdit Right" type="LineEdit" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer" unique_id=874885084]
+layout_mode = 2
+placeholder_text = "Arrow Right"
+
+[node name="NesInputFieldFileMemory" type="Node" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer/LineEdit Right" unique_id=1040025156 node_paths=PackedStringArray("input_field")]
+script = ExtResource("6_mgti4")
+input_field = NodePath("..")
+save_unique_id = "PREF_NES_ARROW_RIGHT"
+default_if_not_set = "1282"
+metadata/_custom_type_script = "uid://syyy1oerlepj"
+
+[node name="Label2" type="Label" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer/LineEdit Right" unique_id=666136778]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.78800005
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Right"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="LineEdit Left" type="LineEdit" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer" unique_id=1017075567]
+layout_mode = 2
+placeholder_text = "Arrow Left"
+
+[node name="NesInputFieldFileMemory" type="Node" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer/LineEdit Left" unique_id=1588145129 node_paths=PackedStringArray("input_field")]
+script = ExtResource("6_mgti4")
+input_field = NodePath("..")
+save_unique_id = "PREF_NES_ARROW_LEFT"
+default_if_not_set = "1284"
+metadata/_custom_type_script = "uid://syyy1oerlepj"
+
+[node name="Label3" type="Label" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer/LineEdit Left" unique_id=1996597939]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.78800005
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Left"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="LineEdit Down" type="LineEdit" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer" unique_id=698883742]
+layout_mode = 2
+placeholder_text = "Arrow Down"
+
+[node name="NesInputFieldFileMemory" type="Node" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer/LineEdit Down" unique_id=819954338 node_paths=PackedStringArray("input_field")]
+script = ExtResource("6_mgti4")
+input_field = NodePath("..")
+save_unique_id = "PREF_NES_ARROW_DOWN"
+default_if_not_set = "1284"
+metadata/_custom_type_script = "uid://syyy1oerlepj"
+
+[node name="Label4" type="Label" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer/LineEdit Down" unique_id=90038619]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.78800005
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Down"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="LineEdit A" type="LineEdit" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer" unique_id=1565241222]
+layout_mode = 2
+placeholder_text = "Button A"
+
+[node name="NesInputFieldFileMemory" type="Node" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer/LineEdit A" unique_id=1860407465 node_paths=PackedStringArray("input_field")]
+script = ExtResource("6_mgti4")
+input_field = NodePath("..")
+save_unique_id = "PREF_NES_BUTTON_A"
+default_if_not_set = "1284"
+metadata/_custom_type_script = "uid://syyy1oerlepj"
+
+[node name="Label5" type="Label" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer/LineEdit A" unique_id=1825236632]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.78800005
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "A"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="LineEdit B" type="LineEdit" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer" unique_id=1729076985]
+layout_mode = 2
+placeholder_text = "Button B"
+
+[node name="NesInputFieldFileMemory" type="Node" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer/LineEdit B" unique_id=14347139 node_paths=PackedStringArray("input_field")]
+script = ExtResource("6_mgti4")
+input_field = NodePath("..")
+save_unique_id = "PREF_NES_BUTTON_B"
+default_if_not_set = "1284"
+metadata/_custom_type_script = "uid://syyy1oerlepj"
+
+[node name="Label6" type="Label" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer/LineEdit B" unique_id=1049727833]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.78800005
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "B"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="LineEdit ML" type="LineEdit" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer" unique_id=641669887]
+layout_mode = 2
+placeholder_text = "Menu Left"
+
+[node name="NesInputFieldFileMemory" type="Node" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer/LineEdit ML" unique_id=869466756 node_paths=PackedStringArray("input_field")]
+script = ExtResource("6_mgti4")
+input_field = NodePath("..")
+save_unique_id = "PREF_NES_MENU_LEFT"
+default_if_not_set = "1284"
+metadata/_custom_type_script = "uid://syyy1oerlepj"
+
+[node name="Label7" type="Label" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer/LineEdit ML" unique_id=781823103]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.78800005
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "ML"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="LineEdit MR" type="LineEdit" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer" unique_id=1433203785]
+layout_mode = 2
+placeholder_text = "Menu Right"
+
+[node name="NesInputFieldFileMemory" type="Node" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer/LineEdit MR" unique_id=310261271 node_paths=PackedStringArray("input_field")]
+script = ExtResource("6_mgti4")
+input_field = NodePath("..")
+save_unique_id = "PREF_NES_MENU_RIGHT"
+default_if_not_set = "1284"
+metadata/_custom_type_script = "uid://syyy1oerlepj"
+
+[node name="Label8" type="Label" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer/LineEdit MR" unique_id=1864869130]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.78800005
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "MR"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="NodeLineEdit" type="Node" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer" unique_id=756886860 node_paths=PackedStringArray("nes_facade", "line_editor_arrow_up", "line_editor_arrow_right", "line_editor_arrow_down", "line_editor_arrow_left", "line_editor_button_a", "line_editor_button_b", "line_editor_button_menu_left", "line_editor_button_menu_right")]
+script = ExtResource("9_b33vo")
+nes_facade = NodePath("../../../../../../FacadeNesToUdp")
+line_editor_arrow_up = NodePath("../LineEdit Up")
+line_editor_arrow_right = NodePath("../LineEdit Right")
+line_editor_arrow_down = NodePath("../LineEdit Down")
+line_editor_arrow_left = NodePath("../LineEdit Left")
+line_editor_button_a = NodePath("../LineEdit A")
+line_editor_button_b = NodePath("../LineEdit B")
+line_editor_button_menu_left = NodePath("../LineEdit ML")
+line_editor_button_menu_right = NodePath("../LineEdit MR")
+
+[node name="Button2" type="Button" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer" unique_id=1266457451]
+layout_mode = 2
+text = "To NES"
+
+[node name="Button3" type="Button" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer" unique_id=2049124585]
+layout_mode = 2
+text = "From NES"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys" unique_id=1643990931]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.36
+anchor_top = 0.08400001
+anchor_right = 0.9710001
+anchor_bottom = 0.80100006
+
+[node name="Panel" type="Panel" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer2" unique_id=70553026]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer2/Panel" unique_id=1362632743]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer2/Panel/VBoxContainer" unique_id=1830899545]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer2/Panel/VBoxContainer/HBoxContainer" unique_id=375263402]
+layout_mode = 2
+text = "Ama Zoo"
+
+[node name="Button Keyboard" type="Button" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer2/Panel/VBoxContainer/HBoxContainer" unique_id=192197051]
+layout_mode = 2
+text = "Keyboard Game"
+script = ExtResource("10_omkqn")
+resource_to_relay = ExtResource("11_1bslu")
+
+[node name="Button KeyboardMenu" type="Button" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer2/Panel/VBoxContainer/HBoxContainer" unique_id=1153019140]
+layout_mode = 2
+text = "Keyboard Menu"
+script = ExtResource("10_omkqn")
+resource_to_relay = ExtResource("12_lhrs0")
+
+[node name="Button Xbox" type="Button" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer2/Panel/VBoxContainer/HBoxContainer" unique_id=2076493509]
+layout_mode = 2
+text = "Xbox"
+script = ExtResource("12_1bslu")
+resource_to_relay = ExtResource("13_lhrs0")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer2/Panel/VBoxContainer" unique_id=857180640]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer2/Panel/VBoxContainer/HBoxContainer2" unique_id=1716441407]
+layout_mode = 2
+text = "NES"
+
+[node name="Button Nes Int" type="Button" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer2/Panel/VBoxContainer/HBoxContainer2" unique_id=350635572]
+layout_mode = 2
+text = "NES 1280"
+script = ExtResource("15_62xdi")
+resource_to_relay = ExtResource("16_xgd7e")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer2/Panel/VBoxContainer" unique_id=29402210]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer2/Panel/VBoxContainer/HBoxContainer3" unique_id=1562195392]
+layout_mode = 2
+text = "XBOX"
+
+[node name="Button Nes Int" type="Button" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer2/Panel/VBoxContainer/HBoxContainer3" unique_id=1760229575]
+layout_mode = 2
+text = "Mixed AX"
+script = ExtResource("12_1bslu")
+resource_to_relay = ExtResource("20_x7r48")
+
+[node name="Button Nes Int2" type="Button" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer2/Panel/VBoxContainer/HBoxContainer3" unique_id=1641342076]
+layout_mode = 2
+text = "Eloi Wow"
+script = ExtResource("12_1bslu")
+resource_to_relay = ExtResource("21_j726w")
+
+[node name="TabBarInterpretor" type="TabBar" parent="AspectRatioContainer/PanelEditNES/TabContainer" unique_id=90464660]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+metadata/_tab_name = "Interpretor"
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBarInterpretor" unique_id=1732098557]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBarInterpretor" unique_id=2052594129]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.083000004
+grow_horizontal = 2
+grow_vertical = 2
+text = "Add your your macro here to be interpreted:"
+
+[node name="TextEdit" type="TextEdit" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBarInterpretor" unique_id=2095894583]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.109000005
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.18545151
+grow_horizontal = 2
+grow_vertical = 2
+placeholder_text = "A+ 100> A- 200> B=  //Press and release A then B
+Y=|1000 X=|500 // Stroke X at 500 and Y at 1000
+42|200 AI|2000 // Parse Integer to 42 and check macro for AI
+1300+ 200> 1300- // Stroke A Xbox
+1285= // Stroke NES A "
+
+[node name="Button" type="Button" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBarInterpretor" unique_id=1276521963]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.86100006
+anchor_top = 0.81000006
+anchor_right = 0.99600005
+anchor_bottom = 1.0
+offset_left = 0.12792969
+offset_top = -0.20458984
+offset_right = -0.39208984
+offset_bottom = -10.604126
+text = "Submit"
+
+[node name="NodePushOnSubmit" type="Node" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBarInterpretor" unique_id=1228712850 node_paths=PackedStringArray("text_editor_target")]
+script = ExtResource("20_wewd1")
+text_editor_target = NodePath("../TextEdit")
+
+[node name="NesSaveSaveMapImport2" type="Node" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBarInterpretor" unique_id=1644902680]
+script = ExtResource("10_sf5ed")
+save_unique_id = "SAVE_NES_EDIT_INTERPRETOR"
+metadata/_custom_type_script = "uid://bty8kgte7clr1"
+
+[node name="NesSaveLoadStringLinkToTextEdit" type="Node" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBarInterpretor/NesSaveSaveMapImport2" unique_id=830852613 node_paths=PackedStringArray("to_affect", "memory")]
+script = ExtResource("20_v1nuc")
+to_affect = NodePath("../../TextEdit")
+memory = NodePath("..")
+listen_to_on_changed = true
+metadata/_custom_type_script = "uid://cnwfjmaetsth6"
+
+[node name="Panel" type="Panel" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBarInterpretor" unique_id=583032560]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.74200004
+anchor_right = 1.0
+anchor_bottom = 0.09
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBarInterpretor/Panel" unique_id=1297588153]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBarInterpretor/Panel/HBoxContainer" unique_id=466388137]
+layout_mode = 2
+text = "🎮"
+
+[node name="NesUiAppendTextToTextEdit" type="Node" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBarInterpretor/Panel/HBoxContainer/Button" unique_id=1468476399 node_paths=PackedStringArray("text_edit")]
+script = ExtResource("22_iwyqg")
+text_edit = NodePath("../../../../TextEdit")
+to_append = "🎮"
+metadata/_custom_type_script = "uid://besvh1w1ekwak"
+
+[node name="Button2" type="Button" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBarInterpretor/Panel/HBoxContainer" unique_id=1749638953]
+layout_mode = 2
+text = "🕹"
+
+[node name="NesUiAppendTextToTextEdit" type="Node" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBarInterpretor/Panel/HBoxContainer/Button2" unique_id=205304563 node_paths=PackedStringArray("text_edit")]
+script = ExtResource("22_iwyqg")
+text_edit = NodePath("../../../../TextEdit")
+to_append = "🕹"
+metadata/_custom_type_script = "uid://besvh1w1ekwak"
+
+[node name="Button3" type="Button" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBarInterpretor/Panel/HBoxContainer" unique_id=1063480928]
+layout_mode = 2
+text = "🎹"
+
+[node name="NesUiAppendTextToTextEdit" type="Node" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBarInterpretor/Panel/HBoxContainer/Button3" unique_id=1815570269 node_paths=PackedStringArray("text_edit")]
+script = ExtResource("22_iwyqg")
+text_edit = NodePath("../../../../TextEdit")
+to_append = "🎹"
+metadata/_custom_type_script = "uid://besvh1w1ekwak"
+
+[node name="Button4" type="Button" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBarInterpretor/Panel/HBoxContainer" unique_id=709056721]
+layout_mode = 2
+text = "⌨️"
+
+[node name="NesUiAppendTextToTextEdit" type="Node" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBarInterpretor/Panel/HBoxContainer/Button4" unique_id=1344665222 node_paths=PackedStringArray("text_edit")]
+script = ExtResource("22_iwyqg")
+text_edit = NodePath("../../../../TextEdit")
+to_append = "⌨"
+metadata/_custom_type_script = "uid://besvh1w1ekwak"
+
+[node name="TabBarS2WInteger" type="TabBar" parent="AspectRatioContainer/PanelEditNES/TabContainer" unique_id=1494410109]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+metadata/_tab_name = "S2W"
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBarS2WInteger" unique_id=349543321]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 31.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabBarNesMapImport" type="TabBar" parent="AspectRatioContainer/PanelEditNES/TabContainer" unique_id=1677016823]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
+metadata/_tab_name = "INPUT"
+
+[node name="ReferenceRect4" type="ReferenceRect" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBarNesMapImport" unique_id=1252396356]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 31.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label3" type="Label" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBarNesMapImport" unique_id=251580995]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.874
+anchor_bottom = 0.083000004
+offset_right = 3.1519775
+grow_horizontal = 2
+grow_vertical = 2
+text = "Link Raw Device Mapping to macro and integer:"
+vertical_alignment = 1
+
+[node name="ScrollContainer2" type="ScrollContainer" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBarNesMapImport" unique_id=1343486775]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.09
+anchor_right = 1.0
+anchor_bottom = 1.0810001
+offset_left = 3.0
+offset_top = 5.625408
+offset_right = -5.0
+offset_bottom = -6.585022
+
+[node name="TextEdit2" type="TextEdit" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBarNesMapImport/ScrollContainer2" unique_id=2013428573]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+placeholder_text = ">DEVICE_NAME|0|A2+| INTEGER
+>DEVICE_NAME|0|B13-| MACRO
+>DEVICE_NAME|4|A3=|R:0.8:1.0| 1300
+>Super Famicom Controller|0|B12| // All device
+>Super Famicom Controller|1|B12| // Only first device found"
+
+[node name="LabelInputButton" type="LineEdit" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBarNesMapImport" unique_id=1261840997]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.98300004
+anchor_right = 0.5
+anchor_bottom = 1.0660001
+offset_left = 4.0
+offset_top = -0.052612305
+offset_right = 5.0
+offset_bottom = -0.052612305
+grow_horizontal = 2
+grow_vertical = 2
+text = ">"
+
+[node name="LabelInputAxis" type="LineEdit" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBarNesMapImport" unique_id=1924909316]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.504
+anchor_top = 0.98300004
+anchor_right = 1.0
+anchor_bottom = 1.0660001
+offset_left = 4.391968
+offset_top = -0.052612305
+offset_right = -6.0
+offset_bottom = -0.052612305
+grow_horizontal = 2
+grow_vertical = 2
+text = ">"
+
+[node name="Button2" type="Button" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBarNesMapImport" unique_id=877980721]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.89100003
+anchor_right = 1.0
+anchor_bottom = 0.087000005
+grow_horizontal = 2
+text = "Save File"
+
+[node name="NesSaveSaveMapImport" type="Node" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBarNesMapImport" unique_id=242742394]
+script = ExtResource("10_sf5ed")
+save_unique_id = "SAVE_NES_DEVICE_MAPPING"
+metadata/_custom_type_script = "uid://bty8kgte7clr1"
+
+[node name="NesSaveLoadStringLinkToTextEdit" type="Node" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBarNesMapImport/NesSaveSaveMapImport" unique_id=26931387 node_paths=PackedStringArray("to_affect", "memory")]
+script = ExtResource("20_v1nuc")
+to_affect = NodePath("../../ScrollContainer2/TextEdit2")
+memory = NodePath("..")
+listen_to_on_changed = true
+metadata/_custom_type_script = "uid://cnwfjmaetsth6"
+
+[node name="NesInputDisplayButtonNameId" type="Node" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBarNesMapImport" unique_id=1379296543]
 script = ExtResource("9_ttdvb")
+use_print_debug = false
+format_string = ">NAME|TYPEINDEXVALUE"
+display_axis = false
+metadata/_custom_type_script = "uid://ybf4bgif5umu"
+
+[node name="NesInputDisplayButtonNameId2" type="Node" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBarNesMapImport" unique_id=1758657371]
+script = ExtResource("9_ttdvb")
+use_print_debug = false
+format_string = ">NAME|TYPEINDEX VALUE"
+display_button = false
+metadata/_custom_type_script = "uid://ybf4bgif5umu"
+
+[node name="TabBarWord2Int" type="TabBar" parent="AspectRatioContainer/PanelEditNES/TabContainer" unique_id=1578755616]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 4
+metadata/_tab_name = "MACRO"
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBarWord2Int" unique_id=1672108683]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 31.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label2" type="Label" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBarWord2Int" unique_id=1363386468]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.874
+anchor_bottom = 0.083000004
+offset_right = 3.1519775
+grow_horizontal = 2
+grow_vertical = 2
+text = "Add here word that you want to be turn in integer"
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBarWord2Int" unique_id=1045405867]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.09
+anchor_right = 1.0
+anchor_bottom = 1.0810001
+offset_left = 3.0
+offset_top = 5.625408
+offset_right = -5.0
+offset_bottom = -6.585022
+
+[node name="TextEdit2" type="TextEdit" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBarWord2Int/ScrollContainer" unique_id=577759092]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+placeholder_text = "//If the word AI is found, it is replace by 42
+AI:42
+MR:1308
+// WORD:PRESS_INTEGER:RELEASE_INTEGER
+XBOX_A:1300:2300 
+NES_A:1285:2285  
+// KEY_A+ will override the integer between 1000-1999
+// KEY_A- will override the integer between 2000-2999
+KEY_A:1065
+// Will replace the word JUMP to the following command \"A+ 80> A-\"
+>JUMP: A+ 80> A-
+// Same but will also replace JUMP before
+>RESTART: MR+ 80> MR- 200> JUMP
+"
+
+[node name="NesSaveSaveWord2Int" type="Node" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBarWord2Int" unique_id=1412169743]
+script = ExtResource("10_sf5ed")
+save_unique_id = "SAVE_NES_WORD_2_INT"
+metadata/_custom_type_script = "uid://bty8kgte7clr1"
+
+[node name="NesSaveLoadStringLinkToTextEdit" type="Node" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBarWord2Int/NesSaveSaveWord2Int" unique_id=392586495 node_paths=PackedStringArray("to_affect", "memory")]
+script = ExtResource("20_v1nuc")
+to_affect = NodePath("../../ScrollContainer/TextEdit2")
+memory = NodePath("..")
+listen_to_on_changed = true
+metadata/_custom_type_script = "uid://cnwfjmaetsth6"
+
+[node name="TabBarNesMapping" type="TabBar" parent="AspectRatioContainer/PanelEditNES/TabContainer" unique_id=461896290]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 5
+metadata/_tab_name = "NES"
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBarNesMapping" unique_id=901433764]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 31.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label2" type="Label" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBarNesMapping" unique_id=2050967925]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.874
+anchor_bottom = 0.083000004
+offset_right = 3.1519775
+grow_horizontal = 2
+grow_vertical = 2
+text = "Create mapping for NES Input"
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBarNesMapping" unique_id=553222426]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.09
+anchor_right = 1.0
+anchor_bottom = 1.0810001
+offset_left = 3.0
+offset_top = 5.625408
+offset_right = -5.0
+offset_bottom = -6.585022
+
+[node name="TextEdit2" type="TextEdit" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBarNesMapping/ScrollContainer" unique_id=273779770]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+placeholder_text = "BUTTON_NAME|UP RIGHT DOWN LEFT A B MENU_LEFT MENU_RIGHT
+Xbox Joystick left AX| 1331 1333 1335 1337 1300 1302 1307 1308
+Xbox Joystick right AX| 1331 1333 1335 1337 1300 1302 1307 1308
+Xbox Arrows AX| 1331 1333 1335 1337 1300 1302 1307 1308
+Xbox 10 Seconds Ninja: 1331 1333 1335 1337 1300 1302 1307 1308"
+
+[node name="NesSaveSaveWord2Int" type="Node" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBarNesMapping" unique_id=1499139947]
+script = ExtResource("10_sf5ed")
+save_unique_id = "SAVE_NES_WORD_2_INT"
+metadata/_custom_type_script = "uid://bty8kgte7clr1"
+
+[node name="NesSaveLoadStringLinkToTextEdit" type="Node" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBarNesMapping/NesSaveSaveWord2Int" unique_id=358491781 node_paths=PackedStringArray("to_affect", "memory")]
+script = ExtResource("20_v1nuc")
+to_affect = NodePath("../../ScrollContainer/TextEdit2")
+memory = NodePath("..")
+listen_to_on_changed = true
+metadata/_custom_type_script = "uid://cnwfjmaetsth6"
+
+[node name="Button Close Edit" type="Button" parent="AspectRatioContainer/PanelEditNES" unique_id=1711712817]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.95100003
+anchor_right = 1.0
+anchor_bottom = 0.052
+offset_left = 0.44799805
+offset_bottom = -0.106674194
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 10
+text = "X"
+
+[node name="Input" type="Node" parent="." unique_id=35613654]
 
 [node name="SuperFamicomController" type="Node" parent="Input" unique_id=1417081095]
 
@@ -450,6 +1213,112 @@ action_name_positive_01 = "GAMEPAD_LEFT_VERTICAL_POSITIVE"
 action_name_negative_01 = "GAMEPAD_LEFT_VERTICAL_NEGATIVE"
 metadata/_custom_type_script = "uid://ds80rs80plamt"
 
+[node name="PanelUnderFinger" type="Panel" parent="." unique_id=568814087]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="TextureRect" parent="PanelUnderFinger" unique_id=927040215]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+focus_behavior_recursive = 1
+mouse_filter = 2
+mouse_behavior_recursive = 1
+mouse_default_cursor_shape = 3
+texture = ExtResource("25_xjou1")
+
+[node name="Panel2" type="TextureRect" parent="PanelUnderFinger" unique_id=749491137]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+focus_behavior_recursive = 1
+mouse_filter = 2
+mouse_behavior_recursive = 1
+mouse_default_cursor_shape = 3
+texture = ExtResource("25_xjou1")
+
+[node name="Panel3" type="TextureRect" parent="PanelUnderFinger" unique_id=1926780803]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+focus_behavior_recursive = 1
+mouse_filter = 2
+mouse_behavior_recursive = 1
+mouse_default_cursor_shape = 3
+texture = ExtResource("25_xjou1")
+
+[node name="Panel4" type="TextureRect" parent="PanelUnderFinger" unique_id=1114865113]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+focus_behavior_recursive = 1
+mouse_filter = 2
+mouse_behavior_recursive = 1
+mouse_default_cursor_shape = 3
+texture = ExtResource("25_xjou1")
+
+[node name="Panel5" type="TextureRect" parent="PanelUnderFinger" unique_id=100930429]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+focus_behavior_recursive = 1
+mouse_filter = 2
+mouse_behavior_recursive = 1
+mouse_default_cursor_shape = 3
+texture = ExtResource("25_xjou1")
+
+[node name="Panel6" type="TextureRect" parent="PanelUnderFinger" unique_id=2060067013]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+focus_behavior_recursive = 1
+mouse_filter = 2
+mouse_behavior_recursive = 1
+mouse_default_cursor_shape = 3
+texture = ExtResource("25_xjou1")
+
+[node name="Panel7" type="TextureRect" parent="PanelUnderFinger" unique_id=768709707]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+focus_behavior_recursive = 1
+mouse_filter = 2
+mouse_behavior_recursive = 1
+mouse_default_cursor_shape = 3
+texture = ExtResource("25_xjou1")
+
+[node name="Panel8" type="TextureRect" parent="PanelUnderFinger" unique_id=620101844]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+focus_behavior_recursive = 1
+mouse_filter = 2
+mouse_behavior_recursive = 1
+mouse_default_cursor_shape = 3
+texture = ExtResource("25_xjou1")
+
+[node name="Panel9" type="TextureRect" parent="PanelUnderFinger" unique_id=1697655074]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+focus_behavior_recursive = 1
+mouse_filter = 2
+mouse_behavior_recursive = 1
+mouse_default_cursor_shape = 3
+texture = ExtResource("25_xjou1")
+
+[node name="Panel10" type="TextureRect" parent="PanelUnderFinger" unique_id=423237727]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+focus_behavior_recursive = 1
+mouse_filter = 2
+mouse_behavior_recursive = 1
+mouse_default_cursor_shape = 3
+texture = ExtResource("25_xjou1")
+
 [connection signal="on_send_int_to_target" from="FacadeNesToUdp" to="AspectRatioContainer/PanelRatioNES/Label Last Push Integer/NesParseIntegerToString" method="push_in_integer_to_parse"]
 [connection signal="on_down_up_value_changed" from="AspectRatioContainer/PanelRatioNES/Button Press A/NesUiButtonToDownUpBool" to="FacadeNesToUdp" method="nes_basic_set_a"]
 [connection signal="on_down_up_value_changed" from="AspectRatioContainer/PanelRatioNES/Button Press B/NesUiButtonToDownUpBool2" to="FacadeNesToUdp" method="nes_basic_set_b"]
@@ -471,6 +1340,31 @@ metadata/_custom_type_script = "uid://ds80rs80plamt"
 [connection signal="on_mode_changed_index" from="AspectRatioContainer/PanelRatioNES/Button Change Arrow Mode/NesModeArrowMode" to="AspectRatioContainer/PanelRatioNES/Button Change Arrow Mode/NesSaveLoadStringValueFromFileMemory2" method="save_given_integer"]
 [connection signal="on_mode_changed_label" from="AspectRatioContainer/PanelRatioNES/Button Change Arrow Mode/NesModeArrowMode" to="AspectRatioContainer/PanelRatioNES/Button Change Arrow Mode" method="set_text"]
 [connection signal="on_value_loaded_from_file" from="AspectRatioContainer/PanelRatioNES/Button Change Arrow Mode/NesSaveLoadStringValueFromFileMemory2" to="AspectRatioContainer/PanelRatioNES/Button Change Arrow Mode/NesModeArrowMode" method="set_mode_with_str_index"]
+[connection signal="button_down" from="AspectRatioContainer/PanelRatioNES/Button" to="AspectRatioContainer/PanelEditNES" method="set_visible" binds= [true]]
+[connection signal="on_refresh_ipv4_debug_text" from="AspectRatioContainer/PanelRatioNES/Label IP/NesDisplayIpv4List" to="AspectRatioContainer/PanelRatioNES/Label IP" method="set_text"]
+[connection signal="button_down" from="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer/Button2" to="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer/NodeLineEdit" method="update_nes_facade_from_line_editor"]
+[connection signal="button_down" from="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer/Button3" to="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer/NodeLineEdit" method="update_line_editor_from_nes_facade"]
+[connection signal="button_down" from="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer2/Panel/VBoxContainer/HBoxContainer/Button Keyboard" to="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer2/Panel/VBoxContainer/HBoxContainer/Button Keyboard" method="push_resource_to_relay"]
+[connection signal="on_resource_relayed" from="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer2/Panel/VBoxContainer/HBoxContainer/Button Keyboard" to="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer/NodeLineEdit" method="set_with_nes_resource_keyboard"]
+[connection signal="button_down" from="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer2/Panel/VBoxContainer/HBoxContainer/Button KeyboardMenu" to="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer2/Panel/VBoxContainer/HBoxContainer/Button KeyboardMenu" method="push_resource_to_relay"]
+[connection signal="on_resource_relayed" from="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer2/Panel/VBoxContainer/HBoxContainer/Button KeyboardMenu" to="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer/NodeLineEdit" method="set_with_nes_resource_keyboard"]
+[connection signal="button_down" from="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer2/Panel/VBoxContainer/HBoxContainer/Button Xbox" to="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer2/Panel/VBoxContainer/HBoxContainer/Button Xbox" method="push_resource_to_relay"]
+[connection signal="on_resource_relayed" from="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer2/Panel/VBoxContainer/HBoxContainer/Button Xbox" to="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer/NodeLineEdit" method="set_with_nes_resource_xbox"]
+[connection signal="button_down" from="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer2/Panel/VBoxContainer/HBoxContainer2/Button Nes Int" to="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer2/Panel/VBoxContainer/HBoxContainer2/Button Nes Int" method="push_resource_to_relay"]
+[connection signal="on_resource_relayed" from="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer2/Panel/VBoxContainer/HBoxContainer2/Button Nes Int" to="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer/NodeLineEdit" method="set_with_nes_resource_int"]
+[connection signal="button_down" from="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer2/Panel/VBoxContainer/HBoxContainer3/Button Nes Int" to="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer2/Panel/VBoxContainer/HBoxContainer3/Button Nes Int" method="push_resource_to_relay"]
+[connection signal="on_resource_relayed" from="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer2/Panel/VBoxContainer/HBoxContainer3/Button Nes Int" to="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer/NodeLineEdit" method="set_with_nes_resource_xbox"]
+[connection signal="button_down" from="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer2/Panel/VBoxContainer/HBoxContainer3/Button Nes Int2" to="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer2/Panel/VBoxContainer/HBoxContainer3/Button Nes Int2" method="push_resource_to_relay"]
+[connection signal="on_resource_relayed" from="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer2/Panel/VBoxContainer/HBoxContainer3/Button Nes Int2" to="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer/NodeLineEdit" method="set_with_nes_resource_xbox"]
+[connection signal="button_down" from="AspectRatioContainer/PanelEditNES/TabContainer/TabBarInterpretor/Button" to="AspectRatioContainer/PanelEditNES/TabContainer/TabBarInterpretor/NodePushOnSubmit" method="push_text_when_asked"]
+[connection signal="on_text_submit" from="AspectRatioContainer/PanelEditNES/TabContainer/TabBarInterpretor/NodePushOnSubmit" to="FacadeNesToUdp" method="interpreter_translate_text_macro_to_int_and_callable"]
+[connection signal="button_down" from="AspectRatioContainer/PanelEditNES/TabContainer/TabBarInterpretor/Panel/HBoxContainer/Button" to="AspectRatioContainer/PanelEditNES/TabContainer/TabBarInterpretor/Panel/HBoxContainer/Button/NesUiAppendTextToTextEdit" method="append_with_inspector_params"]
+[connection signal="button_down" from="AspectRatioContainer/PanelEditNES/TabContainer/TabBarInterpretor/Panel/HBoxContainer/Button2" to="AspectRatioContainer/PanelEditNES/TabContainer/TabBarInterpretor/Panel/HBoxContainer/Button2/NesUiAppendTextToTextEdit" method="append_with_inspector_params"]
+[connection signal="button_down" from="AspectRatioContainer/PanelEditNES/TabContainer/TabBarInterpretor/Panel/HBoxContainer/Button3" to="AspectRatioContainer/PanelEditNES/TabContainer/TabBarInterpretor/Panel/HBoxContainer/Button3/NesUiAppendTextToTextEdit" method="append_with_inspector_params"]
+[connection signal="button_down" from="AspectRatioContainer/PanelEditNES/TabContainer/TabBarInterpretor/Panel/HBoxContainer/Button4" to="AspectRatioContainer/PanelEditNES/TabContainer/TabBarInterpretor/Panel/HBoxContainer/Button4/NesUiAppendTextToTextEdit" method="append_with_inspector_params"]
+[connection signal="on_changed_with_format_string" from="AspectRatioContainer/PanelEditNES/TabContainer/TabBarNesMapImport/NesInputDisplayButtonNameId" to="AspectRatioContainer/PanelEditNES/TabContainer/TabBarNesMapImport/LabelInputButton" method="set_text"]
+[connection signal="on_changed_with_format_string" from="AspectRatioContainer/PanelEditNES/TabContainer/TabBarNesMapImport/NesInputDisplayButtonNameId2" to="AspectRatioContainer/PanelEditNES/TabContainer/TabBarNesMapImport/LabelInputAxis" method="set_text"]
+[connection signal="button_down" from="AspectRatioContainer/PanelEditNES/Button Close Edit" to="AspectRatioContainer/PanelEditNES" method="set_visible" binds= [false]]
 [connection signal="on_down_up" from="Input/SuperFamicomController/NesButtonA" to="FacadeNesToUdp" method="nes_basic_set_a"]
 [connection signal="on_down_up" from="Input/SuperFamicomController/NesButtonB" to="FacadeNesToUdp" method="nes_basic_set_b"]
 [connection signal="on_down_up" from="Input/SuperFamicomController/NesButtonMenuLeft" to="FacadeNesToUdp" method="nes_basic_set_menu_left_select"]

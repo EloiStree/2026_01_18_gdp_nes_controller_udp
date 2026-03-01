@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://dcm5fsacuygla"]
 
 [ext_resource type="PackedScene" uid="uid://bbwn03yllootl" path="res://addons/2026_01_18_gdp_nes_controller_udp/scene/element/facade/facade_nes_to_udp.tscn" id="1_vqj1t"]
-[ext_resource type="Script" uid="uid://c3plxvogohgsc" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/ui/ui2d_text_edit_to_string_event.gd" id="4_qh23o"]
+[ext_resource type="Script" uid="uid://c3plxvogohgsc" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/ui/nes_ui_text_edit_to_string_event.gd" id="4_qh23o"]
 [ext_resource type="Script" uid="uid://syyy1oerlepj" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/nes_input_field_file_memory.gd" id="5_anc0i"]
 [ext_resource type="Script" uid="uid://dba4mrwl7xh3v" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/nes_parse_integer_to_string.gd" id="6_pntoa"]
+
 
 [node name="PanelUdpNES" type="Panel" unique_id=834786804]
 anchors_preset = 15
