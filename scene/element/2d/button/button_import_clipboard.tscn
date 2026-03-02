@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dml1ki1lkpacv"]
+
+[ext_resource type="Script" uid="uid://cd0vdfgtxywaq" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/feature/clipboard/nes_set_get_clipboard.gd" id="1_2qxcv"]
+
+[node name="ButtonImportClipboard" type="Control" unique_id=1053555343]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2qxcv")
+fetch_every_seconds_clipboard = false
+
+[node name="Button" type="Button" parent="." unique_id=922853600]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Import Clipboard"
+
+[connection signal="button_down" from="Button" to="." method="fetch_and_emit_clipboard"]

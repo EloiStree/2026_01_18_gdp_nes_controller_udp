@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://do6nwu68qdgc1"]
+
+[ext_resource type="Script" uid="uid://bnjodou2k6otk" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/save_load/nes_save_load_string_value_from_file_memory_code_edit.gd" id="1_vvhf0"]
+[ext_resource type="Script" uid="uid://4enlpb08q6mw" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/interpreter/nes_default_word_interpretor_to_int_macro.gd" id="2_16akf"]
+[ext_resource type="Script" uid="uid://dqvadjdayc88k" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/ui/nes_ui_text_edit_changed_relay.gd" id="2_k8en6"]
+[ext_resource type="Script" uid="uid://dtoapfr0n74xh" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/interpreter/nes_int_macro_interpretor_to_int.gd" id="3_k8en6"]
+[ext_resource type="Script" uid="uid://cmni8p1rv71fl" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/ui/nes_ui_text_to_integer_macro_text_edit.gd" id="5_xfmoc"]
+
+[node name="DemoParseTextToIntMacro" type="Control" unique_id=22484840]
+custom_minimum_size = Vector2(600, 400)
+layout_mode = 3
+anchors_preset = 0
+
+[node name="CodeTextToParse" type="CodeEdit" parent="." unique_id=276063406]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.157
+offset_bottom = -1.800003
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NesSaveLoadStringValueFromFileMemoryCodeEdit4" type="Node" parent="CodeTextToParse" unique_id=1873389425 node_paths=PackedStringArray("to_affect")]
+script = ExtResource("1_vvhf0")
+to_affect = NodePath("..")
+save_unique_id = "TEST_TEXT"
+metadata/_custom_type_script = "uid://bnjodou2k6otk"
+
+[node name="CodeIntMacroResult" type="CodeEdit" parent="." unique_id=609425836]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.187
+anchor_right = 1.0
+anchor_bottom = 0.314
+offset_top = -1.800003
+offset_bottom = 2.399994
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CodeIntMacroResultAsInt" type="CodeEdit" parent="." unique_id=1077435229]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.344
+anchor_right = 1.0
+anchor_bottom = 0.44500002
+offset_top = -6.600006
+offset_bottom = -1.5258789e-05
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CodeWordToInt" type="CodeEdit" parent="." unique_id=1581393425]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.44500002
+anchor_right = 0.38300002
+anchor_bottom = 0.79
+offset_left = 2.0
+offset_top = 3.9999847
+offset_right = 0.19999695
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NesSaveLoadStringValueFromFileMemoryCodeEdit" type="Node" parent="CodeWordToInt" unique_id=259996664 node_paths=PackedStringArray("to_affect")]
+script = ExtResource("1_vvhf0")
+to_affect = NodePath("..")
+save_unique_id = "TEST_WORD_INT"
+metadata/_custom_type_script = "uid://bnjodou2k6otk"
+
+[node name="NesUiCodeTextEditChangedRelay2" type="Node" parent="CodeWordToInt" unique_id=263844010 node_paths=PackedStringArray("to_listen")]
+script = ExtResource("2_k8en6")
+to_listen = NodePath("..")
+metadata/_custom_type_script = "uid://dqvadjdayc88k"
+
+[node name="CodeWordToMacro" type="CodeEdit" parent="." unique_id=873093220]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.41200003
+anchor_top = 0.455
+anchor_right = 1.0
+anchor_bottom = 0.79
+offset_left = -0.2000122
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NesSaveLoadStringValueFromFileMemoryCodeEdit2" type="Node" parent="CodeWordToMacro" unique_id=581259243 node_paths=PackedStringArray("to_affect")]
+script = ExtResource("1_vvhf0")
+to_affect = NodePath("..")
+save_unique_id = "TEST_WORD_MACRO"
+metadata/_custom_type_script = "uid://bnjodou2k6otk"
+
+[node name="NesUiCodeTextEditChangedRelay" type="Node" parent="CodeWordToMacro" unique_id=1458939605 node_paths=PackedStringArray("to_listen")]
+script = ExtResource("2_k8en6")
+to_listen = NodePath("..")
+metadata/_custom_type_script = "uid://dqvadjdayc88k"
+
+[node name="Node" type="Node" parent="." unique_id=1413960118]
+
+[node name="NesMacroInterpreterToInt" type="Node" parent="Node" unique_id=387263757]
+script = ExtResource("2_16akf")
+metadata/_custom_type_script = "uid://4enlpb08q6mw"
+
+[node name="NesIntMacroInterpreterToInt" type="Node" parent="Node" unique_id=2009050911]
+script = ExtResource("3_k8en6")
+metadata/_custom_type_script = "uid://dtoapfr0n74xh"
+
+[node name="NesUiTextTOIntegerMacroTextEditor" type="Node" parent="Node" unique_id=32588823 node_paths=PackedStringArray("from_text_editor", "to_text_editor", "to_abstract_int_in_text_editor", "macro_interpretor", "int_interpretor")]
+script = ExtResource("5_xfmoc")
+from_text_editor = NodePath("../../CodeTextToParse")
+to_text_editor = NodePath("../../CodeIntMacroResult")
+to_abstract_int_in_text_editor = NodePath("../../CodeIntMacroResultAsInt")
+macro_interpretor = NodePath("../NesMacroInterpreterToInt")
+int_interpretor = NodePath("../NesIntMacroInterpreterToInt")
+metadata/_custom_type_script = "uid://cmni8p1rv71fl"
+
+[connection signal="on_value_loaded_from_file" from="CodeWordToInt/NesSaveLoadStringValueFromFileMemoryCodeEdit" to="Node/NesMacroInterpreterToInt" method="clear_and_add_word_to_int_from_text"]
+[connection signal="on_text_changed" from="CodeWordToInt/NesUiCodeTextEditChangedRelay2" to="Node/NesMacroInterpreterToInt" method="clear_and_add_word_to_int_from_text"]
+[connection signal="on_value_loaded_from_file" from="CodeWordToMacro/NesSaveLoadStringValueFromFileMemoryCodeEdit2" to="Node/NesMacroInterpreterToInt" method="clear_and_add_word_to_macro_from_text"]
+[connection signal="on_text_changed" from="CodeWordToMacro/NesUiCodeTextEditChangedRelay" to="Node/NesMacroInterpreterToInt" method="clear_and_add_word_to_macro_from_text"]

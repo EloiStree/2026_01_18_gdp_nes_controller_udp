@@ -7,29 +7,31 @@
 [ext_resource type="Script" uid="uid://c7jenviiw66o" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/nes_ui2d_button_to_down_up_bool.gd" id="4_fg5n1"]
 [ext_resource type="Script" uid="uid://syyy1oerlepj" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/nes_input_field_file_memory.gd" id="6_mgti4"]
 [ext_resource type="Script" uid="uid://dba4mrwl7xh3v" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/nes_parse_integer_to_string.gd" id="7_mpy40"]
-[ext_resource type="Script" uid="uid://b568p33kr01ir" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/ui/ui_line_edit_nes_buttons_to_facade.gd" id="9_b33vo"]
+[ext_resource type="Script" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/ui/ui_line_edit_nes_buttons_to_facade.gd" id="9_b33vo"]
 [ext_resource type="Script" uid="uid://ybf4bgif5umu" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/input/nes_input_display_button_name_id.gd" id="9_ttdvb"]
 [ext_resource type="Script" uid="uid://bkuserkgd0gn8" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/nes_input_mode/nes_switch_mode_button_b.gd" id="9_v5dd5"]
 [ext_resource type="Script" uid="uid://ga8sc73fxkch" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/nes_input_mode/nes_switch_mode_arrows.gd" id="10_b33vo"]
 [ext_resource type="Script" uid="uid://bm4rc83orqaig" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/input/nes_input_device_button_down_up.gd" id="10_lsjjd"]
-[ext_resource type="Script" uid="uid://bvhwouusvirme" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/ui/ui_nes_resource_relayer_keyboard.gd" id="10_omkqn"]
+[ext_resource type="Script" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/ui/ui_nes_resource_relayer_keyboard.gd" id="10_omkqn"]
 [ext_resource type="Script" uid="uid://bty8kgte7clr1" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/save_load/nes_save_load_string_value_from_file_memory.gd" id="10_sf5ed"]
 [ext_resource type="Script" uid="uid://iwjlcj7s4rxf" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/in_dev/nes_display_ipv4_list.gd" id="10_v126c"]
 [ext_resource type="Resource" uid="uid://dgcdij1uxs0kd" path="res://addons/2026_01_18_gdp_nes_controller_udp/resource/playto_amazoo_keyboard.tres" id="11_1bslu"]
 [ext_resource type="Script" uid="uid://ce3wk1gb164fi" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/input/nes_input_map_action_down_up.gd" id="11_lsjjd"]
-[ext_resource type="Script" uid="uid://bba81vyoxppia" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/ui/ui_nes_resource_relayer_xbox.gd" id="12_1bslu"]
+[ext_resource type="Script" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/ui/ui_nes_resource_relayer_xbox.gd" id="12_1bslu"]
 [ext_resource type="Script" uid="uid://ctt1kl7yyqd4h" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/float_to_bool_event/nes_float_axis_to_bool_event.gd" id="12_8ovte"]
 [ext_resource type="Resource" uid="uid://cnn0w58snpu7d" path="res://addons/2026_01_18_gdp_nes_controller_udp/resource/playto_amazoo_keyboard_menu.tres" id="12_lhrs0"]
 [ext_resource type="Script" uid="uid://ds80rs80plamt" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/input/nes_input_map_action_float_axis.gd" id="13_53map"]
 [ext_resource type="Resource" uid="uid://nvwgbmru1sq2" path="res://addons/2026_01_18_gdp_nes_controller_udp/resource/playto_amazoo_xbox.tres" id="13_lhrs0"]
-[ext_resource type="Script" uid="uid://s6j5ixiidx60" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/ui/ui_nes_resource_relayer_int.gd" id="15_62xdi"]
+[ext_resource type="Script" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/ui/ui_nes_resource_relayer_int.gd" id="15_62xdi"]
 [ext_resource type="Resource" uid="uid://b5rpud4lnujl4" path="res://addons/2026_01_18_gdp_nes_controller_udp/resource/playto_nesable_game_1280.tres" id="16_xgd7e"]
 [ext_resource type="Script" uid="uid://cnwfjmaetsth6" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/save_load/nes_save_load_string_link_to_text_edit.gd" id="20_v1nuc"]
-[ext_resource type="Script" uid="uid://c3plxvogohgsc" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/ui/nes_ui_text_edit_to_string_event.gd" id="20_wewd1"]
 [ext_resource type="Resource" uid="uid://bbop55bsqv7ho" path="res://addons/2026_01_18_gdp_nes_controller_udp/resource/playto_mixed_joystick_ax.tres" id="20_x7r48"]
 [ext_resource type="Resource" uid="uid://dfd5xc5nrw3jj" path="res://addons/2026_01_18_gdp_nes_controller_udp/resource/playto_wow_nes_a.tres" id="21_j726w"]
-[ext_resource type="Script" uid="uid://besvh1w1ekwak" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/ui/nes_ui_append_text_to_text_edit.gd" id="22_iwyqg"]
-[ext_resource type="Texture2D" uid="uid://14jk5nsg4qf" path="res://icon.svg" id="25_xjou1"]
+[ext_resource type="Script" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/ui/nes_ui_append_text_to_text_edit.gd" id="22_iwyqg"]
+[ext_resource type="Script" uid="uid://c3plxvogohgsc" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/ui/nes_ui_text_edit_to_string_event.gd" id="22_ptnul"]
+[ext_resource type="PackedScene" uid="uid://dml1ki1lkpacv" path="res://addons/2026_01_18_gdp_nes_controller_udp/scene/element/2d/button/button_import_clipboard.tscn" id="24_krfru"]
+[ext_resource type="Texture2D" uid="uid://441o5b0sytej" path="res://icon.svg" id="25_xjou1"]
+[ext_resource type="Script" uid="uid://cd0vdfgtxywaq" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/feature/clipboard/nes_set_get_clipboard.gd" id="26_krfru"]
 
 [node name="PanelUdpNES" type="Panel" unique_id=834786804]
 anchors_preset = 15
@@ -401,15 +403,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-current_tab = 0
+current_tab = 1
 tab_0/title = "Setup Key"
 tab_1/title = "Interpretor"
 tab_2/title = "S2W"
 tab_3/title = "INPUT"
 tab_4/title = "MACRO"
 tab_5/title = "NES"
+tab_6/title = "Clipboard"
 
 [node name="TabBar Setup Keys" type="TabBar" parent="AspectRatioContainer/PanelEditNES/TabContainer" unique_id=225138243]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 metadata/_tab_name = "Setup Key"
@@ -427,8 +431,10 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.29500002
 anchor_bottom = 1.0
-offset_right = -153.84003
-offset_bottom = -98.20828
+
+[node name="Label" type="Label" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer" unique_id=1803727984]
+layout_mode = 2
+text = "Integer NES KEY"
 
 [node name="LineEdit Up" type="LineEdit" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer" unique_id=1297785648]
 layout_mode = 2
@@ -637,10 +643,12 @@ text = "From NES"
 [node name="VBoxContainer2" type="VBoxContainer" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys" unique_id=1643990931]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.36
+anchor_left = 0.661
 anchor_top = 0.08400001
 anchor_right = 0.9710001
-anchor_bottom = 0.80100006
+anchor_bottom = 0.96700007
+offset_left = 0.2000122
+offset_bottom = -0.13568115
 
 [node name="Panel" type="Panel" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer2" unique_id=70553026]
 layout_mode = 2
@@ -708,7 +716,6 @@ script = ExtResource("12_1bslu")
 resource_to_relay = ExtResource("21_j726w")
 
 [node name="TabBarInterpretor" type="TabBar" parent="AspectRatioContainer/PanelEditNES/TabContainer" unique_id=90464660]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 metadata/_tab_name = "Interpretor"
@@ -728,7 +735,7 @@ anchor_right = 1.0
 anchor_bottom = 0.083000004
 grow_horizontal = 2
 grow_vertical = 2
-text = "Add your your macro here to be interpreted:"
+text = "Add your  macro here to be interpreted:"
 
 [node name="TextEdit" type="TextEdit" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBarInterpretor" unique_id=2095894583]
 layout_mode = 1
@@ -756,11 +763,28 @@ offset_left = 0.12792969
 offset_top = -0.20458984
 offset_right = -0.39208984
 offset_bottom = -10.604126
-text = "Submit"
+text = "Submit
+Local"
 
-[node name="NodePushOnSubmit" type="Node" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBarInterpretor" unique_id=1228712850 node_paths=PackedStringArray("text_editor_target")]
-script = ExtResource("20_wewd1")
+[node name="Button2" type="Button" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBarInterpretor" unique_id=280683340]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.702
+anchor_top = 0.81000006
+anchor_right = 0.84700006
+anchor_bottom = 0.966
+text = "Submit
+Package"
+
+[node name="NodePushLocalMacroOnSubmit" type="Node" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBarInterpretor" unique_id=1228712850 node_paths=PackedStringArray("text_editor_target")]
+script = ExtResource("22_ptnul")
 text_editor_target = NodePath("../TextEdit")
+emit_on_text_set = false
+
+[node name="NodePushPackageOnSubmit2" type="Node" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBarInterpretor" unique_id=1515803044 node_paths=PackedStringArray("text_editor_target")]
+script = ExtResource("22_ptnul")
+text_editor_target = NodePath("../TextEdit")
+emit_on_text_set = false
 
 [node name="NesSaveSaveMapImport2" type="Node" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBarInterpretor" unique_id=1644902680]
 script = ExtResource("10_sf5ed")
@@ -799,7 +823,6 @@ text = "🎮"
 script = ExtResource("22_iwyqg")
 text_edit = NodePath("../../../../TextEdit")
 to_append = "🎮"
-metadata/_custom_type_script = "uid://besvh1w1ekwak"
 
 [node name="Button2" type="Button" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBarInterpretor/Panel/HBoxContainer" unique_id=1749638953]
 layout_mode = 2
@@ -809,7 +832,6 @@ text = "🕹"
 script = ExtResource("22_iwyqg")
 text_edit = NodePath("../../../../TextEdit")
 to_append = "🕹"
-metadata/_custom_type_script = "uid://besvh1w1ekwak"
 
 [node name="Button3" type="Button" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBarInterpretor/Panel/HBoxContainer" unique_id=1063480928]
 layout_mode = 2
@@ -819,7 +841,6 @@ text = "🎹"
 script = ExtResource("22_iwyqg")
 text_edit = NodePath("../../../../TextEdit")
 to_append = "🎹"
-metadata/_custom_type_script = "uid://besvh1w1ekwak"
 
 [node name="Button4" type="Button" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBarInterpretor/Panel/HBoxContainer" unique_id=709056721]
 layout_mode = 2
@@ -829,7 +850,14 @@ text = "⌨️"
 script = ExtResource("22_iwyqg")
 text_edit = NodePath("../../../../TextEdit")
 to_append = "⌨"
-metadata/_custom_type_script = "uid://besvh1w1ekwak"
+
+[node name="ButtonImportClipboard" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBarInterpretor" unique_id=1053555343 instance=ExtResource("24_krfru")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.8
+anchor_top = 0.68600005
+anchor_right = 0.98700005
+anchor_bottom = 0.79
 
 [node name="TabBarS2WInteger" type="TabBar" parent="AspectRatioContainer/PanelEditNES/TabContainer" unique_id=1494410109]
 visible = false
@@ -1087,6 +1115,24 @@ to_affect = NodePath("../../ScrollContainer/TextEdit2")
 memory = NodePath("..")
 listen_to_on_changed = true
 metadata/_custom_type_script = "uid://cnwfjmaetsth6"
+
+[node name="TabBarClipboard" type="TabBar" parent="AspectRatioContainer/PanelEditNES/TabContainer" unique_id=597969417]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 6
+metadata/_tab_name = "Clipboard"
+
+[node name="TextEdit" type="TextEdit" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBarClipboard" unique_id=1402482114]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NesSetGetClipboard" type="Node" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBarClipboard" unique_id=1851362864]
+script = ExtResource("26_krfru")
+metadata/_custom_type_script = "uid://cd0vdfgtxywaq"
 
 [node name="Button Close Edit" type="Button" parent="AspectRatioContainer/PanelEditNES" unique_id=1711712817]
 layout_mode = 1
@@ -1356,14 +1402,18 @@ texture = ExtResource("25_xjou1")
 [connection signal="on_resource_relayed" from="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer2/Panel/VBoxContainer/HBoxContainer3/Button Nes Int" to="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer/NodeLineEdit" method="set_with_nes_resource_xbox"]
 [connection signal="button_down" from="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer2/Panel/VBoxContainer/HBoxContainer3/Button Nes Int2" to="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer2/Panel/VBoxContainer/HBoxContainer3/Button Nes Int2" method="push_resource_to_relay"]
 [connection signal="on_resource_relayed" from="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer2/Panel/VBoxContainer/HBoxContainer3/Button Nes Int2" to="AspectRatioContainer/PanelEditNES/TabContainer/TabBar Setup Keys/VBoxContainer/NodeLineEdit" method="set_with_nes_resource_xbox"]
-[connection signal="button_down" from="AspectRatioContainer/PanelEditNES/TabContainer/TabBarInterpretor/Button" to="AspectRatioContainer/PanelEditNES/TabContainer/TabBarInterpretor/NodePushOnSubmit" method="push_text_when_asked"]
-[connection signal="on_text_submit" from="AspectRatioContainer/PanelEditNES/TabContainer/TabBarInterpretor/NodePushOnSubmit" to="FacadeNesToUdp" method="interpreter_translate_text_macro_to_int_and_callable"]
+[connection signal="button_down" from="AspectRatioContainer/PanelEditNES/TabContainer/TabBarInterpretor/Button" to="AspectRatioContainer/PanelEditNES/TabContainer/TabBarInterpretor/NodePushLocalMacroOnSubmit" method="push_text_when_asked"]
+[connection signal="button_down" from="AspectRatioContainer/PanelEditNES/TabContainer/TabBarInterpretor/Button2" to="AspectRatioContainer/PanelEditNES/TabContainer/TabBarInterpretor/NodePushLocalMacroOnSubmit" method="push_text_when_asked"]
+[connection signal="on_text_submit" from="AspectRatioContainer/PanelEditNES/TabContainer/TabBarInterpretor/NodePushLocalMacroOnSubmit" to="FacadeNesToUdp" method="interpreter_translate_text_to_integer_event"]
+[connection signal="on_text_submit" from="AspectRatioContainer/PanelEditNES/TabContainer/TabBarInterpretor/NodePushPackageOnSubmit2" to="FacadeNesToUdp" method="interpreter_translate_text_to_a_package_of_integer_for_target"]
 [connection signal="button_down" from="AspectRatioContainer/PanelEditNES/TabContainer/TabBarInterpretor/Panel/HBoxContainer/Button" to="AspectRatioContainer/PanelEditNES/TabContainer/TabBarInterpretor/Panel/HBoxContainer/Button/NesUiAppendTextToTextEdit" method="append_with_inspector_params"]
 [connection signal="button_down" from="AspectRatioContainer/PanelEditNES/TabContainer/TabBarInterpretor/Panel/HBoxContainer/Button2" to="AspectRatioContainer/PanelEditNES/TabContainer/TabBarInterpretor/Panel/HBoxContainer/Button2/NesUiAppendTextToTextEdit" method="append_with_inspector_params"]
 [connection signal="button_down" from="AspectRatioContainer/PanelEditNES/TabContainer/TabBarInterpretor/Panel/HBoxContainer/Button3" to="AspectRatioContainer/PanelEditNES/TabContainer/TabBarInterpretor/Panel/HBoxContainer/Button3/NesUiAppendTextToTextEdit" method="append_with_inspector_params"]
 [connection signal="button_down" from="AspectRatioContainer/PanelEditNES/TabContainer/TabBarInterpretor/Panel/HBoxContainer/Button4" to="AspectRatioContainer/PanelEditNES/TabContainer/TabBarInterpretor/Panel/HBoxContainer/Button4/NesUiAppendTextToTextEdit" method="append_with_inspector_params"]
+[connection signal="on_clipboard_fetched" from="AspectRatioContainer/PanelEditNES/TabContainer/TabBarInterpretor/ButtonImportClipboard" to="AspectRatioContainer/PanelEditNES/TabContainer/TabBarInterpretor/TextEdit" method="set_text"]
 [connection signal="on_changed_with_format_string" from="AspectRatioContainer/PanelEditNES/TabContainer/TabBarNesMapImport/NesInputDisplayButtonNameId" to="AspectRatioContainer/PanelEditNES/TabContainer/TabBarNesMapImport/LabelInputButton" method="set_text"]
 [connection signal="on_changed_with_format_string" from="AspectRatioContainer/PanelEditNES/TabContainer/TabBarNesMapImport/NesInputDisplayButtonNameId2" to="AspectRatioContainer/PanelEditNES/TabContainer/TabBarNesMapImport/LabelInputAxis" method="set_text"]
+[connection signal="on_clipboard_fetched_changed" from="AspectRatioContainer/PanelEditNES/TabContainer/TabBarClipboard/NesSetGetClipboard" to="AspectRatioContainer/PanelEditNES/TabContainer/TabBarClipboard/TextEdit" method="set_text"]
 [connection signal="button_down" from="AspectRatioContainer/PanelEditNES/Button Close Edit" to="AspectRatioContainer/PanelEditNES" method="set_visible" binds= [false]]
 [connection signal="on_down_up" from="Input/SuperFamicomController/NesButtonA" to="FacadeNesToUdp" method="nes_basic_set_a"]
 [connection signal="on_down_up" from="Input/SuperFamicomController/NesButtonB" to="FacadeNesToUdp" method="nes_basic_set_b"]

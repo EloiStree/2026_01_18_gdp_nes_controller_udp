@@ -85,6 +85,19 @@ func send_index_integer_to_target( target_index: int, value_to_send: int):
 			print("UDP send failed:", err)
 			
 
+func send_iid_package_to_target(package: PackedInt32Array):
+	# every 3 elements
+	var count = package.size() / 3
+	# prepare one by bytes block of 16 bytes integer index date 
+	var data := PackedByteArray()
+	data.resize(count * 16)
+	for i in range(count):
+		data.encode_s32(i * 16 + 0, package[i * 3 + 0]) # Write player at byte offset 0
+		data.encode_s32(i * 16 + 4, package[i * 3 + 1]) # Write value at byte offset 4
+		data.encode_u64(i * 16 + 8, package[i * 3 + 2]) # Write timestamp at byte offset 8
+	send_pack_of_bytes(data)
+
+
 func send_pack_of_bytes(bytes: PackedByteArray):
 	udp.set_dest_address(ipv4_to_target, port_to_target)
 	udp.put_packet(bytes)

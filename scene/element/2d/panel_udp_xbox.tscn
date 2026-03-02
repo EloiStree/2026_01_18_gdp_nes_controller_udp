@@ -344,7 +344,6 @@ metadata/_custom_type_script = "uid://dba4mrwl7xh3v"
 [connection signal="on_integer_sent" from="SendIntegerUDP" to="AspectRatioContainer/PanelRatioNES/Label Last Push Integer/NesParseIntegerToString" method="push_in_integer_to_parse"]
 [connection signal="on_integer_to_send_requested" from="XboxControllerToInt" to="SendIntegerUDP" method="send_integer"]
 [connection signal="on_integer_with_millisecond_delay_to_send_requested" from="XboxControllerToInt" to="XboxControllerToInt/NesIntDelayer" method="add_action_to_delay_as_integer_in_milliseconds"]
-[connection signal="action_integer_requested" from="XboxControllerToInt/NesIntDelayer" to="SendIntegerUDP" method="send_integer"]
 [connection signal="on_integer_requested" from="NesRelayButtonS2wIntDownUp" to="SendIntegerUDP" method="send_integer"]
 [connection signal="pressed" from="AspectRatioContainer/PanelRatioNES/GridContainer/NesTextureButtonPlusToDownUpBool" to="XboxControllerToInt" method="joystick_left_horizontal_right_for_10_seconds"]
 [connection signal="pressed" from="AspectRatioContainer/PanelRatioNES/GridContainer/NesTextureButtonPlusToDownUpBool2" to="XboxControllerToInt" method="triple_stroke_a_long_for_debug"]

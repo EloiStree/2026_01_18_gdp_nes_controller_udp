@@ -10,7 +10,7 @@ signal on_clipboard_fetched_changed(text:String)
 
 func _ready() -> void:
 	while true:
-		await get_tree().create_timer(1)
+		await get_tree().create_timer(1).timeout
 		if fetch_every_seconds_clipboard:
 			fetch_and_emit_clipboard()
 

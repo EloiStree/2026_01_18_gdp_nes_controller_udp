@@ -8,21 +8,24 @@
 [ext_resource type="Script" uid="uid://batpkfgtryf71" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/delayer/nes_int_delayer.gd" id="3_dia6v"]
 [ext_resource type="Script" uid="uid://60ryksq12k1c" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/xbox_controller_to_int.gd" id="4_qt75i"]
 [ext_resource type="Script" uid="uid://bye1ongxqd7bx" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/keyboard_controller_to_int.gd" id="6_o7v2n"]
-[ext_resource type="Script" uid="uid://dtoapfr0n74xh" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/interpreter/nes_macro_interpretor.gd" id="8_4cieo"]
-[ext_resource type="Script" uid="uid://d22m38c4l6in7" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/nes_local_remapping_to_facade.gd" id="8_p46lp"]
+[ext_resource type="Script" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/nes_local_remapping_to_facade.gd" id="8_p46lp"]
+[ext_resource type="Script" uid="uid://dtoapfr0n74xh" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/interpreter/nes_int_macro_interpretor_to_int.gd" id="10_7ofh7"]
+[ext_resource type="Script" uid="uid://bunfy7aiaajck" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/nes_developer_note.gd" id="11_aep5g"]
+[ext_resource type="Script" uid="uid://4enlpb08q6mw" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/interpreter/nes_default_word_interpretor_to_int_macro.gd" id="12_7ofh7"]
 
 [sub_resource type="Resource" id="Resource_o7v2n"]
 script = ExtResource("2_qt75i")
 metadata/_custom_type_script = "uid://blvuiqbp0bc0y"
 
-[node name="FacadeNesToUdp" type="Node" unique_id=574021232 node_paths=PackedStringArray("udp_sender", "nes_pad", "int_delayer", "xbox", "keyboard", "interpreter")]
+[node name="FacadeNesToUdp" type="Node" unique_id=574021232 node_paths=PackedStringArray("udp_sender", "nes_pad", "int_delayer", "xbox", "keyboard", "int_interpreter", "macro_default_interpreter")]
 script = ExtResource("1_ofjs3")
 udp_sender = NodePath("SendIntegerUDP")
 nes_pad = NodePath("NesControllerToInt")
 int_delayer = NodePath("NesIntDelayer")
 xbox = NodePath("XboxControllerToInt")
 keyboard = NodePath("KeyboardControllerToInt")
-interpreter = NodePath("InterpreterToInt")
+int_interpreter = NodePath("InterpreterToInt")
+macro_default_interpreter = NodePath("DefaultWordInterpretorToInt")
 target_at_init = SubResource("Resource_o7v2n")
 override_nes_integer_at_ready = ExtResource("3_afh0g")
 
@@ -48,9 +51,34 @@ metadata/_custom_type_script = "uid://bye1ongxqd7bx"
 [node name="NesLocalRemappingToFacade" type="Node" parent="." unique_id=1465328598 node_paths=PackedStringArray("nes_to_affect")]
 script = ExtResource("8_p46lp")
 nes_to_affect = NodePath("..")
-metadata/_custom_type_script = "uid://d22m38c4l6in7"
 
 [node name="InterpreterToInt" type="Node" parent="." unique_id=1181720975]
-script = ExtResource("8_4cieo")
-use_print_to_debug = true
+script = ExtResource("10_7ofh7")
 metadata/_custom_type_script = "uid://dtoapfr0n74xh"
+
+[node name="Note" type="Node" parent="InterpreterToInt" unique_id=1139188811]
+script = ExtResource("11_aep5g")
+note = "It only goal is to parse text to integer in a way that dont change with decade. 
+If you need to add word and more complexe that integer thing, you need to add your own interpretor in front of this one."
+metadata/_custom_type_script = "uid://bunfy7aiaajck"
+
+[node name="DefaultWordInterpretorToInt" type="Node" parent="." unique_id=66643314]
+script = ExtResource("12_7ofh7")
+end_char_to_word_for_press_and_release = ["="]
+end_char_to_word_for_press = ["+"]
+end_char_to_word_for_release = ["-"]
+metadata/_custom_type_script = "uid://dtoapfr0n74xh"
+
+[node name="Note" type="Node" parent="DefaultWordInterpretorToInt" unique_id=460521828]
+script = ExtResource("11_aep5g")
+note = "Word Interpretor is an abstract layer that can be override by other developer. When NesInterpreterInt is so \"simple\" that it does not need to change.
+// You should provide ton NesInterpretor Int something like that.
+1300 800>2300 1301 80> 1302 42   2500|5000
+// You can add + - =  to be sure to be press release or quick stroke
+// = means press now and delay release on side thread in n ms
+1300+ 800>2300- 1301= 80> 1302 42
+// But you wand to provide something like that.
+A+ 800> A-  B= 42
+// If \"word\" is not understood you need to notify it to be check or display as not understood with a signal
+"
+metadata/_custom_type_script = "uid://bunfy7aiaajck"

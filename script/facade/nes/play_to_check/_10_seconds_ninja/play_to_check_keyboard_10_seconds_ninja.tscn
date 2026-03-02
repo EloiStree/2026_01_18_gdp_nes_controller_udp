@@ -19,7 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://cg02sfdtrf24g" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/2d/xbox/dpad_down.png" id="10_jv6ja"]
 [ext_resource type="Texture2D" uid="uid://dfegk2rghlkfp" path="res://addons/2026_01_18_gdp_nes_controller_udp/assets/2d/xbox/dpad_up.png" id="11_7wv2c"]
 [ext_resource type="Script" uid="uid://ce3wk1gb164fi" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/input/nes_input_map_action_down_up.gd" id="12_b6gdu"]
-[ext_resource type="Script" uid="uid://dtoapfr0n74xh" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/interpreter/nes_macro_interpretor.gd" id="13_ktm4t"]
+[ext_resource type="Script" uid="uid://dtoapfr0n74xh" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/interpreter/nes_int_macro_interpretor_to_int.gd" id="13_ktm4t"]
 
 [sub_resource type="Resource" id="Resource_o7v2n"]
 script = ExtResource("3_3y0cr")
