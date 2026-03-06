@@ -1365,6 +1365,10 @@ mouse_behavior_recursive = 1
 mouse_default_cursor_shape = 3
 texture = ExtResource("25_xjou1")
 
+[node name="NesInputDisplayButtonNameId" type="Node" parent="." unique_id=574261506]
+script = ExtResource("9_ttdvb")
+metadata/_custom_type_script = "uid://ybf4bgif5umu"
+
 [connection signal="on_send_int_to_target" from="FacadeNesToUdp" to="AspectRatioContainer/PanelRatioNES/Label Last Push Integer/NesParseIntegerToString" method="push_in_integer_to_parse"]
 [connection signal="on_down_up_value_changed" from="AspectRatioContainer/PanelRatioNES/Button Press A/NesUiButtonToDownUpBool" to="FacadeNesToUdp" method="nes_basic_set_a"]
 [connection signal="on_down_up_value_changed" from="AspectRatioContainer/PanelRatioNES/Button Press B/NesUiButtonToDownUpBool2" to="FacadeNesToUdp" method="nes_basic_set_b"]
