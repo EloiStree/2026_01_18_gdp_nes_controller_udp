@@ -1,15 +1,15 @@
 
-class_name NesSendIntegerMessageUdp
+class_name NesSendIntegerMessageToSingleUdp
 extends Node
 
 # What compute we want to talk to
-@export var ipv4_to_targets := ["127.0.0.1"]
+@export var ipv4_to_target := "127.0.0.1"
 
 # What application we want to talk to
-@export var port_to_targets := [3615]
+@export var port_to_target := 3615
 
 # What controller we need to simulate 1-4 for example if Xbox
-@export var player_to_targets :=[1]
+@export var player_to_target := 1
 @export var use_debug_print: bool = false
 
 var udp := PacketPeerUDP.new()
@@ -43,67 +43,47 @@ func is_valide_ipv4(text: String) -> bool:
 	return true
 	
 func set_target_ipv4(text:String):
-	var split_part := text.split(",")
-	ipv4_to_targets.clear()
-	for t in split_part:	
-		t =t.strip_edges()
-		if is_valide_ipv4(t):
-			ipv4_to_targets.append(t);
-		
+	if is_valide_ipv4(text):
+		ipv4_to_target= text;
+	
 func set_target_port(text:String):
-	var split_part := text.split(",")
-	port_to_targets.clear()
-	for t in split_part:	
-		t =t.strip_edges()
-		port_to_targets.append(to_safe_int(t,3615));
+	port_to_target= to_safe_int(text,3615);
 	
 func set_target_player_index(text:String):
-	var split_part := text.split(",")
-	player_to_targets.clear()
-	for t in split_part:	
-		t =t.strip_edges()
-		player_to_targets.append(to_safe_int(t,1))
+	player_to_target= to_safe_int(text,1);
+
 
 func send_integer(value_to_send: int):
-	for player_index in player_to_targets:
-		send_index_integer_to_targets(player_index, value_to_send)
-
+	send_index_integer_to_target(player_to_target, value_to_send)
 	
-func send_index_integer_to_targets( target_index: int, value_to_send: int):
+func send_index_integer_to_target( target_index: int, value_to_send: int):
 	# In little endian format
 	# First integer = player
 	# Second integer = value
-	var ips = ipv4_to_targets
-	var ports = port_to_targets
-	var had_error = false
-	for ip in ips:
-		for port in ports:
-				
-			udp.set_dest_address(ip, port)
 
-			# 2 integers × 4 bytes each = 8 bytes total
-			var data := PackedByteArray()
-			data.resize(8)
+	udp.set_dest_address(ipv4_to_target, port_to_target)
 
-			# Write player at byte offset 0
-			data.encode_s32(0, target_index)
+	# 2 integers × 4 bytes each = 8 bytes total
+	var data := PackedByteArray()
+	data.resize(8)
 
-			# Write value at byte offset 4
-			data.encode_s32(4, value_to_send)
+	# Write player at byte offset 0
+	data.encode_s32(0, target_index)
 
-			var err = udp.put_packet(data)
-			if err != OK:
-				had_error = true
-				if use_debug_print:
-					print("UDP send failed to", ip, ":", port, "with error code:", err)
-					
+	# Write value at byte offset 4
+	data.encode_s32(4, value_to_send)
+
+	var err = udp.put_packet(data)
+
 	on_integer_sent.emit(value_to_send)
 	on_integer_sent_with_player_index.emit(target_index, value_to_send)
-
+	
 	if use_debug_print:
-		if not had_error:
+		if err == OK:
 			print("Sent player:", target_index, "value:", value_to_send)
-					
+		else:
+			print("UDP send failed:", err)
+			
 
 func send_iid_package_to_target(package: PackedInt32Array):
 	# every 3 elements
@@ -119,10 +99,8 @@ func send_iid_package_to_target(package: PackedInt32Array):
 
 
 func send_pack_of_bytes(bytes: PackedByteArray):
-	for ip in ipv4_to_targets:
-		for port in port_to_targets:
-			udp.set_dest_address(ip, port)
-			udp.put_packet(bytes)
+	udp.set_dest_address(ipv4_to_target, port_to_target)
+	udp.put_packet(bytes)
 
 ##  0 1300 0 , 0 2300 1000, 0 1300 2000, 0 2300 3000 ... 
 func send_iid_array_to_target(iid_array_as_3_integer:Array[int]):
@@ -147,3 +125,7 @@ func test_send_iid_array_of_a_b_x_y():
 	, 4, 1303, 6000, 4, 2303, 7000]
 	
 	send_iid_array_to_target(test_array)
+
+
+func _on_keyboard_controller_to_int_on_integer_to_send_requested(integer_action: int) -> void:
+	pass # Replace with function body.

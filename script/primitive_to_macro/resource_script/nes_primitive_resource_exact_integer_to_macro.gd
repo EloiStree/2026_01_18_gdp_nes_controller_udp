@@ -1,0 +1,4 @@
+class_name NesPrimitiveResourceExactIntegerToMacro
+extends NesPrimitiveResourceMacroGroupEnterExit
+
+@export var exact_integer:int=0

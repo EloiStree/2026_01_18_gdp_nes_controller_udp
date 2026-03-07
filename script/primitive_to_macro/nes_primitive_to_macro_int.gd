@@ -1,52 +1,51 @@
 class_name NesPrimitiveToMacroInt
-extends Node
-#
-#signal on_value_updated()
-#signal on_value_changed(new_value:bool)
-#signal on_value_changed_to_true()
-#signal on_value_changed_to_false()
-#
-#signal on_any_macro_emit(macro:String)
-#
-#@export var bool_value:bool
-#
-#@export var to_trigger_on_true:Array[String]
-#
-#@export var to_trigger_on_false:Array[String]
-#
-#func push_waiting_macro(macros: Array[String]):
-	#for s in macros:
-		#on_any_macro_emit.emit(s)
-	#
-#
-#func set_boolean_value(new_value:bool):
-	#var changed:bool = new_value == bool_value
-	#on_value_updated.emit(new_value)
-	#if changed:
-		#on_value_changed.emit(new_value)
-		#if new_value:
-			#on_value_changed_to_true.emit()
-			#push_waiting_macro(to_trigger_on_true)
-		#else :
-			#on_value_changed_to_false.emit()
-			#push_waiting_macro(to_trigger_on_false)
-			#
-#func set_macro_on_boolean_true(macro:String):
-	#to_trigger_on_true = [macro]
-#
-#func set_macro_on_boolean_true_array(macros:Array[String]):
-	#to_trigger_on_true = macros
-#
-#func set_macro_on_boolean_false(macro:String):
-	#to_trigger_on_false = [macro]
-#
-#func set_macro_on_boolean_true_false(macros:Array[String]):
-	#to_trigger_on_false = macros
-#
-			#
-#func set_boolean_to_true():
-	#set_boolean_value(true)
-	#
-#func set_boolean_to_false():
-	#set_boolean_value(false)
-	#
+extends NesAbstractMacroEmitter
+
+signal on_value_updated(value:int)
+signal on_value_changed(new_value:int)
+signal on_value_changed_with_previous(previous_value:int, new_value:int)
+
+
+@export var integer_value:int
+@export var exact_integer_to_macro:Array[NesPrimitiveResourceExactIntegerToMacro]
+@export var range_integer_to_macro:Array[NesPrimitiveResourceRangeIntegerToMacro]
+
+
+var resource_in_range_dictionary:Dictionary[int,NesPrimitiveResourceRangeIntegerToMacro]={}
+var resource_in_range_dictionary_value:Dictionary[int,bool]={}
+
+
+
+func set_integer_value_and_emit(new_value:int):
+	var previous_value = integer_value
+	integer_value = new_value
+	var bool_value_changed:bool = previous_value != new_value
+
+
+	if previous_value != new_value:
+		on_value_changed.emit(new_value)
+		on_value_changed_with_previous.emit(previous_value, new_value)
+	on_value_updated.emit(new_value)
+
+
+	if bool_value_changed:		
+		for resource in exact_integer_to_macro:
+			if resource.exact_integer == new_value:
+				for macro in resource.macro_group_enter:
+					on_any_macro_emit.emit(macro)
+			if resource.exact_integer == previous_value:
+				for macro in resource.macro_group_exit:
+					on_any_macro_emit.emit(macro)
+
+
+	for resource in range_integer_to_macro:
+		var in_range:bool = resource.is_in_range(new_value)
+		var previous_in_range:bool = resource_in_range_dictionary_value.get(resource.get_instance_id(), false)
+		if in_range and not previous_in_range:
+			for macro in resource.macro_group_enter:
+				on_any_macro_emit.emit(macro)
+		elif not in_range and previous_in_range:
+			for macro in resource.macro_group_exit:
+				on_any_macro_emit.emit(macro)
+		resource_in_range_dictionary_value[resource.get_instance_id()] = in_range
+ 

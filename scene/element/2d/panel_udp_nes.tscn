@@ -394,16 +394,20 @@ script = ExtResource("10_v126c")
 metadata/_custom_type_script = "uid://iwjlcj7s4rxf"
 
 [node name="PanelEditNES" type="Panel" parent="AspectRatioContainer" unique_id=337155125]
+visible = false
 layout_mode = 2
 
 [node name="TabContainer" type="TabContainer" parent="AspectRatioContainer/PanelEditNES" unique_id=543152539]
-layout_mode = 1
-anchors_preset = 15
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -73.5
+offset_top = -15.5
+offset_right = 73.5
+offset_bottom = 15.5
 grow_horizontal = 2
 grow_vertical = 2
-current_tab = 1
+current_tab = 9
 tab_0/title = "Setup Key"
 tab_1/title = "Interpretor"
 tab_2/title = "S2W"
@@ -411,6 +415,9 @@ tab_3/title = "INPUT"
 tab_4/title = "MACRO"
 tab_5/title = "NES"
 tab_6/title = "Clipboard"
+tab_7/title = "Key 2 Key"
+tab_8/title = "Pad 2 Pad"
+tab_9/title = "Pad 2 Pad"
 
 [node name="TabBar Setup Keys" type="TabBar" parent="AspectRatioContainer/PanelEditNES/TabContainer" unique_id=225138243]
 visible = false
@@ -716,6 +723,7 @@ script = ExtResource("12_1bslu")
 resource_to_relay = ExtResource("21_j726w")
 
 [node name="TabBarInterpretor" type="TabBar" parent="AspectRatioContainer/PanelEditNES/TabContainer" unique_id=90464660]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 metadata/_tab_name = "Interpretor"
@@ -1119,6 +1127,9 @@ metadata/_custom_type_script = "uid://cnwfjmaetsth6"
 [node name="TabBarClipboard" type="TabBar" parent="AspectRatioContainer/PanelEditNES/TabContainer" unique_id=597969417]
 visible = false
 layout_mode = 2
+current_tab = 0
+tab_count = 1
+tab_0/title = "Clipboard"
 metadata/_tab_index = 6
 metadata/_tab_name = "Clipboard"
 
@@ -1131,6 +1142,94 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="NesSetGetClipboard" type="Node" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBarClipboard" unique_id=1851362864]
+script = ExtResource("26_krfru")
+metadata/_custom_type_script = "uid://cd0vdfgtxywaq"
+
+[node name="TabBarClipboard Key2Key" type="TabBar" parent="AspectRatioContainer/PanelEditNES/TabContainer" unique_id=1145924978]
+visible = false
+layout_mode = 2
+current_tab = 0
+tab_count = 1
+tab_0/title = "Key"
+tab_0/disabled = true
+metadata/_tab_index = 7
+metadata/_tab_name = "Key 2 Key"
+
+[node name="Label" type="Label" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBarClipboard Key2Key" unique_id=2031466716]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Keyboard to Keyboard"
+
+[node name="TextEdit" type="TextEdit" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBarClipboard Key2Key" unique_id=1807417648]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+placeholder_text = "Not coded yet.
+The idea is to send S2W keyboard command from the current keyboard on the device to remote control a computer."
+
+[node name="NesSetGetClipboard" type="Node" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBarClipboard Key2Key" unique_id=64976778]
+script = ExtResource("26_krfru")
+metadata/_custom_type_script = "uid://cd0vdfgtxywaq"
+
+[node name="TabBarClipboard Pad2Pad" type="TabBar" parent="AspectRatioContainer/PanelEditNES/TabContainer" unique_id=1708899749]
+visible = false
+layout_mode = 2
+current_tab = 0
+tab_count = 1
+tab_0/title = "Pad"
+metadata/_tab_index = 8
+metadata/_tab_name = "Pad 2 Pad"
+
+[node name="Label" type="Label" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBarClipboard Pad2Pad" unique_id=703834724]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Gamepad to Gamepad"
+
+[node name="TextEdit" type="TextEdit" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBarClipboard Pad2Pad" unique_id=351643676]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+placeholder_text = "Not coded yet.
+The idea is to send S2W Gamepad command from the current gamepad on the device to remote control a computer."
+
+[node name="NesSetGetClipboard" type="Node" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBarClipboard Pad2Pad" unique_id=596735442]
+script = ExtResource("26_krfru")
+metadata/_custom_type_script = "uid://cd0vdfgtxywaq"
+
+[node name="TabBarClipboard NES2NES" type="TabBar" parent="AspectRatioContainer/PanelEditNES/TabContainer" unique_id=1018460806]
+layout_mode = 2
+current_tab = 0
+tab_count = 1
+tab_0/title = "NES"
+tab_0/disabled = true
+metadata/_tab_index = 9
+metadata/_tab_name = "Pad 2 Pad"
+
+[node name="Label" type="Label" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBarClipboard NES2NES" unique_id=44134288]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "NES 2 NES"
+
+[node name="TextEdit" type="TextEdit" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBarClipboard NES2NES" unique_id=774472958]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+placeholder_text = "Not coded yet.
+The idea is to send S2W NES 2 NES command from the current gamepad on the device to remote control a computer."
+
+[node name="NesSetGetClipboard" type="Node" parent="AspectRatioContainer/PanelEditNES/TabContainer/TabBarClipboard NES2NES" unique_id=1261725055]
 script = ExtResource("26_krfru")
 metadata/_custom_type_script = "uid://cd0vdfgtxywaq"
 
@@ -1418,6 +1517,9 @@ metadata/_custom_type_script = "uid://ybf4bgif5umu"
 [connection signal="on_changed_with_format_string" from="AspectRatioContainer/PanelEditNES/TabContainer/TabBarNesMapImport/NesInputDisplayButtonNameId" to="AspectRatioContainer/PanelEditNES/TabContainer/TabBarNesMapImport/LabelInputButton" method="set_text"]
 [connection signal="on_changed_with_format_string" from="AspectRatioContainer/PanelEditNES/TabContainer/TabBarNesMapImport/NesInputDisplayButtonNameId2" to="AspectRatioContainer/PanelEditNES/TabContainer/TabBarNesMapImport/LabelInputAxis" method="set_text"]
 [connection signal="on_clipboard_fetched_changed" from="AspectRatioContainer/PanelEditNES/TabContainer/TabBarClipboard/NesSetGetClipboard" to="AspectRatioContainer/PanelEditNES/TabContainer/TabBarClipboard/TextEdit" method="set_text"]
+[connection signal="on_clipboard_fetched_changed" from="AspectRatioContainer/PanelEditNES/TabContainer/TabBarClipboard Key2Key/NesSetGetClipboard" to="AspectRatioContainer/PanelEditNES/TabContainer/TabBarClipboard Key2Key/TextEdit" method="set_text"]
+[connection signal="on_clipboard_fetched_changed" from="AspectRatioContainer/PanelEditNES/TabContainer/TabBarClipboard Pad2Pad/NesSetGetClipboard" to="AspectRatioContainer/PanelEditNES/TabContainer/TabBarClipboard Pad2Pad/TextEdit" method="set_text"]
+[connection signal="on_clipboard_fetched_changed" from="AspectRatioContainer/PanelEditNES/TabContainer/TabBarClipboard NES2NES/NesSetGetClipboard" to="AspectRatioContainer/PanelEditNES/TabContainer/TabBarClipboard NES2NES/TextEdit" method="set_text"]
 [connection signal="button_down" from="AspectRatioContainer/PanelEditNES/Button Close Edit" to="AspectRatioContainer/PanelEditNES" method="set_visible" binds= [false]]
 [connection signal="on_down_up" from="Input/SuperFamicomController/NesButtonA" to="FacadeNesToUdp" method="nes_basic_set_a"]
 [connection signal="on_down_up" from="Input/SuperFamicomController/NesButtonB" to="FacadeNesToUdp" method="nes_basic_set_b"]

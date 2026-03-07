@@ -17,11 +17,6 @@ signal on_send_int_to_target(new_value:int)
 
 @export_group("For Debugging (Do not touch)")
 @export var last_sent_int_to_target:int
-@export var target_ipv4:String
-@export var target_port:int
-@export var target_index:int
-@export var waiting_command_in_queue:int
-
 
 # 🕹️A 🕹️B 🕹️AL 🕹️AR 🕹️AD 🕹️AU 🕹️ML 🕹️MD 
 # 🎮A 🎮B 🎮Y 🎮X
@@ -229,14 +224,6 @@ func _ready() -> void:
 	if override_nes_integer_at_ready!=null:
 		get_nes().override_buttons_with_abstract_resource_int(override_nes_integer_at_ready)
 
-
-
-
-func _process(delta: float) -> void:
-	target_ipv4 = udp_sender.ipv4_to_target
-	target_port = udp_sender.port_to_target
-	target_index = udp_sender.player_to_target
-	waiting_command_in_queue = int_delayer.get_waiting_command_in_queue()
 
 
 

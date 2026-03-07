@@ -1,0 +1,184 @@
+[gd_scene format=3 uid="uid://dl8rgud3ih6qe"]
+
+[ext_resource type="Script" uid="uid://crlyopl0t4vkh" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/_unstored/nes_relay_any_abstract_macro_in_childrens.gd" id="1_jjo0l"]
+[ext_resource type="Script" uid="uid://ypfg855ylsc3" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/primitive_to_macro/nes_primitive_to_macro_int.gd" id="2_bclop"]
+[ext_resource type="Script" uid="uid://dkby8knhuc54e" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/primitive_to_macro/nes_primitive_to_macro_bool.gd" id="2_lwv41"]
+[ext_resource type="Script" uid="uid://bh11yub4m6x8t" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/primitive_to_macro/resource_script/nes_primitive_resource_exact_integer_to_macro.gd" id="3_4n3gw"]
+[ext_resource type="Script" uid="uid://dh176te721cqg" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/primitive_to_macro/resource_script/nes_primitive_resource_macro_group_enter_exit.gd" id="3_aul1w"]
+[ext_resource type="Script" uid="uid://j46a7u0j1xt5" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/primitive_to_macro/nes_primitive_to_macro_float.gd" id="5_dxgen"]
+[ext_resource type="Script" uid="uid://dwr1k5biaffpj" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/primitive_to_macro/resource_script/nes_primitive_resource_range_integer_to_macro.gd" id="5_ovt0e"]
+[ext_resource type="Script" uid="uid://db4pvysckk6oq" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/primitive_to_macro/nes_primitive_to_macro_arrow_vector2.gd" id="6_jbo5l"]
+[ext_resource type="Script" uid="uid://dn1m7hgtsnx15" path="res://addons/2026_01_18_gdp_nes_controller_udp/script/primitive_to_macro/resource_script/nes_primitive_resource_range_float_to_macro.gd" id="6_mh5by"]
+[ext_resource type="PackedScene" uid="uid://cfvwlr3pd0m3e" path="res://addons/2026_01_18_gdp_nes_controller_udp/scene/element/facade/francais_facade_nes_to_udp.tscn" id="9_aul1w"]
+
+[sub_resource type="Resource" id="Resource_70cx7"]
+script = ExtResource("3_aul1w")
+macro_group_enter = Array[String](["G+"])
+macro_group_exit = Array[String](["G-"])
+metadata/_custom_type_script = "uid://dh176te721cqg"
+
+[sub_resource type="Resource" id="Resource_lwv41"]
+script = ExtResource("3_4n3gw")
+macro_group_enter = Array[String](["A="])
+metadata/_custom_type_script = "uid://bh11yub4m6x8t"
+
+[sub_resource type="Resource" id="Resource_jbo5l"]
+script = ExtResource("3_4n3gw")
+exact_integer = 1
+macro_group_enter = Array[String](["B="])
+metadata/_custom_type_script = "uid://bh11yub4m6x8t"
+
+[sub_resource type="Resource" id="Resource_j5kpg"]
+script = ExtResource("3_4n3gw")
+exact_integer = 2
+macro_group_enter = Array[String](["X="])
+metadata/_custom_type_script = "uid://bh11yub4m6x8t"
+
+[sub_resource type="Resource" id="Resource_cg7i0"]
+script = ExtResource("3_4n3gw")
+exact_integer = 3
+macro_group_enter = Array[String](["Y="])
+metadata/_custom_type_script = "uid://bh11yub4m6x8t"
+
+[sub_resource type="Resource" id="Resource_jjo0l"]
+script = ExtResource("5_ovt0e")
+range_start_integer = 1000
+range_end_integer = 1999
+metadata/_custom_type_script = "uid://dwr1k5biaffpj"
+
+[sub_resource type="Resource" id="Resource_ovt0e"]
+script = ExtResource("6_mh5by")
+range_end_float = -0.3
+macro_group_enter = Array[String](["SBL+"])
+macro_group_exit = Array[String](["SBL-"])
+metadata/_custom_type_script = "uid://dn1m7hgtsnx15"
+
+[sub_resource type="Resource" id="Resource_aul1w"]
+script = ExtResource("6_mh5by")
+range_start_float = 0.3
+macro_group_enter = Array[String](["SBR+"])
+macro_group_exit = Array[String](["SBR-"])
+metadata/_custom_type_script = "uid://dn1m7hgtsnx15"
+
+[node name="DemoPrimitiveToMacro" type="Control" unique_id=1175658829]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="ObserverMacro" type="Node" parent="." unique_id=1676627442 node_paths=PackedStringArray("parent_note_to_overwatch")]
+script = ExtResource("1_jjo0l")
+parent_note_to_overwatch = [NodePath("..")]
+
+[node name="Button" type="Button" parent="." unique_id=938698004]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Test"
+
+[node name="NesPrimitiveToMacroBool2" type="Node" parent="Button" unique_id=2091519042]
+script = ExtResource("2_lwv41")
+to_trigger_resource = Array[ExtResource("3_aul1w")]([SubResource("Resource_70cx7")])
+metadata/_custom_type_script = "uid://dkby8knhuc54e"
+
+[node name="CheckButton" type="CheckButton" parent="." unique_id=1629692827]
+layout_mode = 0
+offset_left = 183.0
+offset_top = 40.0
+offset_right = 227.0
+offset_bottom = 64.0
+
+[node name="NesPrimitiveToMacroBool" type="Node" parent="CheckButton" unique_id=1639365238]
+script = ExtResource("2_lwv41")
+to_trigger_on_true = Array[String](["Toggle+"])
+to_trigger_on_false = Array[String](["Toggle-"])
+metadata/_custom_type_script = "uid://dkby8knhuc54e"
+
+[node name="OptionButton" type="OptionButton" parent="." unique_id=1330262306]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 104.0
+offset_right = 34.0
+offset_bottom = 124.0
+allow_reselect = true
+item_count = 4
+popup/item_0/text = "A="
+popup/item_0/id = 1
+popup/item_1/text = "B="
+popup/item_1/id = 2
+popup/item_2/text = "X="
+popup/item_2/id = 3
+popup/item_3/text = "Y="
+popup/item_3/id = 4
+
+[node name="NesPrimitiveToMacroInt" type="Node" parent="OptionButton" unique_id=1742137995]
+script = ExtResource("2_bclop")
+exact_integer_to_macro = Array[ExtResource("3_4n3gw")]([SubResource("Resource_lwv41"), SubResource("Resource_jbo5l"), SubResource("Resource_j5kpg"), SubResource("Resource_cg7i0")])
+range_integer_to_macro = Array[ExtResource("5_ovt0e")]([SubResource("Resource_jjo0l")])
+metadata/_custom_type_script = "uid://ypfg855ylsc3"
+
+[node name="HSlider" type="HSlider" parent="." unique_id=460599112]
+layout_mode = 0
+offset_top = 354.0
+offset_right = 353.0
+offset_bottom = 377.0
+min_value = -1.0
+max_value = 1.0
+step = 0.01
+
+[node name="NesPrimitiveToMacroFloat" type="Node" parent="HSlider" unique_id=1769795932]
+script = ExtResource("5_dxgen")
+range_float_to_macro = Array[Object]([SubResource("Resource_ovt0e"), SubResource("Resource_aul1w")])
+metadata/_custom_type_script = "uid://j46a7u0j1xt5"
+
+[node name="Panel" type="Panel" parent="." unique_id=168125515]
+layout_mode = 0
+offset_left = 293.0
+offset_top = -2.0
+offset_right = 551.0
+offset_bottom = 208.0
+
+[node name="NesPrimitiveToMacroArrowVector2" type="Node" parent="Panel" unique_id=651483387]
+script = ExtResource("6_jbo5l")
+up_enter_zone_macro_group = Array[String](["Up"])
+right_enter_zone_macro_group = Array[String](["Right"])
+down_enter_zone_macro_group = Array[String](["Down"])
+left_enter_zone_macro_group = Array[String](["Left"])
+death_enter_zone_macro_group = Array[String](["DeathZone"])
+metadata/_custom_type_script = "uid://db4pvysckk6oq"
+
+[node name="HSlider2" type="HSlider" parent="Panel" unique_id=1412919921]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 2.0
+offset_right = 224.0
+offset_bottom = 18.0
+min_value = -1.0
+max_value = 1.0
+step = 0.1
+
+[node name="VSlider" type="VSlider" parent="Panel" unique_id=1909459809]
+layout_mode = 0
+offset_left = 229.0
+offset_top = 2.0
+offset_right = 245.0
+offset_bottom = 175.0
+min_value = -1.0
+max_value = 1.0
+step = 0.1
+
+[node name="FrancaisFacadeNesToUdp" parent="." unique_id=2101678709 instance=ExtResource("9_aul1w")]
+
+[node name="Label" type="Label" parent="." unique_id=2145166292]
+layout_mode = 0
+offset_top = 397.0
+offset_right = 796.0
+offset_bottom = 445.0
+text = "t"
+
+[connection signal="on_macro_requested" from="ObserverMacro" to="Label" method="set_text"]
+[connection signal="button_down" from="Button" to="Button/NesPrimitiveToMacroBool2" method="set_boolean_to_true"]
+[connection signal="button_up" from="Button" to="Button/NesPrimitiveToMacroBool2" method="set_boolean_to_false"]
+[connection signal="toggled" from="CheckButton" to="CheckButton/NesPrimitiveToMacroBool" method="set_boolean_value"]
+[connection signal="item_selected" from="OptionButton" to="OptionButton/NesPrimitiveToMacroInt" method="set_integer_value_and_emit"]
+[connection signal="value_changed" from="HSlider" to="HSlider/NesPrimitiveToMacroFloat" method="set_float_value_and_emit"]
+[connection signal="value_changed" from="Panel/HSlider2" to="Panel/NesPrimitiveToMacroArrowVector2" method="set_horizontal_axis_and_emit"]
+[connection signal="value_changed" from="Panel/VSlider" to="Panel/NesPrimitiveToMacroArrowVector2" method="set_vertical_axis_and_emit"]
