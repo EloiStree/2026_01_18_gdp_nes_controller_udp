@@ -4,16 +4,15 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://caxuffiy01dr5"
 path.s3tc="res://.godot/imported/NES_UV_IMAGE.png-71b809ce02f76d05850b8b44333b5ba8.s3tc.ctex"
-path.etc2="res://.godot/imported/NES_UV_IMAGE.png-71b809ce02f76d05850b8b44333b5ba8.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://addons/2026_01_18_gdp_nes_controller_udp/assets/3d/nes/NES_UV_IMAGE.png"
-dest_files=["res://.godot/imported/NES_UV_IMAGE.png-71b809ce02f76d05850b8b44333b5ba8.s3tc.ctex", "res://.godot/imported/NES_UV_IMAGE.png-71b809ce02f76d05850b8b44333b5ba8.etc2.ctex"]
+dest_files=["res://.godot/imported/NES_UV_IMAGE.png-71b809ce02f76d05850b8b44333b5ba8.s3tc.ctex"]
 
 [params]
 
