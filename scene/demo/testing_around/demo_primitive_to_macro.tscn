@@ -126,7 +126,7 @@ step = 0.01
 
 [node name="NesPrimitiveToMacroFloat" type="Node" parent="HSlider" unique_id=1769795932]
 script = ExtResource("5_dxgen")
-range_float_to_macro = Array[Object]([SubResource("Resource_ovt0e"), SubResource("Resource_aul1w")])
+range_float_to_macro = Array[ExtResource("6_mh5by")]([SubResource("Resource_ovt0e"), SubResource("Resource_aul1w")])
 metadata/_custom_type_script = "uid://j46a7u0j1xt5"
 
 [node name="Panel" type="Panel" parent="." unique_id=168125515]
